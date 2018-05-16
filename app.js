@@ -29,7 +29,7 @@ const client = new Client({
 
 client.connect();
 
-var comments = "<ul>";
+var comments = "<ul style=\"list-style-type: none;\">";
 
 client.query(query, (err, res) => {
     if (err) throw err;
