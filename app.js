@@ -1,37 +1,17 @@
 var express = require('express');
-var bodyParder = require('body-parser');
-var path = require('path');
-
 var app = express();
 
+var oneDay = 86400000;
 
-// use alternate localhost and the port Heroku assigns to $PORT
-const host = '0.0.0.0';
-const port = process.env.PORT || 3000;
+app.use(express.compress());
 
-app.listen(3000, function(){
-    console.log('Server started...');
+app.use(express.static(__dirname + '/public', { maxAge: oneDay }));
+
+app.use(express.bodyParser());
+
+app.listen(process.env.PORT);
+
+app.post('/', function(req, res){
+  var result = req.rawBody;
+  res.send("hello there world data is " + result);
 });
-
-
-// var logger = function(req, res, next){
-//     console.log('Logging...');
-//     next();
-// }
-
-// app.use(logger);
-
-
-//Body Parser Middleware
-app.use(bodyParder.json());
-app.use(bodyParder.urlencoded({extended: false}));
-
-//Set Static Path
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-// app.get('/', function(req, res){
-//     res.render('index');
-// });
-
-
