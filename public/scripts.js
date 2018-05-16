@@ -72,6 +72,7 @@ for (var i = 0; i < btns.length; i++) {
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("GET", "/comments/test.txt", true);
 				xhttp.send();
+				console.log(xttp.responseText);
 				vieraskirjaHTML += `${xhttp.responseText}`;
 			}
 			currentPageContent.innerHTML = vieraskirjaHTML;
