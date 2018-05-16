@@ -31,10 +31,10 @@ client.connect();
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
+client.query("SET client_encoding to 'latin6';" , function(err, empty_result_to_fix_encoding) {
+
 client.query(query, (err, res) => {
     if (err) throw err;
-
-    
 
     for (let row of res.rows) {
         console.log(row.name);
@@ -61,6 +61,8 @@ client.query(query, (err, res) => {
          });     
     } 
     client.end();
+});
+
 });
 
 
