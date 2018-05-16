@@ -40,7 +40,7 @@ client.query(query, (err, res) => {
         comments += `</li>${date} - ${name} : ${comment}</li>`;        
         console.log(comments);            
     }    
-client.end();
+
 });
 
 comments += `</ul>`;
@@ -60,17 +60,8 @@ fs.writeFile('./public/test.txt', comments,  function(err) {
       console.log("Asynchronous read: " + data.toString());
    });
 });
-// app.post('/', function(req, res){
-  
-// });
 
-
-// app.post('/', function(req, res){
-//     console.log(commets);
-//     res.send(comments);
-// });
-
-
+client.end();
 
 app.listen(process.env.PORT);
 
