@@ -2,11 +2,9 @@
   "name": "sandbox",
   "version": "1.0.0",
   "description": "Sandbox enviroment",
-  "main": "app.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "web": "node app.js",
-    "start": "node app.js"
+    "start": "node app"
   },
   "repository": {
     "type": "git",
