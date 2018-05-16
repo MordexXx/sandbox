@@ -34,9 +34,11 @@ client.query(query, (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
         console.log(row.name);
-        // comment = JSON.stringify(row);
-        // comments += `${comment}`;        
-        // console.log(comments);
+        let date = JSON.stringify(row.date);
+        let name = JSON.stringify(row.name)
+        let comment = JSON.stringify(row.comment);
+        comments += `${date} - ${name} : ${comment}`;        
+        console.log(comments);
             
     }    
 client.end();
