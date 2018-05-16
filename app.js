@@ -39,8 +39,9 @@ client.query('SELECT * FROM comments;', (err, res) => {
 client.end();
 });
 
+var testing = 'Test succesful!';
 console.log("Going to write into existing file");
-fs.writeFile('./public/test.txt', 'Simply Easy Learning!',  function(err) {
+fs.writeFile('./public/test.txt', testing,  function(err) {
    if (err) {
       return console.error(err);
    }
