@@ -22,7 +22,7 @@ const client = new Client({
 
 client.connect();
 
-app.post('/guestbook', function(req, res){
+app.post('/', function(req, res){
     console.log("Success!");
 })
 
