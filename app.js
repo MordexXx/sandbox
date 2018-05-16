@@ -22,7 +22,7 @@ const client = new Client({
 
 client.connect();
 
-app.post('../app.js', function(req, res){
+app.post('/api/data', function(req, res){
     
     client.query('SELECT * FROM comments;', (err, res) => {
         if (err) throw err;
