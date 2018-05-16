@@ -38,9 +38,9 @@ client.query(query, (err, res) => {
 
     for (let row of res.rows) {
         console.log(row.name);
-        let date = JSON.stringify(row.date);
-        let name = JSON.stringify(row.name);
-        let comment = JSON.stringify(row.comment);
+        let date = new Date(row.date);
+        let name = JSON.parse(row.name);
+        let comment = JSON.parse(row.comment);
         comments += `<li>${date}</li><li>${name}</li><li>${comment}</li>`;        
         console.log(comments);
         
