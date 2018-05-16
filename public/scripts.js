@@ -33,6 +33,8 @@ var vieraskirjaHTML = "<h1>Vieraskirja</h1>";
 
 var loaded = 0;
 
+var xhttp = new XMLHttpRequest();
+
 
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
