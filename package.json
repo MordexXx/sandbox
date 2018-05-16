@@ -2,7 +2,6 @@
   "name": "sandbox",
   "version": "1.0.0",
   "description": "Sandbox enviroment",
-
   "scripts": {
     "start": "node app"
   },
@@ -18,6 +17,7 @@
   "homepage": "https://github.com/MordexXx/sandbox#readme",
   "dependencies": {
     "body-parser": "*",
-    "express": "*"
+    "express": "*",
+    "pg": "^7.4.3"
   }
 }
