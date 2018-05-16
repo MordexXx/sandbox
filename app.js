@@ -29,14 +29,11 @@ const client = new Client({
 
 client.connect();
 
-var query= 'SET CLIENT_ENCODING TO \'utf8\'';
 
-client.query(query, (err, res) => {
-    if (err) throw err;
-});
+client.query("SET client_encoding to 'utf8';" , function(err, empty_result_to_fix_encoding) {
+    var query= 'SELECT * FROM comments';
+  });
 
-
-query= 'SELECT * FROM comments';
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
