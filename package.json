@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/MordexXx/sandbox#readme",
   "dependencies": {
+    "body-parser": "*",
     "express": "*",
-    "body-parser": "*"
+    "pg": "^7.4.3"
   }
 }
