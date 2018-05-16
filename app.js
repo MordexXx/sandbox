@@ -42,7 +42,7 @@ client.query('SELECT * FROM comments;', (err, res) => {
 client.end();
 });
 
-app.post('/comments/comments.json', function(req, res){
+app.post('./public/comments/comments.json', function(req, res){
     res.json();    
 });
 
