@@ -40,8 +40,7 @@ client.query('SELECT * FROM comments;', (err, res) => {
 app.listen(process.env.PORT);
 
 app.post('/', function(req, res){
-  var result = req.rawBody;
-  res.send(comments[1]);
+    res.send(comments);
 });
 
 app.post('/comments', function(req, res) {
