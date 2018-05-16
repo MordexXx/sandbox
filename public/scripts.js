@@ -70,7 +70,7 @@ for (var i = 0; i < btns.length; i++) {
 				xhttp.open("GET", "./test.txt", true);
 				xhttp.send();
 				xhttp.onload = function(){
-					if(this.statys == 200){
+					if(this.status == 200){
 						currentPageContent.innerHTML = this.responseText;
 					}
 					else{
