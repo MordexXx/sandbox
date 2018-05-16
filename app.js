@@ -9,7 +9,7 @@ const fs = require('fs');
 var app = express();
 
 
-var query = 'SET CLIENT_ENCODING TO \'utf8\';SELECT * FROM comments;';
+
 
 //Body Parser Middleware
 app.use(bodyParder.json());
@@ -28,6 +28,15 @@ const client = new Client({
 });
 
 client.connect();
+
+var query= 'SET CLIENT_ENCODING TO \'utf8\'';
+
+client.query(query, (err, res) => {
+    if (err) throw err;
+});
+
+
+query= 'SELECT * FROM comments';
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
@@ -59,7 +68,7 @@ client.query(query, (err, res) => {
             });
          });     
     } 
-    client.end();;
+    client.end();
 
 });
 
