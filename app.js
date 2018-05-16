@@ -28,12 +28,15 @@ const client = new Client({
 
 client.connect();
 
-client.query('SELECT * FROM comments;', (err, res) => {
+var query = 'SELECT * FROM comments;'
+
+client.query(query, (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
-        comment = JSON.stringify(row);
-        comments += `${comment}`;        
-        console.log(comments);
+        console.log(row[0]);
+        // comment = JSON.stringify(row);
+        // comments += `${comment}`;        
+        // console.log(comments);
             
     }    
 client.end();
