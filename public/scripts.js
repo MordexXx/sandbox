@@ -13,10 +13,9 @@ var yhteystiedotHTML = "<h1>Yhteystiedot</h1><ul><li><b>Osoite:</b> Umpikuja 1 A
 
 var vieraskirjaHTML;
 
-vieraskirjaHTML += `"
-<h1>Vieraskirja<h1>
+vieraskirjaHTML += `<h1>Vieraskirja<h1>
 <button id=\"getComments\">GET</button>
-"`;
+`;
 
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
