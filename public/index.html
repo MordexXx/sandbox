@@ -63,6 +63,13 @@
 	</footer>
 
 	<script src="scripts.js"></script>
+
+	<script>
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", "./test.txt", true);
+		xhttp.send();
+		console.log(xhttp.responseText);
+	</script>
 </body>
 </html>
 
