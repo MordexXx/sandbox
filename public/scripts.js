@@ -29,7 +29,7 @@ yhteystiedotHTML +=`
 <li><b>Puh:</b> 123-456 789</li><li>
 <b>Email:</b> john_smith@bogusemail.com</li>`;
 
-var vieraskirjaHTML = "<h1>Vieraskirja<h1>";
+var vieraskirjaHTML = "<h1>Vieraskirja</h1>";
 
 var loaded = 0;
 
