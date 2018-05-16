@@ -42,8 +42,8 @@ client.query('SELECT * FROM comments;', (err, res) => {
 client.end();
 });
 
-app.post('/', function(req, res){
-
+app.post('./comments/comments.json', function(req, res){
+    res.json();    
 });
 
 
