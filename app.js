@@ -4,6 +4,11 @@ var path = require('path');
 
 var app = express();
 
+
+var jsonFile = "/public/comments.json";
+var file = new File(jsonFile);
+var comments;
+
 //Body Parser Middleware
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
@@ -27,6 +32,7 @@ client.query('SELECT * FROM comments;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
+      comments = JSON.stringify(row);    
     }
     client.end();
 });
