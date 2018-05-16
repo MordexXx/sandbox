@@ -8,6 +8,8 @@ const fs = require('fs');
 
 var app = express();
 
+var comments;
+
 //Body Parser Middleware
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
