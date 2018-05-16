@@ -27,3 +27,13 @@ var conString = "postgres://eostjvbcswkgkx:b508c6ca0068375b0ef8526bf19f0d233ca38
 
 var client = new pg.Client(conString);
 client.connect();
+
+var query = client.query("SELECT * FROM comments");
+
+query.on('row', function(row) {
+    console.log(row);
+});
+
+query.on('end', function() {
+    client.end();
+});
