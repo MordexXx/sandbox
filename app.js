@@ -8,7 +8,7 @@ const fs = require('fs');
 
 var app = express();
 
-var comments;
+var comments = "<ul>";
 
 //Body Parser Middleware
 app.use(bodyParder.json());
@@ -37,14 +37,15 @@ client.query(query, (err, res) => {
         let date = JSON.stringify(row.date);
         let name = JSON.stringify(row.name)
         let comment = JSON.stringify(row.comment);
-        comments += `${date} - ${name} : ${comment}`;        
+        comments += `</li>${date} - ${name} : ${comment}</li>`;        
         console.log(comments);
             
     }    
 client.end();
 });
 
-var testing = 'Test succesful!';
+comments += `</ul>`;
+
 console.log("Going to write into existing file");
 fs.writeFile('./public/test.txt', comments,  function(err) {
    if (err) {
