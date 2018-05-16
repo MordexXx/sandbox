@@ -28,7 +28,7 @@ client.connect();
 client.query('SELECT * FROM comments;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
-      console.log(row[1]);
+      console.log(JSON.parse(row));
       comments = row;
     }
     client.end();
