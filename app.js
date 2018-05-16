@@ -23,7 +23,7 @@ const client = new Client({
 client.connect();
 
 app.get('/', (req, res) => {
-    console.log("Success!");
+    res.send('Success!');
 });
 
 
