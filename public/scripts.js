@@ -11,9 +11,9 @@ var palvelutHTML =
 
 var yhteystiedotHTML = "<h1>Yhteystiedot</h1><ul><li><b>Osoite:</b> Umpikuja 1 A 2, 12345 HELSINKI</li><li><b>Puh:</b> 123-456 789</li><li><b>Email:</b> john_smith@bogusemail.com</li>";
 
-var vieraskirjaHTML;
+var vieraskirjaHTML = "<h1>Vieraskirja<h1>";
 
-vieraskirjaHTML += `<h1>Vieraskirja<h1>
+vieraskirjaHTML += `
 <button id=\"getComments\">GET</button>
 `;
 
