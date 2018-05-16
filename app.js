@@ -31,7 +31,7 @@ client.query('SELECT * FROM comments;', (err, res) => {
     }
     client.end();
 });
-
+console.log(comments); 
 
 // app.post('/', function(req, res){
 //     console.log(commets);
