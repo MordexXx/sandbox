@@ -38,10 +38,11 @@ client.query(query, (err, res) => {
 
     for (let row of res.rows) {
         console.log(row.name);
-        let date = new Date(row.date);
-        let name = JSON.parse(row.name);
-        let comment = JSON.parse(row.comment);
-        comments += `<li>${date}</li><li>${name}</li><li>${comment}</li>`;        
+        // let date = JSON.parse(row.date);
+        // let name = JSON.parse(row.name);
+        // let comment = JSON.parse(row.comment);
+        // comments += `<li>${date}</li><li>${name}</li><li>${comment}</li>`;
+        comments += `<li>${row.date}</li><li>${row.name}</li><li>${row.comment}</li>`;           
         console.log(comments);
         
         fs.writeFile('./public/test.txt', comments,  function(err) {
