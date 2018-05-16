@@ -72,7 +72,7 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			loaded++;
 			if(loaded <= 1){
-				xhttp.open("POST", "/api/data", true);
+				xhttp.open("POST", "/", true);
 				xhttp.send();
 				vieraskirjaHTML += `${xhttp.responseText}`;
 			}
