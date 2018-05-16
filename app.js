@@ -38,14 +38,13 @@ client.query(query, (err, res) => {
         let name = JSON.stringify(row.name)
         let comment = JSON.stringify(row.comment);
         comments += `</li>${date} - ${name} : ${comment}</li>`;        
-        console.log(comments);
-            
+        console.log(comments);            
     }    
 client.end();
 });
 
 comments += `</ul>`;
-
+console.log(comments);
 console.log("Going to write into existing file");
 fs.writeFile('./public/test.txt', comments,  function(err) {
    if (err) {
