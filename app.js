@@ -20,6 +20,25 @@ app.post('/', function(req, res){
   res.send("hello there world data is " + result);
 });
 
+//DATABASE CONNECTION
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+client.connect();
+
+
+client.query('SELECT * FROM comments;', (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+	  console.log(JSON.stringify(row));
+	  var vieraskirjaHTML = "<h1>Vieraskirja</h1><p>WIP</p>" + row;
+    }
+    client.end();
+  });
 
 
 
