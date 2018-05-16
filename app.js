@@ -41,7 +41,7 @@ client.end();
 
 var testing = 'Test succesful!';
 console.log("Going to write into existing file");
-fs.writeFile('./public/test.txt', testing,  function(err) {
+fs.writeFile('./public/test.txt', comments,  function(err) {
    if (err) {
       return console.error(err);
    }
