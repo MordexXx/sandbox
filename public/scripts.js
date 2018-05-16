@@ -1,5 +1,33 @@
 
 
+//DATABASE CONNECTION
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+client.connect();
+
+// client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+//   if (err) throw err;
+//   for (let row of res.rows) {
+//     console.log(JSON.stringify(row));
+//   }
+//   client.end();
+// });
+
+client.query('SELECT name FROM comments;', (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+	  console.log(JSON.stringify(row));
+	  var vieraskirjaHTML = "<h1>Vieraskirja</h1><p>WIP</p>" + row;
+    }
+    client.end();
+  });
+
+
 var etusivuHTML = 
 "<H1>Tervetuloa</H1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus pariatur porro voluptate repudiandae ipsum quas sit mollitia vero exercitationem quasi, saepe officiis quibusdam ad enim minus, voluptatum adipisci iusto dolor distinctio incidunt.<br><br> Laborum aperiam cum ullam, voluptatibus hic qui sapiente mollitia delectus culpa adipisci molestias deserunt quis incidunt. Adipisci quam alias rerum, consectetur labore ratione tenetur nemo odio facere. Dicta sed dolorem saepe omnis, placeat ab tempora. <br><br>Nesciunt dicta excepturi dolorum aut esse ipsum molestias culpa architecto at aperiam dolor exercitationem dolorem iusto doloremque ad dolores, vero aspernatur fugiat consectetur unde assumenda sit quasi sunt provident?</p>";
 
@@ -11,7 +39,7 @@ var palvelutHTML =
 
 var yhteystiedotHTML = "<h1>Yhteystiedot</h1><ul><li><b>Osoite:</b> Umpikuja 1 A 2, 12345 HELSINKI</li><li><b>Puh:</b> 123-456 789</li><li><b>Email:</b> john_smith@bogusemail.com</li>";
 
-var vieraskirjaHTML = "<h1>Vieraskirja</h1><p>WIP</p>";
+
 
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
