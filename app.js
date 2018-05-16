@@ -4,6 +4,8 @@ var path = require('path');
 
 var app = express();
 
+var comments;
+
 //Body Parser Middleware
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
@@ -27,7 +29,7 @@ client.query('SELECT * FROM comments;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
-      var comments = row;
+      comments = row;
     }
     client.end();
   });
@@ -39,7 +41,7 @@ app.listen(process.env.PORT);
 
 app.post('/', function(req, res){
   var result = req.rawBody;
-  res.send(comments);
+  res.send(comments[1]);
 });
 
 app.post('/comments', function(req, res) {
