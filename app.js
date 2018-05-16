@@ -9,6 +9,7 @@ const fs = require('fs');
 var app = express();
 
 var comments = "<ul>";
+var query = 'SELECT * FROM comments;'
 
 //Body Parser Middleware
 app.use(bodyParder.json());
@@ -28,7 +29,6 @@ const client = new Client({
 
 client.connect();
 
-var query = 'SELECT * FROM comments;'
 
 client.query(query, (err, res) => {
     if (err) throw err;
@@ -40,7 +40,7 @@ client.query(query, (err, res) => {
         comments += `</li>${date} - ${name} : ${comment}</li>`;        
         console.log(comments);            
     }    
-
+client.end();
 });
 
 comments += `</ul>`;
@@ -61,7 +61,7 @@ fs.writeFile('./public/test.txt', comments,  function(err) {
    });
 });
 
-client.end();
+
 
 app.listen(process.env.PORT);
 
