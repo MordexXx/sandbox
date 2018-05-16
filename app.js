@@ -22,18 +22,19 @@ app.post('/', function(req, res){
 
 
 //DATABASE CONNECTION
-var pg = require('pg');
-var conString = "postgres://eostjvbcswkgkx:b508c6ca0068375b0ef8526bf19f0d233ca38343629b4d18b20af5dc0d7172c8@ec2-79-125-12-48.eu-west-1.compute.amazonaws.com:5432/dahedgbqcsnn6l";
+const { Client } = require('pg');
 
-var client = new pg.Client(conString);
-client.connect();
-
-var query = client.query("SELECT * FROM comments");
-
-query.on('row', function(row) {
-    console.log(row);
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
 });
 
-query.on('end', function() {
-    client.end();
+client.connect();
+
+client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
 });
