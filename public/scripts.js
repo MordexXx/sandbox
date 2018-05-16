@@ -1,4 +1,8 @@
 
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "./test.txt", true);
+xhttp.send();
+console.log(xhttp.responseText);
 
 var etusivuHTML = "<H1>Tervetuloa</H1>";
 
