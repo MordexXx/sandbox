@@ -22,7 +22,7 @@ const client = new Client({
 
 client.connect();
 
-app.get('/comments', (req, res) => {
+app.get('/', (req, res) => {
     console.log("Success!");
 });
 
