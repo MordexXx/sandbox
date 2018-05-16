@@ -43,9 +43,3 @@ app.post('/', function(req, res){
     res.send(comments[2]);
 });
 
-app.post('/comments', function(req, res) {
-    var name = req.body.name,
-        color = req.body.color;
-    // ...
-});
-
