@@ -29,11 +29,12 @@ const client = new Client({
 
 client.connect();
 
+var comments = "<ul>";
 
 client.query(query, (err, res) => {
     if (err) throw err;
 
-    var comments = "<ul>";
+    
 
     for (let row of res.rows) {
         console.log(row.name);
@@ -56,10 +57,9 @@ client.query(query, (err, res) => {
                }
                console.log("Asynchronous read: " + data.toString());
             });
-         });
-
+         });     
     }
-    comments += `</ul>`;    
+    comments += `</ul>`; 
     client.end();
 });
 
