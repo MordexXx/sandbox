@@ -81,7 +81,7 @@ for (var i = 0; i < btns.length; i++) {
 				}
 
 			// currentPageContent.innerHTML = vieraskirjaHTML;
-
+			currentPageContent.innerHTML += `</ul>`;
 		}
 
   });
