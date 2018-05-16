@@ -23,7 +23,15 @@ const client = new Client({
 client.connect();
 
 app.post('/', (req, res) => {
-    res.send('Success!');
+    client.connect();
+    client.query('SELECT * FROM comments;', (err, res) => {
+        if (err) throw err;
+        for (let row of res.rows) {
+          console.log(JSON.stringify(row));
+        }
+        client.end();
+    });
+
 });
 
 
@@ -32,10 +40,9 @@ app.post('/', (req, res) => {
 //     if (err) throw err;
 //     for (let row of res.rows) {
 //       console.log(JSON.stringify(row));
-//       comments = row;
 //     }
 //     client.end();
-//   });
+// });
 
 
 // app.post('/', function(req, res){
