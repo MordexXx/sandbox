@@ -18,7 +18,7 @@ client.connect();
 //   client.end();
 // });
 
-client.query('SELECT name FROM comments;', (err, res) => {
+client.query('SELECT * FROM comments;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
 	  console.log(JSON.stringify(row));
