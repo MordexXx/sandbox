@@ -70,7 +70,7 @@ for (var i = 0; i < btns.length; i++) {
 			loaded++;
 			if(loaded <= 1){
 				var xhttp = new XMLHttpRequest();
-				xhttp.open("POST", "test.txt", true);
+				xhttp.open("POST", "./comments/test.txt", true);
 				xhttp.send();
 				vieraskirjaHTML += `${xhttp.responseText}`;
 			}
