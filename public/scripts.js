@@ -9,7 +9,7 @@ var yritysHTML =
 var palvelutHTML = 
 "<h1>Palvelut ja hinnasto</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo fuga sunt aliquid veritatis voluptatem officiis magnam corporis debitis est, nam voluptas incidunt dolores, ipsa enim beatae. <br><br>Repudiandae voluptatem consequatur voluptates illum, fugit placeat obcaecati velit optio recusandae suscipit ullam, ratione consequuntur similique vel aspernatur aliquam libero ipsum qui labore illo.</p>";
 
-var yhteystiedotHTML = "<h1>Yhteystiedot</h1><ul><li>Osoite:</li><li>Puh:</li><li>Email:</li>";
+var yhteystiedotHTML = "<h1>Yhteystiedot</h1><ul><li><b>Osoite:</b> Umpikuja 1 A 2, 12345 HELSINKI</li><li><b>Puh:</b> 123-456 789</li><li><b>Email:</b> john_smith@bogusemail.com</li>";
 
 var vieraskirjaHTML = "<h1>Vieraskirja</h1><p>WIP</p>";
 
