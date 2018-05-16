@@ -34,8 +34,8 @@ client.connect();
 client.query('SELECT * FROM comments;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
-	  console.log(JSON.stringify(row));
-	  var vieraskirjaHTML = "<h1>Vieraskirja</h1><p>WIP</p>" + row;
+      console.log(JSON.stringify(row));
+      var comments = comments.concat([row]);
     }
     client.end();
   });
