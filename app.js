@@ -35,14 +35,14 @@ client.query('SELECT * FROM comments;', (err, res) => {
         comments += `${comment}`;        
         console.log(comments);    
     }
-    fs.writeFile('./comments/comments.json', comments, function (err) {
+    fs.writeFile('/comments/comments.json', comments, function (err) {
         if (err) throw err;
         console.log('Saved!');
     });
 client.end();
 });
 
-app.post('./comments/comments.json', function(req, res){
+app.post('/comments/comments.json', function(req, res){
     res.json();    
 });
 
