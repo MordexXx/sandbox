@@ -31,9 +31,6 @@ yhteystiedotHTML +=`
 
 var vieraskirjaHTML = "<h1>Vieraskirja<h1>";
 
-vieraskirjaHTML += `
-<button id=\"getComments\">GET</button>
-`;
 
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
@@ -69,7 +66,9 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
+			vieraskirjaHTML += `<button id=\"getComments\">GET</button>`;
 			currentPageContent.innerHTML = vieraskirjaHTML;
+
 		}
 
   });
