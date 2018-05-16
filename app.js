@@ -22,7 +22,7 @@ const client = new Client({
 
 client.connect();
 
-app.get('vieraskirjaHTML', function(req,res){
+app.get('/guestbook', function(req, res){
     console.log("Success!");
 })
 
