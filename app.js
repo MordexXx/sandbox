@@ -8,7 +8,7 @@ const fs = require('fs');
 
 var app = express();
 
-var comments = "<ul>";
+
 var query = 'SELECT * FROM comments;'
 
 //Body Parser Middleware
@@ -32,33 +32,35 @@ client.connect();
 
 client.query(query, (err, res) => {
     if (err) throw err;
+
+    var comments = "<ul>";
+
     for (let row of res.rows) {
         console.log(row.name);
         let date = JSON.stringify(row.date);
         let name = JSON.stringify(row.name)
         let comment = JSON.stringify(row.comment);
         comments += `</li>${date} - ${name} : ${comment}</li>`;        
-        console.log(comments);            
-    }    
-client.end();
-});
+        console.log(comments);
+        
+        fs.writeFile('./public/test.txt', comments,  function(err) {
+            if (err) {
+               return console.error(err);
+            }
+            
+            console.log("Data written successfully!");
+            console.log("Let's read newly written data");
+            fs.readFile('./public/test.txt', function (err, data) {
+               if (err) {
+                  return console.error(err);
+               }
+               console.log("Asynchronous read: " + data.toString());
+            });
+         });
 
-comments += `</ul>`;
-console.log(comments);
-console.log("Going to write into existing file");
-fs.writeFile('./public/test.txt', comments,  function(err) {
-   if (err) {
-      return console.error(err);
-   }
-   
-   console.log("Data written successfully!");
-   console.log("Let's read newly written data");
-   fs.readFile('./public/test.txt', function (err, data) {
-      if (err) {
-         return console.error(err);
-      }
-      console.log("Asynchronous read: " + data.toString());
-   });
+    }
+    comments += `</ul>`;    
+    client.end();
 });
 
 
