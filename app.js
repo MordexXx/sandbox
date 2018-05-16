@@ -4,8 +4,6 @@ var path = require('path');
 
 var app = express();
 
-var comments;
-
 //Body Parser Middleware
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
@@ -24,15 +22,20 @@ const client = new Client({
 
 client.connect();
 
+app.get('vieraskirjaHTML', function(req,res){
+    console.log("Success!");
+})
 
-client.query('SELECT * FROM comments;', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      console.log(JSON.stringify(row));
-      comments = row;
-    }
-    client.end();
-  });
+
+
+// client.query('SELECT * FROM comments;', (err, res) => {
+//     if (err) throw err;
+//     for (let row of res.rows) {
+//       console.log(JSON.stringify(row));
+//       comments = row;
+//     }
+//     client.end();
+//   });
 
 
 // app.post('/', function(req, res){
