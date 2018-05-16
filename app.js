@@ -39,7 +39,7 @@ client.query(query, (err, res) => {
     for (let row of res.rows) {
         console.log(row.name);
         let date = JSON.stringify(row.date);
-        let name = JSON.stringify(row.name)
+        let name = JSON.stringify(row.name);
         let comment = JSON.stringify(row.comment);
         comments += `<li>${date}</li><li>${name}</li><li>${comment}</li>`;        
         console.log(comments);
