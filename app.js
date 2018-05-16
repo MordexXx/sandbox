@@ -31,7 +31,7 @@ client.connect();
 
 
 
-var query= 'SET client_encoding to \'utf8\' SELECT * FROM comments';
+var query= 'SELECT * FROM comments';
 
 
 var comments = "<ul style=\"list-style-type: none;\">";
