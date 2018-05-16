@@ -41,7 +41,7 @@ client.query(query, (err, res) => {
         let date = JSON.stringify(row.date);
         let name = JSON.stringify(row.name)
         let comment = JSON.stringify(row.comment);
-        comments += `</li>${date} - ${name} : ${comment}</li>`;        
+        comments += `<li>${date}</li><li>${name}</li><li>${comment}</li>`;        
         console.log(comments);
         
         fs.writeFile('./public/test.txt', comments,  function(err) {
@@ -58,8 +58,7 @@ client.query(query, (err, res) => {
                console.log("Asynchronous read: " + data.toString());
             });
          });     
-    }
-    comments += `</ul>`; 
+    } 
     client.end();
 });
 
