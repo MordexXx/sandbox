@@ -27,6 +27,7 @@ client.query('SELECT * FROM comments;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
+      var comments = row;
     }
     client.end();
   });
@@ -38,7 +39,7 @@ app.listen(process.env.PORT);
 
 app.post('/', function(req, res){
   var result = req.rawBody;
-  res.send("hello there world data is " + result);
+  res.send(comments);
 });
 
 app.post('/comments', function(req, res) {
