@@ -34,6 +34,10 @@ var loaded = 0;
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
 	currentPageContent.innerHTML = etusivuHTML;
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "./test.txt", true);
+	xhttp.send();
+	console.log(xhttp.responseText);
 }
 
 let btnContainer = document.getElementById("navbar");
