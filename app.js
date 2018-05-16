@@ -32,13 +32,13 @@ client.query('SELECT * FROM comments;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
         comment = JSON.stringify(row);
-        comments += `${comment}`;
-        fs.writeFile('./comments/comments.json', comments, function (err) {
-            if (err) throw err;
-            console.log('Saved!');
-          });
-    console.log(comments);    
-}
+        comments += `${comment}`;        
+        console.log(comments);    
+    }
+    fs.writeFile('./comments/comments.json', comments, function (err) {
+        if (err) throw err;
+        console.log('Saved!');
+    });
 client.end();
 });
 
