@@ -33,7 +33,7 @@ var query = 'SELECT * FROM comments;'
 client.query(query, (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
-        console.log(row);
+        console.log(row.name);
         // comment = JSON.stringify(row);
         // comments += `${comment}`;        
         // console.log(comments);
