@@ -47,7 +47,7 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
-			currentPageContent.innerHTML = vieraskirjaHTML + "<form action=\"/\" method=\"POST\"><input type=\"submit\" value=\"Submit\"></form>";
+			currentPageContent.innerHTML = vieraskirjaHTML;
 		}
 
   });
