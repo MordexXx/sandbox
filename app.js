@@ -22,16 +22,20 @@ const client = new Client({
 
 client.connect();
 
-
-client.query('SELECT * FROM comments;', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      comments = JSON.stringify(row);
-      console.log(comments);    
+app.post('/app.js', function(req, res){
+    
+    client.query('SELECT * FROM comments;', (err, res) => {
+        if (err) throw err;
+        for (let row of res.rows) {
+            comment = JSON.stringify(row);
+            comments += `${comment}`;
+        console.log(comments);    
     }
     client.end();
 });
-console.log(comments); 
+
+});
+
 
 // app.post('/', function(req, res){
 //     console.log(commets);

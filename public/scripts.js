@@ -33,6 +33,7 @@ var vieraskirjaHTML = "<h1>Vieraskirja</h1>";
 
 var loaded = 0;
 
+
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
 	currentPageContent.innerHTML = etusivuHTML;
@@ -69,7 +70,9 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			loaded++;
 			if(loaded <= 1){
-				vieraskirjaHTML += `<button id=\"getComments\">GET</button>`;
+				xhttp.open("POST", "/app.js", true);
+				xhttp.send();
+				vieraskirjaHTML += `${xhttp.responseText}`;
 			}
 			currentPageContent.innerHTML = vieraskirjaHTML;
 
