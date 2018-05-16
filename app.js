@@ -28,19 +28,21 @@ client.connect();
 client.query('SELECT * FROM comments;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
-      console.log(JSON.stringify(row));
+      console.log(row[1]);
       comments = row;
     }
     client.end();
   });
 
 
+// app.post('/', function(req, res){
+//     console.log(commets);
+//     res.send(comments);
+// });
+
 
 
 app.listen(process.env.PORT);
 
-app.post('/', function(req, res){
-    console.log(commets);
-    res.send(comments);
-});
+
 
