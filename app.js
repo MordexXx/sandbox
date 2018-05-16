@@ -2,6 +2,10 @@ var express = require('express');
 var bodyParder = require('body-parser');
 var path = require('path');
 
+
+const fs = require('fs');
+
+
 var app = express();
 
 //Body Parser Middleware
@@ -22,17 +26,21 @@ const client = new Client({
 
 client.connect();
 
-app.post('/', function(req, res){
-    
-    client.query('SELECT * FROM comments;', (err, res) => {
-        if (err) throw err;
-        for (let row of res.rows) {
-            comment = JSON.stringify(row);
-            comments += `${comment}`;
-        console.log(comments);    
-    }
-    client.end();
+client.query('SELECT * FROM comments;', (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+        comment = JSON.stringify(row);
+        comments += `${comment}`;
+        fs.writeFile('./comments/comments.json', comments, function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+          });
+    console.log(comments);    
+}
+client.end();
 });
+
+app.post('/', function(req, res){
 
 });
 
