@@ -33,18 +33,22 @@ client.query('SELECT * FROM comments;', (err, res) => {
     for (let row of res.rows) {
         comment = JSON.stringify(row);
         comments += `${comment}`;        
-        console.log(comments);    
-    }
-    fs.writeFile('./public/comments/comments.json', comments, function (err) {
-        if (err) throw err;
-        console.log('Saved!');
-    });
+        console.log(comments);
+            
+    }    
 client.end();
 });
 
-app.post('./public/comments/comments.json', function(req, res){
-    res.json();    
+fs.open('test.txt', 'wx', (err, comments) => {
+    if (err) {
+      throw err;
+    }
+    writeMyData(comments);
 });
+
+// app.post('/', function(req, res){
+  
+// });
 
 
 // app.post('/', function(req, res){
