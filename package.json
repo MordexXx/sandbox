@@ -1,0 +1,19 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "Sandbox app",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MordexXx/sandbox.git"
+  },
+  "author": "Petri Alajoki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MordexXx/sandbox/issues"
+  },
+  "homepage": "https://github.com/MordexXx/sandbox#readme"
+}
