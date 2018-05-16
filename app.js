@@ -4,11 +4,6 @@ var path = require('path');
 
 var app = express();
 
-
-var jsonFile = "/public/comments.json";
-var file = new File(jsonFile);
-var comments;
-
 //Body Parser Middleware
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
