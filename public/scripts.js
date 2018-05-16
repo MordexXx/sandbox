@@ -65,15 +65,15 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
-			loaded++;
-			if(loaded <= 1){
+			// loaded++;
+			// if(loaded <= 1){
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("GET", "test.txt", true);
 				xhttp.send();
 				var result = xhttp.responseText;
 				console.log(result);
 				vieraskirjaHTML += `${result}`;
-			}
+			// }
 			currentPageContent.innerHTML = vieraskirjaHTML;
 
 		}
