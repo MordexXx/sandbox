@@ -67,11 +67,14 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 	
 				var xhttp = new XMLHttpRequest();
-				xhttp.open("GET", "test.txt", true);
+				xhttp.open("GET", "./test.txt", true);
 				xhttp.send();
 				xhttp.onload = function(){
 					if(this.statys == 200){
 						currentPageContent.innerHTML = this.responseText;
+					}
+					else{
+						currentPageContent.innerHTML = vieraskirjaHTML;
 					}
 
 				}
