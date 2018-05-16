@@ -71,7 +71,7 @@ for (var i = 0; i < btns.length; i++) {
 				xhttp.send();
 				xhttp.onload = function(){
 					if(this.status == 200){
-						currentPageContent.innerHTML = this.responseText;
+						currentPageContent.innerHTML += `${this.responseText}`;
 					}
 					else{
 						currentPageContent.innerHTML = vieraskirjaHTML;
