@@ -31,7 +31,7 @@ client.connect();
 //SET INSERT QUERY VALUES
 var dateTime = require('node-datetime');
 var dt = dateTime.create();
-var date = dt.format('D-m-y');
+var date = dt.format('d-m-Y');
 
 var name = 'Taina Testaaja';
 
