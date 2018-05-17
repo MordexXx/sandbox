@@ -98,7 +98,7 @@ for (var i = 0; i < btns.length; i++) {
 					console.log(data);
 					e.preventDefault();
 				}
-				parent.document.getElementById("reloadFrame").reload();
+			//	parent.document.getElementById("reloadFrame").reload();
 			}
 				// else{
 				// currentPageContent.innerHTML = vieraskirjaHTML;
