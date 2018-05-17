@@ -28,8 +28,10 @@ const client = new Client({
 
 client.connect();
 
-
-
+var today = new Date();
+var month = today.getMonth()+1;
+var date = `${today.getFullYear}-${month}-${today.getDate}`;
+console.log(date);
 var query = "INSERT INTO comments VALUES ('2018-05-17', 'Taina Testaaja', 'Tässä on minunkin viestini! Toimiikohan ääkköset?');";
 
 // app.post('/', function (req, res) {
