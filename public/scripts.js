@@ -29,7 +29,7 @@ yhteystiedotHTML +=`
 <b>Email:</b> john_smith@bogusemail.com</li>`;
 
 var vieraskirjaHTML = '<h1>Vieraskirja</h1>';
-var loaded = 0;
+var loaded = 1;
 
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
@@ -68,14 +68,15 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
 			console.log(loaded);
-			if(loaded <= 1){
-				loaded++;			
+				
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("GET", "./comments.txt", true);
 				xhttp.send();
 				xhttp.onload = function(){
 				vieraskirjaHTML += `${this.responseText}`;
 				}
+				if(loaded <= 1){
+				loaded++;
 				vieraskirjaHTML += `</ul>
 				<form>
 				<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
