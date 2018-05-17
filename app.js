@@ -41,14 +41,14 @@ var query;
 
 app.post('*', function (req, res) {
     console.log(req.body);
-    name = JSON.stringify(req.body.name);
-    comment = JSON.stringify(req.body.comment);
-    query = `INSERT INTO comments VALUES ("${date}", ${name}, ${comment});`;
+    name = JSON.parse(req.body.name);
+    comment = JSON.parse(req.body.comment);
+    query = `INSERT INTO comments VALUES ('${date}', ${name}, ${comment});`;
     console.log(query);
    
-    client.query(query, (err, res) => {
-    if (err) throw err;
-    });
+    // client.query(query, (err, res) => {
+    // if (err) throw err;
+    // });
 
     res.redirect('/'); 
 });
