@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => console.log('Client disconnected'));
   });
 
-  setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
@@ -62,15 +62,8 @@ client.connect();
 client.query(sql, (err, res) => {
     if (err) throw err;
 
-    for (let row of res.rows) {
-        
-        // comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
-        // fs.writeFile('./public/comments.txt', comments,  function(err) {
-        //     if (err) {
-        //        return console.error(err);
-        //     }
-
-        //  });     
+    for (let row of res.rows) {        
+        comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;             
     } 
 
 });
@@ -121,5 +114,5 @@ app.post('*', (req, res) => {
     // });
 });
 
-
+setInterval(() => io.emit('time', comments, 1000));
 
