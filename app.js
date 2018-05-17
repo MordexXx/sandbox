@@ -43,16 +43,16 @@ var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
 console.log(query);
 
 // app.post('/', function (req, res) {
-    client.query(query, (err, res) => {
-        if (err) throw err;
-    });
+    // client.query(query, (err, res) => {
+    //     if (err) throw err;
+    // });
 // });
 
 
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
-query = `SELECT to_char('date', 'DD/MM/YYYY), 'name', 'comment'  FROM comments`;
+query = 'SELECT * FROM comments';
 client.query(query, (err, res) => {
     if (err) throw err;
 
