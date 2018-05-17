@@ -64,7 +64,7 @@ client.query(query, (err, res) => {
 });
 
 
-app.get('/add', function (req, res) {
+app.post('/', function (req, res) {
     res.redirect('/');
 });
 
