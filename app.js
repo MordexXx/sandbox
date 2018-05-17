@@ -7,7 +7,7 @@ const path = require('path');
 const fs = require('fs');
 
 const PORT = process.env.PORT || 3000;
-const INDEX = path.join(__dirname, 'public');
+const INDEX = path.join(__dirname, '/public/index.html');
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
 
 //SET STATIC PATH
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET.IO
