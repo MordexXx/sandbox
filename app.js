@@ -6,14 +6,15 @@ const fs = require('fs');
 
 var app = express();
 
-app.listen(process.env.PORT);
-//Body Parser Middleware
+
+//BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
 
-//Set Static Path
+//SET STATIC PATH
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.listen(process.env.PORT);
 
 //CLEAR COMMENT CACHE FILE
 var fd = fs.openSync('./public/test.txt', 'w');
