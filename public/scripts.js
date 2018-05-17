@@ -98,7 +98,6 @@ for (var i = 0; i < btns.length; i++) {
 					console.log(data);
 					e.preventDefault();
 				}
-				
 			}
 				// else{
 				// currentPageContent.innerHTML = vieraskirjaHTML;
