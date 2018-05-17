@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParder = require('body-parser');
 var path = require('path');
+var socket = require('socket.io');
 
 const fs = require('fs');
 
@@ -15,6 +16,8 @@ app.use(bodyParder.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+//SOCKET SETUP
+var io = socket(process.env.PORT);
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
@@ -44,8 +47,8 @@ client.query(sql, (err, res) => {
     if (err) throw err;
 
     for (let row of res.rows) {
-        
-        localStorage.setItem(comments,row);
+
+        //localStorage.setItem(comments,row);
         // comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
         // fs.writeFile('./public/comments.txt', comments,  function(err) {
         //     if (err) {
