@@ -64,30 +64,29 @@ app.post('*', function (req, res) {
 
 
 
+// var comments = "<ul style=\"list-style-type: none;\">";
 
-var comments = "<ul style=\"list-style-type: none;\">";
+// query = 'SELECT * FROM comments';
+// pool.query(query, (err, res) => {
+//     if (err) throw err;
 
-query = 'SELECT * FROM comments';
-pool.query(query, (err, res) => {
-    if (err) throw err;
+//     for (let row of res.rows) {
+//         comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
+//         fs.writeFile('./public/comments.txt', comments,  function(err) {
+//             if (err) {
+//                return console.error(err);
+//             }
+//             // fs.readFile('./public/test.txt', function (err, data) {
+//             //    if (err) {
+//             //       return console.error(err);
+//             //    }
+//             //    console.log("Asynchronous read: " + data.toString());
+//             // });
+//          });     
+//     } 
+//     //client.end();
 
-    for (let row of res.rows) {
-        comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
-        fs.writeFile('./public/comments.txt', comments,  function(err) {
-            if (err) {
-               return console.error(err);
-            }
-            // fs.readFile('./public/test.txt', function (err, data) {
-            //    if (err) {
-            //       return console.error(err);
-            //    }
-            //    console.log("Asynchronous read: " + data.toString());
-            // });
-         });     
-    } 
-    //client.end();
-
-});
+// });
 
 
 
