@@ -77,8 +77,9 @@ app.post('*', (req, res) => {
             });
             sql = 'SELECT * FROM comments';
             client.query(sql, (err, res) => {
+                
                 if (err) throw err;
-                var result = row;
+
                 for (let row of res.rows) {
                     result += `${row}`;
                     comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
