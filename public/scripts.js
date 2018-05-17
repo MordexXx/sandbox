@@ -44,6 +44,10 @@ vieraskirjaHTML += `</ul>
 				<button type="submit">Jätä viesti</button>
 				</form>`;
 
+vieraskirjaHTML += `
+<div id="output"></div>
+`;
+
 var loaded = 1;
 vieraskirjaHTML = vieraskirjaHTML;
 
