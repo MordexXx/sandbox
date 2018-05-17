@@ -112,5 +112,5 @@ app.post('*', (req, res) => {
 });
 
 
-
+setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 app.listen(process.env.PORT);
