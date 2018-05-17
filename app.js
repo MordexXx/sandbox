@@ -15,11 +15,6 @@ app.use(bodyParder.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-//CLEAR COMMENT CACHE FILE
-fs.unlinkSync('comments.txt');
-
-
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
@@ -62,6 +57,7 @@ client.query(sql, (err, res) => {
 
 
 app.post('*', (req, res) => {
+    var result;
     console.log(req.body);
     name = (req.body.name);
     comment = (req.body.comment);
@@ -82,8 +78,9 @@ app.post('*', (req, res) => {
             sql = 'SELECT * FROM comments';
             client.query(sql, (err, res) => {
                 if (err) throw err;
-            
+                var result = row;
                 for (let row of res.rows) {
+                    result += `${row}`;
                     comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
                     fs.writeFile('./public/comments.txt', comments,  function(err) {
                         if (err) {
@@ -99,7 +96,7 @@ app.post('*', (req, res) => {
 
         });
     
-
+    console.log(result);
     //res.redirect('/');
     // client.end(); 
     // });
