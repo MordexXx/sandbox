@@ -54,9 +54,7 @@ app.post('*', (req, res) => {
     name = (req.body.name);
     comment = (req.body.comment);
     sql = `INSERT INTO comments VALUES('${date}', '${name}', '${comment}');`;
-    //sql = JSON.stringify(sql);
-
-    console.log(name);
+    sql = JSON.parse(sql);
     console.log(sql);
     const client = new Client({
         connectionString: process.env.DATABASE_URL,
