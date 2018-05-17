@@ -29,6 +29,14 @@ yhteystiedotHTML +=`
 <b>Email:</b> john_smith@bogusemail.com</li>`;
 
 var vieraskirjaHTML = '<h1>Vieraskirja</h1>';
+
+vieraskirjaHTML += `</ul>
+				<form>
+				<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
+				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
+				<button type="submit">Jätä viesti</button>
+				</form>`;
+
 var loaded = 1;
 
 var xhttp = new XMLHttpRequest();
@@ -74,41 +82,26 @@ for (var i = 0; i < btns.length; i++) {
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
-			console.log(loaded);
-
-				if(loaded <= 1){
-				loaded++;
-				vieraskirjaHTML += `</ul>
-				<form>
-				<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
-				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
-				<button type="submit">Jätä viesti</button>
-				</form>`;
-				currentPageContent.innerHTML = vieraskirjaHTML;
-				
-				var form = document.querySelector('form');
-				var nameInput = document.getElementById('name');
-				var commentInput = document.getElementById('comment');
-
-				form.addEventListener('submit', runEvent);
-
-				function runEvent(e){
-					var xth = new XMLHttpRequest();
-					xth.open("POST", "*", true);
-					var data = `name=${nameInput.value}&comment=${commentInput.value}`;
-					xth.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					xth.send(data);	
-					console.log(data);
-					e.preventDefault();
-				}
-			}
-				// else{
-				// currentPageContent.innerHTML = vieraskirjaHTML;
-				// }
-
+			// console.log(loaded);
+			// if(loaded <= 1){
+			// loaded++;
 			
+			var form = document.querySelector('form');
+			var nameInput = document.getElementById('name');
+			var commentInput = document.getElementById('comment');
 
-			// currentPageContent.innerHTML = vieraskirjaHTML;
+			form.addEventListener('submit', runEvent);
+
+			function runEvent(e){
+				var xth = new XMLHttpRequest();
+				xth.open("POST", "*", true);
+				var data = `name=${nameInput.value}&comment=${commentInput.value}`;
+				xth.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xth.send(data);	
+				console.log(data);
+				e.preventDefault();
+			}
+			// }
 			
 		}
 
