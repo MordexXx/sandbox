@@ -1,10 +1,15 @@
 const express = require('express');
 const bodyParder = require('body-parser');
 const path = require('path');
-const socket = require('socket.io');
+const socketIO = require('socket.io');
 const fs = require('fs');
+const PORT = process.env.PORT || 3000;
+const INDEX = path.join(__dirname, 'public');
 
-const app = express();
+
+const app = express()
+.use((req, res) => res.sendFile(INDEX) )
+.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 
 //BODY PARSER MIDDLEWARE
@@ -12,16 +17,17 @@ app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
 
 //SET STATIC PATH
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET SETUP
-const io = socketIO(server);
+const io = socketIO(app);
 
-io.on('connection', function(socket){
-    var data = 'test';
-    io.sockets.emit('comments', data);
-});
+io.on('connection', (socket) => {
+    console.log('Client connected');
+    socket.on('disconnect', () => console.log('Client disconnected'));
+  });
+
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
@@ -114,4 +120,3 @@ app.post('*', (req, res) => {
 
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
-//app.listen(process.env.PORT);
