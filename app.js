@@ -51,7 +51,8 @@ app.post('*', function (req, res) {
     console.log(req.body);
     name = (req.body.name);
     comment = (req.body.comment);
-    query = JSON.stringify(`INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`);
+    query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
+    query = JSON.stringify(query);
     console.log(query);
    
     pool.query(query, (err, res) => {
@@ -82,7 +83,7 @@ client.query(query, (err, res) => {
             if (err) {
                return console.error(err);
             }
-            
+
          });     
     } 
     client.end();
