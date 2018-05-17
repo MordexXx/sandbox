@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const bodyParder = require('body-parser');
 const socketIO = require('socket.io');
@@ -9,7 +11,7 @@ const INDEX = path.join(__dirname, 'index.html');
 
 const app = express();
 
-app.listen(process.env.PORT);
+//app.listen(process.env.PORT);
 
 //BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
