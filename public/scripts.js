@@ -60,7 +60,7 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = palvelutHTML;
 		}
-		else if(currentPage.includes("Ota yhteyttä")){
+		else if(currentPage.includes("Ota yhteyttÃ¤")){
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = yhteystiedotHTML;
 		}

@@ -6,7 +6,6 @@ const fs = require('fs');
 
 var app = express();
 
-
 //Body Parser Middleware
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
