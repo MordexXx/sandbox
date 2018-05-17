@@ -47,27 +47,17 @@ client.query(query, (err, res) => {
     if (err) throw err;
 
     for (let row of res.rows) {
-        console.log(row.name);
-        // let date = JSON.parse(row.date);
-        // let name = JSON.parse(row.name);
-        // let comment = JSON.parse(row.comment);
-        // comments += `<li>${date}</li><li>${name}</li><li>${comment}</li>`;
         comments += `<li>${row.date}</li><li>${row.name}</li><li>${row.comment}</li>`;           
-        console.log(comments);
-        
         fs.writeFile('./public/test.txt', comments,  function(err) {
             if (err) {
                return console.error(err);
             }
-            
-            console.log("Data written successfully!");
-            console.log("Let's read newly written data");
-            fs.readFile('./public/test.txt', function (err, data) {
-               if (err) {
-                  return console.error(err);
-               }
-               console.log("Asynchronous read: " + data.toString());
-            });
+            // fs.readFile('./public/test.txt', function (err, data) {
+            //    if (err) {
+            //       return console.error(err);
+            //    }
+            //    console.log("Asynchronous read: " + data.toString());
+            // });
          });     
     } 
     client.end();
