@@ -18,6 +18,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //SOCKET SETUP
 var io = socket(process.env.PORT);
+
+io.on('connection', function(socket){
+    console.log('SOCKET OPEN');
+
+});
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
