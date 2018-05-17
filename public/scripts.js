@@ -101,13 +101,9 @@ for (var i = 0; i < btns.length; i++) {
 			form.addEventListener('submit', runEvent);
 
 			function runEvent(e){
-				var xth = new XMLHttpRequest();
-				xth.open("POST", "*", true);
+				e.preventDefault();				
 				var data = `name=${nameInput.value}&comment=${commentInput.value}`;
-				xth.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				xth.send(data);
-				console.log(result);		
-				e.preventDefault();
+				socket.emit('sql',data);
 			}
 			// }
 			
