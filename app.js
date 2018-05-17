@@ -27,10 +27,14 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => console.log('Client disconnected'));
 
     socket.on('sql', function(data){
-    console.log(data[0]);
-
-    sql = `INSERT INTO comments VALUES('${date}', '${data[0]}', '${data[1]}');`;
-    console.log(sql);
+        sql = `INSERT INTO comments VALUES('${date}', '${data[0]}', '${data[1]}');`;
+        //console.log(sql);
+        const client = new Client({
+            connectionString: process.env.DATABASE_URL,
+            ssl: true,
+         }) 
+    client.connect();
+    client.query(sql, (err, res) => {});
     });
 });
 
