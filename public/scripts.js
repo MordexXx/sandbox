@@ -90,7 +90,7 @@ for (var i = 0; i < btns.length; i++) {
 
 			var el = document.getElementById('comments');
 			socket.on('comments', function(comments) {
-				el.innerHTML += `${comments}`;
+				el.innerHTML = `${comments}`;
 			});
 
 			
