@@ -63,7 +63,7 @@ app.post('*', (req, res) => {
     client.connect();
     client.query(sql, (err, res) => {
         if (err) throw err;
-        console.log('wtf?');
+        console.log(result);
     });
     //res.redirect('/');
     client.end(); 
