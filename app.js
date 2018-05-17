@@ -73,8 +73,9 @@ app.post('*', (req, res) => {
         .then(() => {
             console.log('Connection succesful');
             client.query(sql, (err, res) => {
-                if (err) throw err;
+                console.log('result',res);    
             });
+
 
             sql = 'SELECT * FROM comments';
             client.query(sql, (err, res) => {
