@@ -88,16 +88,14 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
 
-			var el = document.getElementById('server-time');
-			console.log(el.innerHTML);
-			el.innerHTML = 'Server time: ';
-			socket.on('time', function(timeString) {
-				el.innerHTML = 'Server time: ' + timeString;
-			});
-			console.log(el.innerHTML);
-			// console.log(loaded);
-			// if(loaded <= 1){
-			// loaded++;
+			// var el = document.getElementById('server-time');
+			// console.log(el.innerHTML);
+			// el.innerHTML = 'Server time: ';
+			// socket.on('time', function(timeString) {
+			// 	el.innerHTML = 'Server time: ' + timeString;
+			// });
+			// console.log(el.innerHTML);
+
 			
 			var form = document.querySelector('form');
 			var nameInput = document.getElementById('name');

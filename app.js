@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET.IO
-const io = socketIO(3000);
+const io = socketIO(process.env.PORT);
 
 //DATABASE CONNECTION
 
