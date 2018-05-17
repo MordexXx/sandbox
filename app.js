@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+var dateTime = require('node-datetime');
+var dt = dateTime.create();
+var date = dt.format('d-m-Y');
+
 //SOCKET.IO
 const server = express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -24,6 +28,9 @@ io.on('connection', (socket) => {
 
     socket.on('sql', function(data){
     console.log(data[0]);
+
+    sql = `INSERT INTO comments VALUES('${date}', '${data[0]}', '${data[1]}');`;
+    console.log(sql);
     });
 });
 
