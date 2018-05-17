@@ -116,4 +116,4 @@ app.post('*', (req, res) => {
 
 
 
-//setInterval(() => io.emit('comments', comments, 1000));
+setInterval(() => io.emit('comments', comments, 1000));
