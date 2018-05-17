@@ -37,13 +37,13 @@ var sql;
 
 
 app.post('*', (req, res) => {
-    // console.log(req.body);
-    // name = (req.body.name);
-    // comment = (req.body.comment);
-    // sql = `INSERT INTO comments VALUES('${date}', '${name}', '${comment}');`;
-    // console.log(sql);
-    // sql = JSON.parse(sql);
-    // console.log(sql);
+    console.log(req.body);
+    name = (req.body.name);
+    comment = (req.body.comment);
+    sql = `INSERT INTO comments VALUES('${date}', '${name}', '${comment}');`;
+    console.log(sql);
+    sql = JSON.parse(sql);
+    console.log(sql);
     const client = new Client({
         connectionString: process.env.DATABASE_URL,
         ssl: true,
@@ -51,12 +51,13 @@ app.post('*', (req, res) => {
     client.connect()
         .then(() => {
             console.log('Connection succesful');
+            client.query(sql, (err, res) => {
+                if (err) throw err;
+                console.log(result);
+            });
         });
-    // 
-    // client.query(sql, (err, res) => {
-    //     if (err) throw err;
-    //     console.log(result);
-    // });
+    
+
     //res.redirect('/');
     // client.end(); 
     // });
