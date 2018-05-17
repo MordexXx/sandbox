@@ -38,7 +38,7 @@ vieraskirjaHTML += `</ul>
 				<button type="submit">Jätä viesti</button>
 				</form>`;
 
-vieraskirjaHTML += `<div id='server-time'></div>`;
+vieraskirjaHTML += `<div id='comments'></div>`;
 
 var loaded = 1;
 vieraskirjaHTML = vieraskirjaHTML;
@@ -88,9 +88,9 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
 
-			var el = document.getElementById('server-time');
-			socket.on('time', function(timeString) {
-				el.innerHTML = 'Server time: ' + timeString;
+			var el = document.getElementById('comments');
+			socket.on('comments', function(comments) {
+				el.innerHTML += `${this.comments}`;
 			});
 
 			
