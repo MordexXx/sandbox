@@ -46,9 +46,9 @@ app.post('*', function (req, res) {
     query = JSON.stringify(`INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`);
     console.log(query);
    
-    // client.query(query, (err, res) => {
-    // if (err) throw err;
-    // });
+    client.query(query, (err, res) => {
+    if (err) throw err;
+    });
 
     //res.redirect('/'); 
 });
