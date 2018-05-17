@@ -89,12 +89,9 @@ for (var i = 0; i < btns.length; i++) {
 			currentPageContent.innerHTML = vieraskirjaHTML;
 
 			var el = document.getElementById('server-time');
-			console.log(el.innerHTML);
-			el.innerHTML = 'Server time: ';
 			socket.on('time', function(timeString) {
 				el.innerHTML = 'Server time: ' + timeString;
 			});
-			console.log(el.innerHTML);
 
 			
 			var form = document.querySelector('form');
