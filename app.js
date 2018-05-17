@@ -25,6 +25,9 @@ var fd = fs.openSync('./public/test.txt', 'w');
 const { Client } = require('pg');
 
 
+var comments = "<ul style=\"list-style-type: none;\">";
+
+
 //SET INSERT QUERY VALUES
 var dateTime = require('node-datetime');
 var dt = dateTime.create();
@@ -54,6 +57,24 @@ app.post('*', (req, res) => {
             client.query(sql, (err, res) => {
                 if (err) throw err;
             });
+            sql = 'SELECT * FROM comments';
+            client.query(sql, (err, res) => {
+                if (err) throw err;
+            
+                for (let row of res.rows) {
+                    comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
+                    fs.writeFile('./public/comments.txt', comments,  function(err) {
+                        if (err) {
+                           return console.error(err);
+                        }
+            
+                     });     
+                } 
+            
+            });
+            
+
+
         });
     
 
@@ -61,8 +82,6 @@ app.post('*', (req, res) => {
     // client.end(); 
     // });
 });
-
-var comments = "<ul style=\"list-style-type: none;\">";
 
 sql = 'SELECT * FROM comments';
 
