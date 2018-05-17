@@ -75,8 +75,8 @@ for (var i = 0; i < btns.length; i++) {
 					currentPageContent.innerHTML += `${this.responseText}`;
 					currentPageContent.innerHTML += `</ul><br><br>
 					<form method= "POST" action="">
-					<input placeholder="Anonymous" id="name" name="name"/>
-      				<input placeholder="viesti" id="comment" name="comment"/>
+					<input required placeholder="Laita tähän nimesi" id="name" name="Nimi"/>
+      				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="Viesti"/>
       				<button type="submit">Jätä viesti</button>
 					</form>`;
 					const form = document.querySelector('form');
