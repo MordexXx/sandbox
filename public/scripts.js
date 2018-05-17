@@ -66,14 +66,14 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
+			currentPageContent.innerHTML = vieraskirjaHTML;
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("GET", "./comments.txt", true);
 			xhttp.send();
 			xhttp.onload = function(){
 				if(this.status == 200){
-					currentPageContent.innerHTML = vieraskirjaHTML;
-					currentPageContent.innerHTML += `${this.responseText}`;
-					currentPageContent.innerHTML += `</ul>
+					vieraskirjaHTML += `${this.responseText}`;
+					vieraskirjaHTML += `</ul>
 					<form>
 					<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
       				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
