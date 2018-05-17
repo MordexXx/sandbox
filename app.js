@@ -14,6 +14,10 @@ app.use(bodyParder.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+//CLEAR COMMENT CACHE FILE
+var fd = fs.openSync('./public/test.txt', 'w');
+
+
 //DATABASE CONNECTION
 const { Client } = require('pg');
 
@@ -29,9 +33,9 @@ client.connect();
 var query = "INSERT INTO comments VALUES ('2018-05-17', 'Taina Testaaja', 'Tässä on minunkin viestini! Toimiikohan ääkköset?');";
 
 // app.post('/', function (req, res) {
-    client.query(query, (err, res) => {
-        if (err) throw err;
-    });
+    // client.query(query, (err, res) => {
+    //     if (err) throw err;
+    // });
 // });
 
 
