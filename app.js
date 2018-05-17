@@ -83,6 +83,7 @@ client.query(query, (err, res) => {
 
 app.post('*', function (req, res) {
     console.log(req.body);
+    console.log(res.body);
 
 
 
