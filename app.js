@@ -40,8 +40,8 @@ var comment;
 
 app.post('*', function (req, res) {
     console.log(req.body);
-    name = req.body.name;
-    comment = req.body.comment;
+    name = JSON.stringify(req.body.name);
+    comment = JSON.stringify(req.body.comment);
     var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
     console.log(query);
     
