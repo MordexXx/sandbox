@@ -21,22 +21,9 @@ var fd = fs.openSync('./public/test.txt', 'w');
 
 
 //DATABASE CONNECTION
-// const { Client } = require('pg');
 
-// const client = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: true,
-// });
+const { Client } = require('pg');
 
-// client.connect();
-
-
-const { Pool, Client } = require('pg');
-
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-});
 
 //SET INSERT QUERY VALUES
 var dateTime = require('node-datetime');
