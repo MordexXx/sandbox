@@ -1,5 +1,3 @@
-var socket = io();
-var el = document.getElementById('server-time');
 
 var etusivuHTML = "<H1>Tervetuloa</H1>";
 
@@ -41,9 +39,7 @@ vieraskirjaHTML += `</ul>
 
 vieraskirjaHTML += `<div id="server-time"></div>`;
 
-socket.on('time', function(timeString) {
-	el.innerHTML = 'Server time: ' + timeString;
-});
+
 
 // socket.on('chat', funtion(data){
 // 	output.innerHTML += `${data}`;
@@ -95,6 +91,14 @@ for (var i = 0; i < btns.length; i++) {
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
+
+			var socket = io();
+			var el = document.getElementById('server-time');
+
+			socket.on('time', function(timeString) {
+				el.innerHTML = 'Server time: ' + timeString;
+			});
+
 			// console.log(loaded);
 			// if(loaded <= 1){
 			// loaded++;
