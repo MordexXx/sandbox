@@ -78,6 +78,7 @@ for (var i = 0; i < btns.length; i++) {
       				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
       				<button type="submit">Jätä viesti</button>
 					</form>`;
+					currentPageContent.innerHTML = vieraskirjaHTML;
 					var form = document.querySelector('form');
 					var nameInput = document.getElementById('name');
 					var commentInput = document.getElementById('comment');
