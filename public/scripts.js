@@ -40,13 +40,13 @@ vieraskirjaHTML += `</ul>
 var loaded = 1;
 vieraskirjaHTML = vieraskirjaHTML;
 
-var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "./comments.txt", true);
-xhttp.send();
-xhttp.onload = function(){
-vieraskirjaComments = this.responseText;
-vieraskirjaHTML = vieraskirjaHTML+vieraskirjaComments;
-}
+// var xhttp = new XMLHttpRequest();
+// xhttp.open("GET", "./comments.txt", true);
+// xhttp.send();
+// xhttp.onload = function(){
+// vieraskirjaComments = this.responseText;
+// vieraskirjaHTML = vieraskirjaHTML+vieraskirjaComments;
+// }
 
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
@@ -99,9 +99,7 @@ for (var i = 0; i < btns.length; i++) {
 				xth.open("POST", "*", true);
 				var data = `name=${nameInput.value}&comment=${commentInput.value}`;
 				xth.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				xth.send(data);	
-				console.log(data);			
-				console.log(result);
+				xth.send(data);		
 				e.preventDefault();
 			}
 			// }
