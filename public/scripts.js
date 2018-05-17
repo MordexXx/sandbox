@@ -43,7 +43,8 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "./comments.txt", true);
 xhttp.send();
 xhttp.onload = function(){
-vieraskirjaHTML += `${this.responseText}`;
+vieraskirjaComments = this.responseText;
+vieraskirjaHTML += `${vieraskirjaComments}`;
 }
 
 function loadetusivu(){
