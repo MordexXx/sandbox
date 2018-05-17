@@ -64,7 +64,7 @@ client.query(query, (err, res) => {
 });
 
 
-app.get('/comments/add', function (req, res) {
+app.get('/add', function (req, res) {
     res.redirect('/');
 });
 
