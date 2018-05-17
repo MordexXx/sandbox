@@ -21,14 +21,21 @@ var fd = fs.openSync('./public/test.txt', 'w');
 
 
 //DATABASE CONNECTION
-const { Client } = require('pg');
+// const { Client } = require('pg');
 
-const client = new Client({
+// const client = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: true,
+// });
+
+// client.connect();
+
+
+const { Pool } = require('pg');
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
-});
-
-client.connect();
+})
 
 //SET INSERT QUERY VALUES
 var dateTime = require('node-datetime');
@@ -46,11 +53,11 @@ app.post('*', function (req, res) {
     query = JSON.stringify(`INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`);
     console.log(query);
    
-    client.query(query, (err, res) => {
+    pool.query(query, (err, res) => {
     if (err) throw err;
     console.log('wtf?');
     });
-    //client.end();
+    pool.end();
     //res.redirect('/'); 
 });
 
@@ -61,7 +68,7 @@ app.post('*', function (req, res) {
 var comments = "<ul style=\"list-style-type: none;\">";
 
 query = 'SELECT * FROM comments';
-client.query(query, (err, res) => {
+pool.query(query, (err, res) => {
     if (err) throw err;
 
     for (let row of res.rows) {
