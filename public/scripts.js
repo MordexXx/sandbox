@@ -38,7 +38,7 @@ vieraskirjaHTML += `</ul>
 				<button type="submit">Jätä viesti</button>
 				</form>`;
 
-vieraskirjaHTML += `<div id="server-time"></div>`;
+vieraskirjaHTML += `<div id='server-time'></div>`;
 
 
 
