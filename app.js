@@ -18,6 +18,7 @@ var dateTime = require('node-datetime');
 var dt = dateTime.create();
 var date = dt.format('d-m-Y');
 var comments = "<ul style=\"list-style-type: none;\">";
+var sql;
 
 //SOCKET.IO
 const server = express()
@@ -39,6 +40,7 @@ io.on('connection', (socket) => {
          }) 
         client.connect();
         client.query(sql, (err, res) => {});
+        sql = 'SELECT * FROM comments';
         client.query(sql, (err, res) => {
             for (let row of res.rows) {        
                 comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;             
@@ -56,29 +58,6 @@ app.use(bodyParder.urlencoded({extended: false}));
 
 //SET STATIC PATH
 // app.use(express.static(path.join(__dirname, 'public')));
-
-
-
-
-
-
-
-
-//SET INSERT QUERY VALUES
-var dateTime = require('node-datetime');
-var dt = dateTime.create();
-var date = dt.format('d-m-Y');
-
-var name;
-var comment;
-var sql;
-
-sql = 'SELECT * FROM comments';
-
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-})
 
 
 
