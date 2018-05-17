@@ -44,10 +44,10 @@ app.post('*', function (req, res) {
     comment = JSON.stringify(req.body.comment);
     var query = `INSERT INTO comments VALUES ("${date}", ${name}, ${comment});`;
     console.log(query);
-    
-    // client.query(query, (err, res) => {
-    //     if (err) throw err;
-    // });
+    res.send('Viesti vastaanotettu!');    
+    client.query(query, (err, res) => {
+    if (err) throw err;
+    });
 });
 
 
