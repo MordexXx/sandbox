@@ -66,7 +66,17 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
-	
+				
+			
+				document.getElementById('SubmitComment').addEventListener('click',postComment);
+
+				function postComment(){
+					var xhr = new XMLHttpRequest();
+					xhr.open('GET', '/comments/add', true);
+					xhr.send();
+				}
+
+
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("GET", "./test.txt", true);
 				xhttp.send();
