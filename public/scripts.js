@@ -74,7 +74,7 @@ for (var i = 0; i < btns.length; i++) {
 					currentPageContent.innerHTML = vieraskirjaHTML;
 					currentPageContent.innerHTML += `${this.responseText}`;
 					currentPageContent.innerHTML += `</ul><br>
-					<form method="POST" action="#">
+					<form action="">
       				<input placeholder="comment" name="comment"/>
       				<button type="submit">Jätä viesti</button>
     				</form>`;
