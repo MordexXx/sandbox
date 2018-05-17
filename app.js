@@ -5,11 +5,11 @@ const bodyParder = require('body-parser');
 const socketIO = require('socket.io');
 const path = require('path');
 const fs = require('fs');
-const app = express();
 
 const PORT = process.env.PORT || 3000;
-const INDEX = express.static(path.join(__dirname, 'public'));
+//const INDEX = path.join(__dirname, 'public');
 
+const app = express();
 
 //app.listen(process.env.PORT);
 
@@ -18,12 +18,12 @@ app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
 
 //SET STATIC PATH
-//app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET.IO
 const server = express()
-  .use((req, res) => res.sendFile(INDEX) )
+  .use(express.static(path.join(__dirname, 'public')))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 const io = socketIO(server);
