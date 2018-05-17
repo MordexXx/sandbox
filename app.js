@@ -21,7 +21,7 @@ const { Client } = require('pg');
 var dateTime = require('node-datetime');
 var dt = dateTime.create();
 var date = dt.format('d-m-Y');
-var comments = "<ul style=\"list-style-type: none;\">";
+var comments = '';
 var sql;
 
 //SOCKET.IO
@@ -44,9 +44,9 @@ io.on('connection', (socket) => {
         client.connect();
         sql = 'SELECT * FROM comments';
         client.query(sql, (err, res) => {
-            comments = "<ul style=\"list-style-type: none;\">";
+            comments = '';
             for (let row of res.rows) {        
-                comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;             
+                comments = `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br> + ${comments}`;             
             } 
         });
 
@@ -62,9 +62,9 @@ io.on('connection', (socket) => {
         client.query(sql, (err, res) => {});
         sql = 'SELECT * FROM comments';
         client.query(sql, (err, res) => {
-            comments = "<ul style=\"list-style-type: none;\">";
+            comments = '';
             for (let row of res.rows) {        
-                comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;             
+                comments = `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br> + ${comments}`;              
             } 
         });
     });

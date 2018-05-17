@@ -31,12 +31,12 @@ yhteystiedotHTML +=`
 
 var vieraskirjaHTML = '<h1>Vieraskirja</h1>';
 
-vieraskirjaHTML += `</ul>
+vieraskirjaHTML += `
 				<form>
 				<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
 				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
 				<button type="submit">Jätä viesti</button>
-				</form>`;
+				</form><ul style=\"list-style-type: none;\">`;
 
 vieraskirjaHTML += `<div id='comments'></div>`;
 
