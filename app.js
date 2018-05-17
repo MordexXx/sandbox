@@ -28,11 +28,19 @@ const client = new Client({
 
 client.connect();
 
+//SET INSERT QUERY VALUES
 var dateTime = require('node-datetime');
 var dt = dateTime.create();
 var date = dt.format('Y-m-d');
-console.log(date);
-var query = "INSERT INTO comments VALUES ('2018-05-17', 'Taina Testaaja', 'Tässä on minunkin viestini! Toimiikohan ääkköset?');";
+
+var name = 'Taina Testaaja';
+
+var comment = 'Tässä on minunkin viestini! Toimiikohan ääkköset?';
+
+
+var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
+
+console.log(query);
 
 // app.post('/', function (req, res) {
     // client.query(query, (err, res) => {
