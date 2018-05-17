@@ -73,7 +73,7 @@ for (var i = 0; i < btns.length; i++) {
 				if(this.status == 200){
 					currentPageContent.innerHTML = vieraskirjaHTML;
 					currentPageContent.innerHTML += `${this.responseText}`;
-					currentPageContent.innerHTML += `</ul><br><br>
+					currentPageContent.innerHTML += `</ul>
 					<form>
 					<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
       				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
