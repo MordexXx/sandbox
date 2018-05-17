@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParder = require('body-parser');
 const path = require('path');
-const socket = require('socket.io');
+const socketIO = require('socket.io');
 const fs = require('fs');
 const PORT = process.env.PORT || 3000;
 
