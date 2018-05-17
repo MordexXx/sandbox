@@ -67,6 +67,7 @@ for (var i = 0; i < btns.length; i++) {
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
+			console.log(loaded);
 			loaded++;
 			if(loaded <= 1){			
 				var xhttp = new XMLHttpRequest();
