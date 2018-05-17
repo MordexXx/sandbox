@@ -23,12 +23,6 @@ var fd = fs.openSync('./public/test.txt', 'w');
 //DATABASE CONNECTION
 const { Client } = require('pg');
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
-
-client.connect();
 
 //SET INSERT QUERY VALUES
 var dateTime = require('node-datetime');
@@ -45,12 +39,17 @@ app.post('*', function (req, res) {
     comment = (req.body.comment);
     query = JSON.stringify(`INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`);
     console.log(query);
-   
+
+    const client = new Client({
+        connectionString: process.env.DATABASE_URL,
+        ssl: true,
+      });
+    client.connect();
     client.query(query, (err, res) => {
     if (err) throw err;
     console.log('wtf?');
     });
-
+    client.end();
     //res.redirect('/'); 
 });
 
@@ -59,6 +58,11 @@ app.post('*', function (req, res) {
 
 
 var comments = "<ul style=\"list-style-type: none;\">";
+
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  });
 
 query = 'SELECT * FROM comments';
 client.query(query, (err, res) => {
@@ -78,7 +82,7 @@ client.query(query, (err, res) => {
             // });
          });     
     } 
-    //client.end();
+    client.end();
 
 });
 
