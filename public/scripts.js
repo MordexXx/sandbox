@@ -68,7 +68,7 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
 			loaded++;
-			if(loaded == 1){			
+			if(loaded <= 1){			
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("GET", "./comments.txt", true);
 				xhttp.send();
