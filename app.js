@@ -1,11 +1,10 @@
-var express = require('express');
-var bodyParder = require('body-parser');
-var path = require('path');
-var socket = require('socket.io');
-
+const express = require('express');
+const bodyParder = require('body-parser');
+const path = require('path');
+const socket = require('socket.io');
 const fs = require('fs');
 
-var app = express();
+const app = express();
 
 
 //BODY PARSER MIDDLEWARE
@@ -17,11 +16,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET SETUP
-var io = socket(process.env.PORT);
+var io = socket(3000);
 
 io.on('connection', function(socket){
     console.log('SOCKET OPEN');
-
 });
 //DATABASE CONNECTION
 
