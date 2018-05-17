@@ -69,7 +69,7 @@ client.query(sql, (err, res) => {
 });
 console.log(comments);
 
-socket.on('sql', function(data){
+io.on('sql', function(data){
         console.log(data);
 });
 
