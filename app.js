@@ -43,9 +43,9 @@ var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
 console.log(query);
 
 // app.post('/', function (req, res) {
-    client.query(query, (err, res) => {
-        if (err) throw err;
-    });
+    // client.query(query, (err, res) => {
+    //     if (err) throw err;
+    // });
 // });
 
 var comments = "<ul style=\"list-style-type: none;\">";
@@ -55,7 +55,7 @@ client.query(query, (err, res) => {
     if (err) throw err;
 
     for (let row of res.rows) {
-        comments += `<b><li>${row.date} | ${row.name}</li>:</b><li>${row.comment}</li>`;           
+        comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
         fs.writeFile('./public/comments.txt', comments,  function(err) {
             if (err) {
                return console.error(err);
