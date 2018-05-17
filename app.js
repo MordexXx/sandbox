@@ -21,19 +21,6 @@ app.use(bodyParder.urlencoded({extended: false}));
 // app.use(express.static(path.join(__dirname, 'public')));
 
 
-//SOCKET.IO
-const server = express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
-
-const io = socketIO(server);
-
-io.on('connection', (socket) => {
-    console.log('Client connected');
-    socket.on('disconnect', () => console.log('Client disconnected'));
-  });
-
-
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
@@ -67,7 +54,7 @@ client.query(sql, (err, res) => {
     } 
 
 });
-
+console.log(comments);
 
 app.post('*', (req, res) => {
     console.log(req.body);
@@ -114,5 +101,16 @@ app.post('*', (req, res) => {
     // });
 });
 
-setInterval(() => io.emit('time', comments, 1000));
 
+//SOCKET.IO
+const server = express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+const io = socketIO(server);
+
+io.on('connection', (socket) => {
+    console.log('Client connected');
+    socket.on('disconnect', () => console.log('Client disconnected'));
+  });
+setInterval(() => io.emit('comments', comments, 1000));
