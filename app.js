@@ -113,4 +113,4 @@ io.on('connection', (socket) => {
     console.log('Client connected');
     socket.on('disconnect', () => console.log('Client disconnected'));
   });
-setInterval(() => io.emit('comments', comments, 1000));
+//setInterval(() => io.emit('comments', comments, 1000));
