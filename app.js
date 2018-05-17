@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
-const bodyParder = require('body-parser');
-const server = require('http').createServer(app);  
+const server = require('http').Server(app);  
 const io = require('socket.io')(server);
+
+
 const path = require('path');
 const fs = require('fs');
+const bodyParder = require('body-parser');
 
-
-
+server.listen(80);
 app.listen(process.env.PORT);
 
 //BODY PARSER MIDDLEWARE
@@ -19,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET.IO
-io.on('connection', function(client){
+io.on('connection', function(socket){
     console.log('a user connected');
 });
 
