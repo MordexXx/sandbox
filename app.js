@@ -42,11 +42,15 @@ var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
 
 console.log(query);
 
-// app.post('/', function (req, res) {
+app.post('/', function (req, res) {
+    console.log(res.body);
+
+
+
     // client.query(query, (err, res) => {
     //     if (err) throw err;
     // });
-// });
+});
 
 var comments = "<ul style=\"list-style-type: none;\">";
 

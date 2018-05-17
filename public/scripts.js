@@ -75,19 +75,22 @@ for (var i = 0; i < btns.length; i++) {
 					currentPageContent.innerHTML += `${this.responseText}`;
 					currentPageContent.innerHTML += `</ul><br><br>
 					<form method= "POST" action="">
-					<input required placeholder="Laita tähän nimesi" id="name" name="Nimi"/>
-      				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="Viesti"/>
+					<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
+      				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
       				<button type="submit">Jätä viesti</button>
 					</form>`;
-					const form = document.querySelector('form');
-					const nameInput = document.getElementById('name');
-					const commentInput = document.getElementById('comment');
+					var form = document.querySelector('form');
+					var nameInput = document.getElementById('name');
+					var commentInput = document.getElementById('comment');
 
 					form.addEventListener('submit', runEvent);
 
 					function runEvent(e){
-						console.log(nameInput.value);
-						console.log(commentInput.value);
+						var xth = new XMLHttpRequest();
+						xth.open("POST", "*", true);
+						var data = `name=${nameInput.value}&comment=${commentInput.value}`;
+						xth.send(data);	
+						console.log(data);
 						e.preventDefault();
 					}
 
