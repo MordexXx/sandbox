@@ -64,6 +64,15 @@
 	</footer>
 
 	<script src="scripts.js"></script>
+	<script>
+		document.getElementById('SubmitComment').addEventListener('click',postComment);
+
+		function postComment(){
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/', true);
+			xhr.send();
+		}
+	</script>
 
 </body>
 </html>
