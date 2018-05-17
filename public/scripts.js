@@ -66,7 +66,6 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
-			currentPageContent.innerHTML = vieraskirjaHTML;
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("GET", "./comments.txt", true);
 			xhttp.send();
@@ -94,10 +93,10 @@ for (var i = 0; i < btns.length; i++) {
 						console.log(data);
 						e.preventDefault();
 					}
-
+				currentPageContent.innerHTML = vieraskirjaHTML;
 				}
 				else{
-					currentPageContent.innerHTML = vieraskirjaHTML;
+				currentPageContent.innerHTML = vieraskirjaHTML;
 				}
 
 			}
