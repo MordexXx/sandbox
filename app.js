@@ -59,11 +59,7 @@ client.query(query, (err, res) => {
             });
          });     
     } 
-    client.end();
-
 });
-
-client.connect();
 
 app.get('/', function (req, res) {
     var query= `INSERT INTO comments VALUES ('2018-05-17, 'Taina Testaaja', 'Äääääkkösiä!');`;
@@ -71,9 +67,10 @@ app.get('/', function (req, res) {
         if (err) throw err;
         console.log("Rivi lisätty!?");
     });
-    client.end();
+
 });
 
+client.end();
 app.listen(process.env.PORT);
 
 
