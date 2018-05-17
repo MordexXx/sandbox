@@ -42,7 +42,7 @@ app.post('*', function (req, res) {
     console.log(req.body);
     name = JSON.stringify(req.body.name);
     comment = JSON.stringify(req.body.comment);
-    var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
+    var query = `INSERT INTO comments VALUES ("${date}", ${name}, ${comment});`;
     console.log(query);
     
     // client.query(query, (err, res) => {
