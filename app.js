@@ -48,11 +48,15 @@ app.post('*', (req, res) => {
         connectionString: process.env.DATABASE_URL,
         ssl: true,
     });
-    client.connect();
-    client.query(sql, (err, res) => {
-        if (err) throw err;
-        console.log(result);
-    });
+    client.connect()
+        .then(() => {
+            console.log('Connection succesful');
+
+        });
+    // client.query(sql, (err, res) => {
+    //     if (err) throw err;
+    //     console.log(result);
+    // });
     //res.redirect('/');
     client.end(); 
 });
