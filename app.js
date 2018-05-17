@@ -62,8 +62,6 @@ app.post('*', function (req, res) {
 });
 
 
-
-
 // var comments = "<ul style=\"list-style-type: none;\">";
 
 // query = 'SELECT * FROM comments';
