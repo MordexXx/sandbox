@@ -5,7 +5,7 @@ const socketIO = require('socket.io');
 const fs = require('fs');
 const PORT = process.env.PORT || 3000;
 
-const app = express();
+//const app = express();
 
 const server = express()
   .use((req, res) => res.sendFile(INDEX) )
