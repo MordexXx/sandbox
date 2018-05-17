@@ -49,20 +49,24 @@ var sql;
 
 
 
-app.post('*', function (req, res) {
+app.post('*', (req, res) => {
     console.log(req.body);
     name = (req.body.name);
     comment = (req.body.comment);
     sql = `INSERT INTO comments VALUES('${date}', '${name}', '${comment}');`;
     sql = JSON.stringify(sql);
     console.log(sql);
-
-    // pool.query(query, (err, res) => {
-    // if (err) throw err;
-    // console.log('wtf?');
-    // });
-    // pool.end();
-    //res.redirect('/'); 
+    const client = new Client({
+        connectionString: process.env.DATABASE_URL,
+        ssl: true,
+    });
+    client.connect();
+    client.query(sql, (err, res) => {
+        if (err) throw err;
+        console.log('wtf?');
+    });
+    //res.redirect('/');
+    client.end(); 
 });
 
 
