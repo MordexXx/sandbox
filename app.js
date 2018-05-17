@@ -11,6 +11,18 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+//SOCKET.IO
+const server = express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+const io = socketIO(server);
+
+io.on('connection', (socket) => {
+    console.log('Client connected');
+    socket.on('disconnect', () => console.log('Client disconnected'));
+  });
+
 //app.listen(process.env.PORT);
 
 //BODY PARSER MIDDLEWARE
@@ -56,7 +68,7 @@ client.query(sql, (err, res) => {
 });
 console.log(comments);
 
-app.post('*', (req, res) => {
+server.post('*', (req, res) => {
     console.log(req.body);
     name = (req.body.name);
     comment = (req.body.comment);
@@ -102,15 +114,5 @@ app.post('*', (req, res) => {
 });
 
 
-//SOCKET.IO
-const server = express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-const io = socketIO(server);
-
-io.on('connection', (socket) => {
-    console.log('Client connected');
-    socket.on('disconnect', () => console.log('Client disconnected'));
-  });
 //setInterval(() => io.emit('comments', comments, 1000));
