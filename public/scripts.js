@@ -7,9 +7,7 @@ socket.on('time', function(timeString) {
 
 var output = document.getElementById('output');
 
-// socket.on('chat', funtion(data){
-// 	output:innerHTML += `${data}`;
-// });
+
 
 var etusivuHTML = "<H1>Tervetuloa</H1>";
 
@@ -49,9 +47,11 @@ vieraskirjaHTML += `</ul>
 				<button type="submit">Jätä viesti</button>
 				</form>`;
 
-vieraskirjaHTML += `<div id="output"></div>`;
+vieraskirjaHTML += `<div id="server-time"></div>`;
 
-
+// socket.on('chat', funtion(data){
+// 	output.innerHTML += `${data}`;
+// });
 var loaded = 1;
 vieraskirjaHTML = vieraskirjaHTML;
 
