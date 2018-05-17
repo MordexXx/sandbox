@@ -79,6 +79,7 @@ app.post('*', (req, res) => {
             client.query(sql, (err, res) => {
                 console.log(res.rows);
                 var result = res.rows;
+                return result;
                 // if (err) throw err;
 
                 // for (let row of res.rows) {
