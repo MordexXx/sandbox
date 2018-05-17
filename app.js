@@ -50,7 +50,7 @@ app.post('*', function (req, res) {
     if (err) throw err;
     console.log('wtf?');
     });
-    client.end();
+    //client.end();
     //res.redirect('/'); 
 });
 
