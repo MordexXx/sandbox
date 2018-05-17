@@ -76,7 +76,6 @@ for (var i = 0; i < btns.length; i++) {
 					xhttp.send();
 					xhttp.onload = function(){
 					vieraskirjaHTML += `${this.responseText}`;
-					}
 					vieraskirjaHTML += `</ul>
 					<form>
 					<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
@@ -84,6 +83,7 @@ for (var i = 0; i < btns.length; i++) {
 					<button type="submit">Jätä viesti</button>
 					</form>`;
 					currentPageContent.innerHTML = vieraskirjaHTML;
+					}
 					var form = document.querySelector('form');
 					var nameInput = document.getElementById('name');
 					var commentInput = document.getElementById('comment');
