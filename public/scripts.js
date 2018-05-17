@@ -43,13 +43,13 @@ vieraskirjaHTML += `<div id='comments'></div>`;
 var loaded = 1;
 vieraskirjaHTML = vieraskirjaHTML;
 
-var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "./comments.txt", true);
-xhttp.send();
-xhttp.onload = function(){
-vieraskirjaComments = this.responseText;
-vieraskirjaHTML = vieraskirjaHTML+vieraskirjaComments;
-}
+// var xhttp = new XMLHttpRequest();
+// xhttp.open("GET", "./comments.txt", true);
+// xhttp.send();
+// xhttp.onload = function(){
+// vieraskirjaComments = this.responseText;
+// vieraskirjaHTML = vieraskirjaHTML+vieraskirjaComments;
+// }
 
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
@@ -90,7 +90,7 @@ for (var i = 0; i < btns.length; i++) {
 
 			var el = document.getElementById('comments');
 			socket.on('comments', function(comments) {
-				el.innerHTML += `${this.comments}`;
+				el.innerHTML += `${comments}`;
 			});
 
 			
