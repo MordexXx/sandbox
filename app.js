@@ -35,22 +35,24 @@ var dateTime = require('node-datetime');
 var dt = dateTime.create();
 var date = dt.format('d-m-Y');
 
-var name = 'Taina Testaaja';
-
-var comment = 'Tässä on minunkin viestini! Toimiikohan ääkköset?';
-
-
-var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
-
-console.log(query);
+var name;
+var comment;
 
 app.post('*', function (req, res) {
     console.log(req.body);
-
+    name = req.body.name;
+    comment = req.body.comment;
+    var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
+    console.log(query);
+    
     // client.query(query, (err, res) => {
     //     if (err) throw err;
     // });
 });
+
+
+
+
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
