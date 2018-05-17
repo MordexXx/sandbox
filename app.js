@@ -31,7 +31,6 @@ var query = `INSERT INTO comments VALUES ('2018-05-17, 'Noora Testinainen', 'Tä
 app.post('/', function (req, res) {
     client.query(query, (err, res) => {
         if (err) throw err;
-        console.log(res.body);
     });
 });
 
