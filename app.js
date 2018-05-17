@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 var io = socket(3000);
 
 io.on('connection', function(socket){
-    console.log('SOCKET OPEN');
+    io.sockets.emit('comments','test');
 });
 //DATABASE CONNECTION
 
