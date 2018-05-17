@@ -79,7 +79,6 @@ app.post('*', (req, res) => {
             client.query(sql, (err, res) => {
                 console.log(res.rows);
                 var result = res.rows;
-                res.send(result);
                 // if (err) throw err;
 
                 // for (let row of res.rows) {
@@ -103,6 +102,7 @@ app.post('*', (req, res) => {
     //res.redirect('/');
     // client.end(); 
     // });
+    res.send(result);
 });
 
 
