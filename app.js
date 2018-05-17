@@ -93,7 +93,6 @@ client.query(sql, (err, res) => {
 
          });     
     } 
-    client.end();
 
 });
 
