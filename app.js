@@ -1,32 +1,21 @@
 const express = require('express');
 const bodyParder = require('body-parser');
-const path = require('path');
 const socketIO = require('socket.io');
+const path = require('path');
+
 const fs = require('fs');
-const PORT = process.env.PORT || 3000;
-const INDEX = path.join(__dirname, 'public');
 
+const app = express();
 
-const app = express()
-.use((req, res) => res.sendFile(INDEX) )
-.listen(PORT, () => console.log(`Listening on ${ PORT }`));
-
+app.listen(process.env.PORT);
 
 //BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
 
 //SET STATIC PATH
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-//SOCKET SETUP
-const io = socketIO(app);
-
-io.on('connection', (socket) => {
-    console.log('Client connected');
-    socket.on('disconnect', () => console.log('Client disconnected'));
-  });
 
 //DATABASE CONNECTION
 
@@ -57,8 +46,8 @@ client.query(sql, (err, res) => {
     if (err) throw err;
 
     for (let row of res.rows) {
-
-        //localStorage.setItem(comments,row);
+        
+        localStorage.setItem(comments,row);
         // comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
         // fs.writeFile('./public/comments.txt', comments,  function(err) {
         //     if (err) {
@@ -72,7 +61,6 @@ client.query(sql, (err, res) => {
 
 
 app.post('*', (req, res) => {
-    var result;
     console.log(req.body);
     name = (req.body.name);
     comment = (req.body.comment);
@@ -115,8 +103,7 @@ app.post('*', (req, res) => {
     //res.redirect('/');
     // client.end(); 
     // });
-    res.send(result);
 });
 
 
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+
