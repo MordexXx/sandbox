@@ -102,9 +102,7 @@ for (var i = 0; i < btns.length; i++) {
 
 			function runEvent(e){
 				e.preventDefault();
-				var data;
-				data.name = nameInput.value;
-				data.comment = commentInput.value;				
+				var data = [nameInput.value, commentInput.value];			
 				//`name=${nameInput.value}&comment=${commentInput.value}`;
 				socket.emit('sql',data);
 			}
