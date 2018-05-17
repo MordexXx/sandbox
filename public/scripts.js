@@ -88,8 +88,9 @@ for (var i = 0; i < btns.length; i++) {
 					function runEvent(e){
 						var xth = new XMLHttpRequest();
 						xth.open("POST", "*", true);
-						var data = `name=${nameInput.value}&comment=${commentInput.value}`;
-						xth.send();	
+						var data = `"name=${nameInput.value}&comment=${commentInput.value}"`;
+						xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						xth.send(data);	
 						console.log(data);
 						e.preventDefault();
 					}
