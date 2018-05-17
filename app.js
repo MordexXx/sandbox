@@ -31,11 +31,7 @@ var fd = fs.openSync('./public/test.txt', 'w');
 // client.connect();
 
 
-const { Pool } = require('pg');
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-})
+const { Pool, Client } = require('pg');
 
 //SET INSERT QUERY VALUES
 var dateTime = require('node-datetime');
@@ -45,6 +41,11 @@ var date = dt.format('d-m-Y');
 var name;
 var comment;
 var query;
+
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+})
 
 app.post('*', function (req, res) {
     console.log(req.body);
@@ -62,29 +63,31 @@ app.post('*', function (req, res) {
 });
 
 
-// var comments = "<ul style=\"list-style-type: none;\">";
+var comments = "<ul style=\"list-style-type: none;\">";
 
-// query = 'SELECT * FROM comments';
-// pool.query(query, (err, res) => {
-//     if (err) throw err;
+query = 'SELECT * FROM comments';
 
-//     for (let row of res.rows) {
-//         comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
-//         fs.writeFile('./public/comments.txt', comments,  function(err) {
-//             if (err) {
-//                return console.error(err);
-//             }
-//             // fs.readFile('./public/test.txt', function (err, data) {
-//             //    if (err) {
-//             //       return console.error(err);
-//             //    }
-//             //    console.log("Asynchronous read: " + data.toString());
-//             // });
-//          });     
-//     } 
-//     //client.end();
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+})
 
-// });
+client.connect();
+client.query(query, (err, res) => {
+    if (err) throw err;
+
+    for (let row of res.rows) {
+        comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
+        fs.writeFile('./public/comments.txt', comments,  function(err) {
+            if (err) {
+               return console.error(err);
+            }
+            
+         });     
+    } 
+    client.end();
+
+});
 
 
 
