@@ -68,6 +68,7 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 
 				if(currentPageContent.innerHTML.includes("form")){
+					console.log(cureentPageContent.innerHTML);
 					currentPageContent.innerHTML = vieraskirjaHTML;
 				}
 				else{
