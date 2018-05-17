@@ -34,26 +34,26 @@ var sql;
 
 sql = 'SELECT * FROM comments';
 
-// const client = new Client({
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: true,
-// })
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+})
 
-// client.connect();
-// client.query(sql, (err, res) => {
-//     if (err) throw err;
+client.connect();
+client.query(sql, (err, res) => {
+    if (err) throw err;
 
-//     for (let row of res.rows) {
-//         comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
+    for (let row of res.rows) {
+        comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
         // fs.writeFile('./public/comments.txt', comments,  function(err) {
         //     if (err) {
         //        return console.error(err);
         //     }
 
         //  });     
-//     } 
+    } 
 
-// });
+});
 
 
 app.post('*', (req, res) => {
@@ -73,19 +73,31 @@ app.post('*', (req, res) => {
         .then(() => {
             console.log('Connection succesful');
             client.query(sql, (err, res) => {
-                console.log('result',res);    
+                if (err) throw err;
             });
-
-
             sql = 'SELECT * FROM comments';
             client.query(sql, (err, res) => {
-            console.log(res.rows);    
+                console.log(res.rows);
+                // if (err) throw err;
+
+                // for (let row of res.rows) {
+                //     result += `${row}`;
+                //     comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
+                //     fs.writeFile('./public/comments.txt', comments,  function(err) {
+                //         if (err) {
+                //            return console.error(err);
+                //         }
+            
+                //      });     
+                // } 
+            
             });
             
 
 
         });
     
+
     //res.redirect('/');
     // client.end(); 
     // });
