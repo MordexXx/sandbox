@@ -11,9 +11,13 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+//DATABASE CONNECTION
+const { Client } = require('pg');
+
 var dateTime = require('node-datetime');
 var dt = dateTime.create();
 var date = dt.format('d-m-Y');
+var comments = "<ul style=\"list-style-type: none;\">";
 
 //SOCKET.IO
 const server = express()
@@ -33,8 +37,13 @@ io.on('connection', (socket) => {
             connectionString: process.env.DATABASE_URL,
             ssl: true,
          }) 
-    client.connect();
-    client.query(sql, (err, res) => {});
+        client.connect();
+        client.query(sql, (err, res) => {});
+        client.query(sql, (err, res) => {
+            for (let row of res.rows) {        
+                comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;             
+            } 
+        });
     });
 });
 
@@ -49,12 +58,10 @@ app.use(bodyParder.urlencoded({extended: false}));
 // app.use(express.static(path.join(__dirname, 'public')));
 
 
-//DATABASE CONNECTION
-
-const { Client } = require('pg');
 
 
-var comments = "<ul style=\"list-style-type: none;\">";
+
+
 
 
 //SET INSERT QUERY VALUES
@@ -72,64 +79,6 @@ const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
 })
-
-client.connect();
-client.query(sql, (err, res) => {
-    if (err) throw err;
-
-    for (let row of res.rows) {        
-        comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;             
-    } 
-
-});
-console.log(comments);
-
-
-
-// app.post('*', (req, res) => {
-//     console.log(req.body);
-//     name = (req.body.name);
-//     comment = (req.body.comment);
-//     sql = `INSERT INTO comments VALUES('${date}', '${name}', '${comment}');`;
-//     console.log(sql);
-//     // sql = JSON.parse(sql);
-//     // console.log(sql);
-//     const client = new Client({
-//         connectionString: process.env.DATABASE_URL,
-//         ssl: true,
-//     });
-//     client.connect()
-//         .then(() => {
-//             console.log('Connection succesful');
-//             client.query(sql, (err, res) => {
-//                 if (err) throw err;
-//             });
-            // sql = 'SELECT * FROM comments';
-            // client.query(sql, (err, res) => {
-            //     if (err) throw err;
-
-            //     for (let row of res.rows) {
-            //         result += `${row}`;
-            //         comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
-            //         fs.writeFile('./public/comments.txt', comments,  function(err) {
-            //             if (err) {
-            //                return console.error(err);
-            //             }
-            
-            //          });     
-            //     } 
-            
-            // });
-            
-
-
-        // });
-    
-
-    //res.redirect('/');
-    // client.end(); 
-    // });
-// });
 
 
 
