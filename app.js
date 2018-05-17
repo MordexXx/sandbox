@@ -50,7 +50,7 @@ console.log(query);
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
-query = 'SELECT date::varchar,name,comment FROM comments';
+query = 'SELECT * FROM comments';
 client.query(query, (err, res) => {
     if (err) throw err;
 
