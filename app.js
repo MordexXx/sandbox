@@ -52,7 +52,7 @@ console.log(query);
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
-query = 'SELECT * FROM comments';
+query = `SELECT to_char('date', 'DD/MM/YYYY), 'name', 'comment'  FROM comments`;
 client.query(query, (err, res) => {
     if (err) throw err;
 
