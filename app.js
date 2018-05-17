@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => console.log('Client disconnected'));
 
     socket.on('sql', function(data){
-    console.log(data);
+    console.log(data[0]);
     });
 });
 
