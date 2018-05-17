@@ -6,6 +6,7 @@ const fs = require('fs');
 
 var app = express();
 
+app.listen(process.env.PORT);
 //Body Parser Middleware
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
@@ -77,5 +78,15 @@ client.query(query, (err, res) => {
 });
 
 
-app.listen(process.env.PORT);
+
+
+app.post('*', function (req, res) {
+    console.log(res.body);
+
+
+
+    // client.query(query, (err, res) => {
+    //     if (err) throw err;
+    // });
+});
 
