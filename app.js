@@ -42,10 +42,7 @@ var name;
 var comment;
 var query;
 
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-})
+
 
 app.post('*', function (req, res) {
     console.log(req.body);
@@ -54,7 +51,12 @@ app.post('*', function (req, res) {
     query = `INSERT INTO comments VALUES('${date}', '${name}', '${comment}');`;
     query = JSON.stringify(query);
     console.log(query);
-   
+
+    const pool = new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: true,
+    });
+
     pool.query(query, (err, res) => {
     if (err) throw err;
     console.log('wtf?');
