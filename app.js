@@ -37,6 +37,28 @@ var name;
 var comment;
 var sql;
 
+sql = 'SELECT * FROM comments';
+
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+})
+
+client.connect();
+client.query(sql, (err, res) => {
+    if (err) throw err;
+
+    for (let row of res.rows) {
+        comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
+        fs.writeFile('./public/comments.txt', comments,  function(err) {
+            if (err) {
+               return console.error(err);
+            }
+
+         });     
+    } 
+
+});
 
 
 app.post('*', (req, res) => {
@@ -83,28 +105,6 @@ app.post('*', (req, res) => {
     // });
 });
 
-sql = 'SELECT * FROM comments';
-
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-})
-
-client.connect();
-client.query(sql, (err, res) => {
-    if (err) throw err;
-
-    for (let row of res.rows) {
-        comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
-        fs.writeFile('./public/comments.txt', comments,  function(err) {
-            if (err) {
-               return console.error(err);
-            }
-
-         });     
-    } 
-
-});
 
 
 app.listen(process.env.PORT);
