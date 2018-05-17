@@ -75,9 +75,22 @@ for (var i = 0; i < btns.length; i++) {
 					currentPageContent.innerHTML += `${this.responseText}`;
 					currentPageContent.innerHTML += `</ul><br><br>
 					<form method= "POST" action="">
-      				<input placeholder="comment" name="comment"/>
+					<input placeholder="Anonymous" id="name" name="name"/>
+      				<input placeholder="viesti" id="comment" name="comment"/>
       				<button type="submit">Jätä viesti</button>
-    				</form>`;
+					</form>`;
+					const form = document.querySelector('form');
+					const nameInput = document.getElementById('name');
+					const commentInput = document.getElementById('comment');
+
+					form.addEventListener('submit', runEvent);
+
+					function runEvent(e){
+						console.log(nameInput.value);
+						console.log(commentInput.value);
+						e.preventDefault();
+					}
+
 				}
 				else{
 					currentPageContent.innerHTML = vieraskirjaHTML;
