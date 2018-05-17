@@ -24,6 +24,7 @@ io.on('connection', (socket) => {
   });
 
 //app.listen(process.env.PORT);
+app.listen(3000);
 
 //BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
@@ -68,7 +69,7 @@ client.query(sql, (err, res) => {
 });
 console.log(comments);
 
-server.post('*', (req, res) => {
+app.post('*', (req, res) => {
     console.log(req.body);
     name = (req.body.name);
     comment = (req.body.comment);
