@@ -66,7 +66,7 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
-
+				console.log(currentPage);
 				if(currentPage.includes("form")){
 
 				}
