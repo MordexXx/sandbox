@@ -33,6 +33,11 @@ var fd = fs.openSync('./public/test.txt', 'w');
 
 const { Pool, Client } = require('pg');
 
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+});
+
 //SET INSERT QUERY VALUES
 var dateTime = require('node-datetime');
 var dt = dateTime.create();
@@ -40,7 +45,7 @@ var date = dt.format('d-m-Y');
 
 var name;
 var comment;
-var query;
+var sql;
 
 
 
@@ -48,27 +53,22 @@ app.post('*', function (req, res) {
     console.log(req.body);
     name = (req.body.name);
     comment = (req.body.comment);
-    query = `INSERT INTO comments VALUES('${date}', '${name}', '${comment}');`;
-    query = JSON.stringify(query);
+    sql = `INSERT INTO comments VALUES('${date}', '${name}', '${comment}');`;
+    sql = JSON.stringify(query);
     console.log(query);
 
-    const pool = new Pool({
-        connectionString: process.env.DATABASE_URL,
-        ssl: true,
-    });
-
-    pool.query(query, (err, res) => {
-    if (err) throw err;
-    console.log('wtf?');
-    });
-    pool.end();
+    // pool.query(query, (err, res) => {
+    // if (err) throw err;
+    // console.log('wtf?');
+    // });
+    // pool.end();
     //res.redirect('/'); 
 });
 
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
-query = 'SELECT * FROM comments';
+sql = 'SELECT * FROM comments';
 
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
@@ -76,7 +76,7 @@ const client = new Client({
 })
 
 client.connect();
-client.query(query, (err, res) => {
+client.query(sql, (err, res) => {
     if (err) throw err;
 
     for (let row of res.rows) {
