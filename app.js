@@ -21,10 +21,14 @@ const io = socketIO(server);
 io.on('connection', (socket) => {
     console.log('Client connected');
     socket.on('disconnect', () => console.log('Client disconnected'));
-  });
+
+    socket.on('sql', function(data){
+    console.log(data);
+    });
+});
 
 //app.listen(process.env.PORT);
-app.listen(3000);
+//app.listen(3000);
 
 //BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
@@ -69,9 +73,6 @@ client.query(sql, (err, res) => {
 });
 console.log(comments);
 
-io.on('sql', function(data){
-        console.log(data);
-});
 
 
 // app.post('*', (req, res) => {
