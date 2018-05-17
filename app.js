@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+//BODY PARSER MIDDLEWARE
+app.use(bodyParder.json());
+app.use(bodyParder.urlencoded({extended: false}));
+
 //DATABASE CONNECTION
 const { Client } = require('pg');
 
@@ -42,23 +46,12 @@ io.on('connection', (socket) => {
         client.query(sql, (err, res) => {});
         sql = 'SELECT * FROM comments';
         client.query(sql, (err, res) => {
+            comments = "<ul style=\"list-style-type: none;\">";
             for (let row of res.rows) {        
                 comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;             
             } 
         });
     });
 });
-
-//app.listen(process.env.PORT);
-//app.listen(3000);
-
-//BODY PARSER MIDDLEWARE
-app.use(bodyParder.json());
-app.use(bodyParder.urlencoded({extended: false}));
-
-//SET STATIC PATH
-// app.use(express.static(path.join(__dirname, 'public')));
-
-
 
 setInterval(() => io.emit('comments', comments, 1000));
