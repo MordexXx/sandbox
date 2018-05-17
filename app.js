@@ -26,13 +26,13 @@ client.connect();
 
 
 
-var query = "INSERT INTO comments VALUES ('2018-05-17', 'Noora Testinainen', 'Tässä on minunkin viestini!');";
+var query = "INSERT INTO comments VALUES ('2018-05-17', 'Taina Testaaja', 'Tässä on minunkin viestini! Toimiikohan ääkköset?');";
 
-app.post('/', function (req, res) {
+// app.post('/', function (req, res) {
     client.query(query, (err, res) => {
         if (err) throw err;
     });
-});
+// });
 
 
 
