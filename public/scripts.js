@@ -1,3 +1,4 @@
+var socket = io();
 
 var etusivuHTML = "<H1>Tervetuloa</H1>";
 
@@ -92,7 +93,7 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
 
-			var socket = io();
+		
 			var el = document.getElementById('server-time');
 
 			socket.on('time', function(timeString) {
