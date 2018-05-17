@@ -37,12 +37,13 @@ var date = dt.format('d-m-Y');
 
 var name;
 var comment;
+var query;
 
 app.post('*', function (req, res) {
     console.log(req.body);
     name = JSON.stringify(req.body.name);
     comment = JSON.stringify(req.body.comment);
-    var query = `INSERT INTO comments VALUES ("${date}", ${name}, ${comment});`;
+    query = `INSERT INTO comments VALUES ("${date}", ${name}, ${comment});`;
     console.log(query);
     res.send('Viesti vastaanotettu!');    
     client.query(query, (err, res) => {
