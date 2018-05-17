@@ -63,10 +63,16 @@ client.query(query, (err, res) => {
 
 });
 
+client.connect();
+
 app.get('/', function (req, res) {
-    res.send('hello world');
-    alert('Que?');
-})
+    var query= `INSERT INTO comments VALUES ('2018-05-17, 'Taina Testaaja', 'Äääääkkösiä!');`;
+    client.query(query, (err, res) => {
+        if (err) throw err;
+        console.log("Rivi lisätty!?");
+    });
+    client.end();
+});
 
 app.listen(process.env.PORT);
 
