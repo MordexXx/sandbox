@@ -18,9 +18,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //SOCKET SETUP
 var io = socket(3000);
 
-io.on('connection', function(socket){
-    console.log('SOCKET OPEN');
-});
+// io.on('connection', function(socket){
+//     console.log('SOCKET OPEN');
+// });
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
