@@ -1,12 +1,11 @@
 const express = require('express');
 const bodyParder = require('body-parser');
-const socketIO = require('socket.io');
+const io = require('socket.io');
 const path = require('path');
 
 const fs = require('fs');
 
 const app = express();
-const server = express();
 
 app.listen(process.env.PORT);
 
@@ -19,7 +18,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET.IO
-const io = socketIO(process.env.PORT);
+io.on('connection', function(socket){
+    console.log('a user connected');
+});
 
 //DATABASE CONNECTION
 
