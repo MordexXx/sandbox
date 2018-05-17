@@ -77,7 +77,7 @@ client.query(query, (err, res) => {
             // });
          });     
     } 
-    client.end();
+    //client.end();
 
 });
 
