@@ -23,6 +23,7 @@ io.on('connection', function(client){
     console.log('a user connected');
 });
 
+setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
