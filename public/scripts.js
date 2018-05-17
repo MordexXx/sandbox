@@ -31,6 +31,13 @@ yhteystiedotHTML +=`
 var vieraskirjaHTML = '<h1>Vieraskirja</h1>';
 var loaded = 1;
 
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "./comments.txt", true);
+xhttp.send();
+xhttp.onload = function(){
+vieraskirjaHTML += `${this.responseText}`;
+}
+
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
 	currentPageContent.innerHTML = etusivuHTML;
@@ -68,13 +75,7 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
 			console.log(loaded);
-				
-				var xhttp = new XMLHttpRequest();
-				xhttp.open("GET", "./comments.txt", true);
-				xhttp.send();
-				xhttp.onload = function(){
-				vieraskirjaHTML += `${this.responseText}`;
-				}
+
 				if(loaded <= 1){
 				loaded++;
 				vieraskirjaHTML += `</ul>
