@@ -42,7 +42,7 @@ var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
 
 console.log(query);
 
-app.post('/', function (req, res) {
+app.post('*', function (req, res) {
     console.log(res.body);
 
 
