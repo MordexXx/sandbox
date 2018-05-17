@@ -66,33 +66,26 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
-				
-			
-				document.getElementById('SubmitComment').addEventListener('click',postComment);
-
-				function postComment(){
-					var xhr = new XMLHttpRequest();
-					xhr.open('GET', '/comments/add', true);
-					xhr.send();
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "./test.txt", true);
+			xhttp.send();
+			xhttp.onload = function(){
+				if(this.status == 200){
+					currentPageContent.innerHTML = vieraskirjaHTML;
+					currentPageContent.innerHTML += `${this.responseText}`;
+				}
+				else{
+					currentPageContent.innerHTML = vieraskirjaHTML;
 				}
 
-
-				var xhttp = new XMLHttpRequest();
-				xhttp.open("GET", "./test.txt", true);
-				xhttp.send();
-				xhttp.onload = function(){
-					if(this.status == 200){
-						currentPageContent.innerHTML = vieraskirjaHTML;
-						currentPageContent.innerHTML += `${this.responseText}`;
-					}
-					else{
-						currentPageContent.innerHTML = vieraskirjaHTML;
-					}
-
-				}
+			}
 
 			// currentPageContent.innerHTML = vieraskirjaHTML;
-			currentPageContent.innerHTML += `</ul>`;
+			currentPageContent.innerHTML += `</ul>
+			<form method="POST" action="/comments/add">
+      		<input placeholder="comment" name="comment" />
+      		<button type="submit">Jätä viesti</button>
+    		</form>`;
 		}
 
   });
