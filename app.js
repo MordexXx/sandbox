@@ -11,7 +11,7 @@ const INDEX = path.join(__dirname, 'index.html');
 
 const app = express();
 
-//app.listen(process.env.PORT);
+app.listen(process.env.PORT);
 
 //BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
@@ -26,7 +26,7 @@ const server = express()
   .use((req, res) => res.sendFile(INDEX) )
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-const io = socketIO(server);
+const io = socketIO(3000);
 
 io.on('connection', (socket) => {
     console.log('Client connected');
