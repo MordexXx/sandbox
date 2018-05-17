@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
+const server = express();
 
 app.listen(process.env.PORT);
 
@@ -16,6 +17,9 @@ app.use(bodyParder.urlencoded({extended: false}));
 //SET STATIC PATH
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//SOCKET.IO
+const io = socketIO(3000);
 
 //DATABASE CONNECTION
 
