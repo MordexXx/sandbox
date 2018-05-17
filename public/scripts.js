@@ -99,7 +99,8 @@ for (var i = 0; i < btns.length; i++) {
 				xth.open("POST", "*", true);
 				var data = `name=${nameInput.value}&comment=${commentInput.value}`;
 				xth.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				xth.send(data);		
+				xth.send(data);
+				console.log(result);		
 				e.preventDefault();
 			}
 			// }

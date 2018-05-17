@@ -78,7 +78,8 @@ app.post('*', (req, res) => {
             sql = 'SELECT * FROM comments';
             client.query(sql, (err, res) => {
                 console.log(res.rows);
-                res.send(res.rows);
+                var result = res.rows;
+                res.send(result);
                 // if (err) throw err;
 
                 // for (let row of res.rows) {
