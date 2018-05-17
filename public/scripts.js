@@ -44,7 +44,7 @@ xhttp.open("GET", "./comments.txt", true);
 xhttp.send();
 xhttp.onload = function(){
 vieraskirjaComments = this.responseText;
-vieraskirjaHTML += `${vieraskirjaComments}`;
+vieraskirjaHTML = vieraskirjaHTML+vieraskirjaComments;
 }
 
 function loadetusivu(){
