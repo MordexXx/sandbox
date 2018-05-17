@@ -89,7 +89,7 @@ for (var i = 0; i < btns.length; i++) {
 						var xth = new XMLHttpRequest();
 						xth.open("POST", "*", true);
 						var data = `name=${nameInput.value}&comment=${commentInput.value}`;
-						xth.send(data);	
+						xth.send();	
 						console.log(data);
 						e.preventDefault();
 					}
