@@ -38,6 +38,7 @@ vieraskirjaHTML += `</ul>
 				</form>`;
 
 var loaded = 1;
+vieraskirjaHTML = vieraskirjaHTML;
 
 var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "./comments.txt", true);
