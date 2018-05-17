@@ -89,7 +89,7 @@ for (var i = 0; i < btns.length; i++) {
 			currentPageContent.innerHTML = vieraskirjaHTML;
 
 			var el = document.getElementById('server-time');
-			console.log(el);
+			console.log(el.innerHTML);
 
 			socket.on('time', function(timeString) {
 				el.innerHTML = 'Server time: ' + timeString;
