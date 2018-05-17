@@ -94,7 +94,7 @@ for (var i = 0; i < btns.length; i++) {
 			socket.on('time', function(timeString) {
 				el.innerHTML = 'Server time: ' + timeString;
 			});
-
+			console.log(el.innerHTML);
 			// console.log(loaded);
 			// if(loaded <= 1){
 			// loaded++;
