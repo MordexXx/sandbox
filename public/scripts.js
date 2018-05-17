@@ -95,9 +95,9 @@ for (var i = 0; i < btns.length; i++) {
 						e.preventDefault();
 					}
 				}
-				else{
-				currentPageContent.innerHTML = vieraskirjaHTML;
-				}
+				// else{
+				// currentPageContent.innerHTML = vieraskirjaHTML;
+				// }
 
 			}
 
