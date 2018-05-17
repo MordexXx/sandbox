@@ -73,7 +73,7 @@ for (var i = 0; i < btns.length; i++) {
 				if(this.status == 200){
 					currentPageContent.innerHTML = vieraskirjaHTML;
 					currentPageContent.innerHTML += `${this.responseText}`;
-					currentPageContent.innerHTML += `</ul><br>
+					currentPageContent.innerHTML += `</ul><br><br>
 					<form method= "POST" action="">
       				<input placeholder="comment" name="comment"/>
       				<button type="submit">Jätä viesti</button>
