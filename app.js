@@ -19,7 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 var io = socket(3000);
 
 io.on('connection', function(socket){
-    io.sockets.emit('comments','test');
+    var data = 'test';
+    io.sockets.emit('comments', data);
 });
 //DATABASE CONNECTION
 
