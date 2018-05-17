@@ -55,8 +55,8 @@ client.query(query, (err, res) => {
     if (err) throw err;
 
     for (let row of res.rows) {
-        comments += `<li>${row.date}</li><li>${row.name}</li><li>${row.comment}</li>`;           
-        fs.writeFile('./public/test.txt', comments,  function(err) {
+        comments += `<b><li>${row.date} | ${row.name}</li>:</b><li>${row.comment}</li>`;           
+        fs.writeFile('./public/comments.txt', comments,  function(err) {
             if (err) {
                return console.error(err);
             }

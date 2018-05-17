@@ -67,14 +67,14 @@ for (var i = 0; i < btns.length; i++) {
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
 			var xhttp = new XMLHttpRequest();
-			xhttp.open("GET", "./test.txt", true);
+			xhttp.open("GET", "./comments.txt", true);
 			xhttp.send();
 			xhttp.onload = function(){
 				if(this.status == 200){
 					currentPageContent.innerHTML = vieraskirjaHTML;
 					currentPageContent.innerHTML += `${this.responseText}`;
 					currentPageContent.innerHTML += `</ul><br>
-					<form action="">
+					<form method= "POST" action="">
       				<input placeholder="comment" name="comment"/>
       				<button type="submit">Jätä viesti</button>
     				</form>`;
