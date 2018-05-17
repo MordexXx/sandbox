@@ -28,7 +28,7 @@ client.connect();
 
 var query = `INSERT INTO comments VALUES ('2018-05-17, 'Noora Testinainen', 'Tässä on minunkin viestini!');`;
 
-app.post('/', function (req, res) {
+app.post('#', function (req, res) {
     client.query(query, (err, res) => {
         if (err) throw err;
     });
