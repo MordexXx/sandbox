@@ -53,7 +53,6 @@ app.post('*', (req, res) => {
             console.log('Connection succesful');
             client.query(sql, (err, res) => {
                 if (err) throw err;
-                console.log(result);
             });
         });
     
