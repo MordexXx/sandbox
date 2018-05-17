@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //CLEAR COMMENT CACHE FILE
-var fd = fs.openSync('./public/test.txt', 'w');
+fs.unlinkSync('./public/comments.txt');
 
 
 //DATABASE CONNECTION
