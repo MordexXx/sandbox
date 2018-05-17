@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParder = require('body-parser');
-const io = require('socket.io');
+const socketIO = require('socket.io');
 const path = require('path');
 const fs = require('fs');
 
