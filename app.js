@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
         client.query(sql, (err, res) => {
             comments = '';
             for (let row of res.rows) {        
-                comments = `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br> + ${comments}`;             
+                comments = `<b>${row.date} | ${row.name}:</b>${row.comment}<br> + ${comments}`;              
             } 
         });
 
@@ -64,7 +64,7 @@ io.on('connection', (socket) => {
         client.query(sql, (err, res) => {
             comments = '';
             for (let row of res.rows) {        
-                comments = `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br> + ${comments}`;              
+                comments = `<b>${row.date} | ${row.name}:</b>${row.comment}<br> + ${comments}`;              
             } 
         });
     });
