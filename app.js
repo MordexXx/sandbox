@@ -65,6 +65,7 @@ client.query(query, (err, res) => {
 
 app.get('/', function (req, res) {
     res.send('hello world');
+    alert('Que?');
 })
 
 app.listen(process.env.PORT);
