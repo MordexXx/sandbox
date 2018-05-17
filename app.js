@@ -6,6 +6,9 @@ const fs = require('fs');
 
 const app = express();
 
+const server = express()
+  .use((req, res) => res.sendFile(INDEX) )
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 //BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
@@ -16,12 +19,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET SETUP
-var io = socket(3000);
+const io = socketIO(server);
 
-io.on('connection', function(socket){
-    var data = 'test';
-    io.sockets.emit('comments', data);
+io.on('connection', (socket) => {
+    console.log('Client connected');
+    socket.on('disconnect', () => console.log('Client disconnected'));
 });
+
 //DATABASE CONNECTION
 
 const { Client } = require('pg');
