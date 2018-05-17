@@ -66,9 +66,9 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
-			loaded++;
-			if(loaded == 1){
 			currentPageContent.innerHTML = vieraskirjaHTML;
+			loaded++;
+			if(loaded == 1){			
 				var xhttp = new XMLHttpRequest();
 				xhttp.open("GET", "./comments.txt", true);
 				xhttp.send();
