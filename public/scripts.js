@@ -40,11 +40,6 @@ vieraskirjaHTML += `</ul>
 
 vieraskirjaHTML += `<div id='server-time'></div>`;
 
-
-
-// socket.on('chat', funtion(data){
-// 	output.innerHTML += `${data}`;
-// });
 var loaded = 1;
 vieraskirjaHTML = vieraskirjaHTML;
 
@@ -93,8 +88,8 @@ for (var i = 0; i < btns.length; i++) {
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
 
-		
 			var el = document.getElementById('server-time');
+			console.log(el);
 
 			socket.on('time', function(timeString) {
 				el.innerHTML = 'Server time: ' + timeString;
