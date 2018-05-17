@@ -48,6 +48,7 @@ app.post('*', function (req, res) {
    
     client.query(query, (err, res) => {
     if (err) throw err;
+    console.log('wtf?');
     });
 
     //res.redirect('/'); 
