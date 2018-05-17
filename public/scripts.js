@@ -1,14 +1,6 @@
 var socket = io();
 var el = document.getElementById('server-time');
 
-socket.on('time', function(timeString) {
-	el.innerHTML = 'Server time: ' + timeString;
-});
-
-var output = document.getElementById('output');
-
-
-
 var etusivuHTML = "<H1>Tervetuloa</H1>";
 
 etusivuHTML +=` <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus pariatur porro voluptate repudiandae ipsum quas sit mollitia vero exercitationem quasi,
@@ -48,6 +40,10 @@ vieraskirjaHTML += `</ul>
 				</form>`;
 
 vieraskirjaHTML += `<div id="server-time"></div>`;
+
+socket.on('time', function(timeString) {
+	el.innerHTML = 'Server time: ' + timeString;
+});
 
 // socket.on('chat', funtion(data){
 // 	output.innerHTML += `${data}`;
