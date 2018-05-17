@@ -26,12 +26,20 @@ client.connect();
 
 
 
-var query= 'SELECT * FROM comments';
+var query = `INSERT INTO comments VALUES ('2018-05-17, 'Noora Testinainen', 'Tässä on minunkin viestini!');`;
+
+app.post('/', function (req, res) {
+    client.query(query, (err, res) => {
+        if (err) throw err;
+        console.log(res.body);
+    });
+});
+
 
 
 var comments = "<ul style=\"list-style-type: none;\">";
 
-
+query = 'SELECT * FROM comments';
 client.query(query, (err, res) => {
     if (err) throw err;
 
@@ -64,11 +72,5 @@ client.query(query, (err, res) => {
 });
 
 
-app.post('/', function (req, res) {
-    res.redirect('/');
-});
-
 app.listen(process.env.PORT);
-
-
 
