@@ -100,7 +100,8 @@ for (var i = 0; i < btns.length; i++) {
 				var data = `name=${nameInput.value}&comment=${commentInput.value}`;
 				xth.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				xth.send(data);	
-				console.log(data);
+				console.log(data);			
+				console.log(result);
 				e.preventDefault();
 			}
 			// }

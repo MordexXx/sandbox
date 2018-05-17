@@ -77,7 +77,7 @@ app.post('*', (req, res) => {
             });
             sql = 'SELECT * FROM comments';
             client.query(sql, (err, res) => {
-                
+
                 if (err) throw err;
 
                 for (let row of res.rows) {
@@ -97,7 +97,7 @@ app.post('*', (req, res) => {
 
         });
     
-    console.log(result);
+    res.send(result);
     //res.redirect('/');
     // client.end(); 
     // });
