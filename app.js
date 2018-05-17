@@ -76,24 +76,10 @@ app.post('*', (req, res) => {
                 if (err) throw err;
             });
 
-            
-            // sql = 'SELECT * FROM comments';
-            // client.query(sql, (err, res) => {
-
-            //     if (err) throw err;
-
-            //     for (let row of res.rows) {
-            //         result += `${row}`;
-            //         comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;           
-            //         fs.writeFile('./public/comments.txt', comments,  function(err) {
-            //             if (err) {
-            //                return console.error(err);
-            //             }
-            
-            //          });     
-            //     } 
-            
-            // });
+            sql = 'SELECT * FROM comments';
+            client.query(sql, (err, res) => {
+            console.log(res.rows);    
+            });
             
 
 
