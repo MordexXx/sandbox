@@ -1,14 +1,14 @@
 const express = require('express');
+const app = express();
 const bodyParder = require('body-parser');
 const server = require('http').createServer(app);  
 const io = require('socket.io')(server);
 const path = require('path');
-
 const fs = require('fs');
 
-const app = express();
 
-server.listen(process.env.PORT);
+
+app.listen(process.env.PORT);
 
 //BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
