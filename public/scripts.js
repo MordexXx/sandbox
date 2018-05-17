@@ -28,7 +28,7 @@ yhteystiedotHTML +=`
 <li><b>Puh:</b> 123-456 789</li><li>
 <b>Email:</b> john_smith@bogusemail.com</li>`;
 
-var vieraskirjaHTML = "<h1>Vieraskirja</h1><form action=\'/'\ method=\'get\'><input type=\'submit\' value=\'PUSH ME\'>";
+var vieraskirjaHTML = "<h1>Vieraskirja</h1><form action=\'#'\ method=\'get\'><input type=\'submit\' value=\'PUSH ME\'>";
 
 var loaded = 0;
 
