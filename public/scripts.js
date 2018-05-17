@@ -90,7 +90,7 @@ for (var i = 0; i < btns.length; i++) {
 
 			var el = document.getElementById('server-time');
 			console.log(el.innerHTML);
-
+			el.innerHTML = 'Server time: ';
 			socket.on('time', function(timeString) {
 				el.innerHTML = 'Server time: ' + timeString;
 			});
