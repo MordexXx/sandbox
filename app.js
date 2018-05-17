@@ -12,11 +12,11 @@ const server = express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 //BODY PARSER MIDDLEWARE
-app.use(bodyParder.json());
-app.use(bodyParder.urlencoded({extended: false}));
+server.use(bodyParder.json());
+server.use(bodyParder.urlencoded({extended: false}));
 
 //SET STATIC PATH
-app.use(express.static(path.join(__dirname, 'public')));
+server.use(express.static(path.join(__dirname, 'public')));
 
 
 //SOCKET SETUP
@@ -70,7 +70,7 @@ client.query(sql, (err, res) => {
 });
 
 
-app.post('*', (req, res) => {
+server.post('*', (req, res) => {
     var result;
     console.log(req.body);
     name = (req.body.name);
@@ -117,4 +117,3 @@ app.post('*', (req, res) => {
 
 
 setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
-app.listen(process.env.PORT);
