@@ -35,13 +35,29 @@ io.on('connection', (socket) => {
     console.log('Client connected');
     socket.on('disconnect', () => console.log('Client disconnected'));
 
+
+        const client = new Client({
+            connectionString: process.env.DATABASE_URL,
+            ssl: true,
+        });
+
+        client.connect();
+        sql = 'SELECT * FROM comments';
+        client.query(sql, (err, res) => {
+            comments = "<ul style=\"list-style-type: none;\">";
+            for (let row of res.rows) {        
+                comments += `<b><li>${row.date} | ${row.name}:</li></b><li>${row.comment}</li><br>`;             
+            } 
+        });
+
+
     socket.on('sql', function(data){
         sql = `INSERT INTO comments VALUES('${date}', '${data[0]}', '${data[1]}');`;
         //console.log(sql);
         const client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
-         }) 
+         }); 
         client.connect();
         client.query(sql, (err, res) => {});
         sql = 'SELECT * FROM comments';
