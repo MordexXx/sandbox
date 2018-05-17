@@ -36,6 +36,15 @@ function loadetusivu(){
 	currentPageContent.innerHTML = etusivuHTML;
 }
 
+document.getElementById('SubmitComment').addEventListener('click',postComment);
+
+function postComment(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', '/', true);
+	xhr.send();
+}
+
+
 let btnContainer = document.getElementById("navbar");
 let btns = btnContainer.getElementsByClassName("menu-item");
 
