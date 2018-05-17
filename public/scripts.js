@@ -66,45 +66,45 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
-			var xhttp = new XMLHttpRequest();
-			xhttp.open("GET", "./comments.txt", true);
-			xhttp.send();
-			xhttp.onload = function(){
-				if(this.status == 200){
-					if(currentPageContent.innerHTML.includes("form")){
-						currentPageContent.innerHTML = vieraskirjaHTML;
+
+				if(currentPageContent.innerHTML.includes("form")){
+					currentPageContent.innerHTML = vieraskirjaHTML;
+				}
+				else{
+					var xhttp = new XMLHttpRequest();
+					xhttp.open("GET", "./comments.txt", true);
+					xhttp.send();
+					xhttp.onload = function(){
+					vieraskirjaHTML += `${this.responseText}`;
 					}
-					else{
-						vieraskirjaHTML += `${this.responseText}`;
-						vieraskirjaHTML += `</ul>
-						<form>
-						<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
-						<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
-						<button type="submit">Jätä viesti</button>
-						</form>`;
-						currentPageContent.innerHTML = vieraskirjaHTML;
-						var form = document.querySelector('form');
-						var nameInput = document.getElementById('name');
-						var commentInput = document.getElementById('comment');
+					vieraskirjaHTML += `</ul>
+					<form>
+					<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
+					<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
+					<button type="submit">Jätä viesti</button>
+					</form>`;
+					currentPageContent.innerHTML = vieraskirjaHTML;
+					var form = document.querySelector('form');
+					var nameInput = document.getElementById('name');
+					var commentInput = document.getElementById('comment');
 
-						form.addEventListener('submit', runEvent);
+					form.addEventListener('submit', runEvent);
 
-						function runEvent(e){
-							var xth = new XMLHttpRequest();
-							xth.open("POST", "*", true);
-							var data = `name=${nameInput.value}&comment=${commentInput.value}`;
-							xth.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-							xth.send(data);	
-							console.log(data);
-							e.preventDefault();
-						}
+					function runEvent(e){
+						var xth = new XMLHttpRequest();
+						xth.open("POST", "*", true);
+						var data = `name=${nameInput.value}&comment=${commentInput.value}`;
+						xth.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						xth.send(data);	
+						console.log(data);
+						e.preventDefault();
 					}
 				}
 				// else{
 				// currentPageContent.innerHTML = vieraskirjaHTML;
 				// }
 
-			}
+			
 
 			// currentPageContent.innerHTML = vieraskirjaHTML;
 			
