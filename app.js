@@ -14,7 +14,7 @@ app.use(bodyParder.urlencoded({extended: false}));
 //SET STATIC PATH
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(process.env.PORT);
+
 
 //CLEAR COMMENT CACHE FILE
 var fd = fs.openSync('./public/test.txt', 'w');
@@ -45,9 +45,7 @@ var query = `INSERT INTO comments VALUES ('${date}', '${name}', '${comment}');`;
 console.log(query);
 
 app.post('*', function (req, res) {
-    console.log(res.body);
-
-
+    console.log(req.body);
 
     // client.query(query, (err, res) => {
     //     if (err) throw err;
@@ -81,14 +79,6 @@ client.query(query, (err, res) => {
 
 
 
-app.post('*', function (req, res) {
-    console.log(req.body);
-    console.log(res.body);
 
 
-
-    // client.query(query, (err, res) => {
-    //     if (err) throw err;
-    // });
-});
-
+app.listen(process.env.PORT);
