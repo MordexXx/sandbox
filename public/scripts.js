@@ -84,7 +84,7 @@ for (var i = 0; i < btns.length; i++) {
 					<button type="submit">Jätä viesti</button>
 					</form>`;
 					currentPageContent.innerHTML = vieraskirjaHTML;
-					}
+					
 					var form = document.querySelector('form');
 					var nameInput = document.getElementById('name');
 					var commentInput = document.getElementById('comment');
@@ -100,6 +100,7 @@ for (var i = 0; i < btns.length; i++) {
 						console.log(data);
 						e.preventDefault();
 					}
+				}
 				}
 				// else{
 				// currentPageContent.innerHTML = vieraskirjaHTML;
