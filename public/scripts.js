@@ -101,8 +101,11 @@ for (var i = 0; i < btns.length; i++) {
 			form.addEventListener('submit', runEvent);
 
 			function runEvent(e){
-				e.preventDefault();				
-				var data = `name=${nameInput.value}&comment=${commentInput.value}`;
+				e.preventDefault();
+				var data;
+				data.name = nameInput.value;
+				data.comment = commentInput.value;				
+				//`name=${nameInput.value}&comment=${commentInput.value}`;
 				socket.emit('sql',data);
 			}
 			// }
