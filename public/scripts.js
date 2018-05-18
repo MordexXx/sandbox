@@ -40,7 +40,7 @@ for (var i = 0; i < btns.length; i++) {
 			var currentPageContent = document.getElementById('main');
 			currentPageContent.innerHTML = yritysHTML;
 		}
-		else if(currentPage.indexOf('Palvelut')){
+		else if(currentPage.indexOf("Palvelut")){
 			var currentPageContent = document.getElementById('main');
 			currentPageContent.innerHTML = palvelutHTML;
 		}
