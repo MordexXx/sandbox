@@ -37,7 +37,6 @@ vieraskirjaHTML += `
 vieraskirjaHTML += `<div id='comments'></div>`;
 vieraskirjaHTML = vieraskirjaHTML;
 
-var loadetusivu;
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 function loadetusivu(){
 	var currentPageContent = document.getElementById("main");
