@@ -14,8 +14,6 @@ var yhteystiedotHTML = '<h1>Yhteystiedot</h1><ul><li><b>Osoite:</b> Umpikuja 1 A
 
 var vieraskirjaHTML = '<h1>Vieraskirja</h1><form><input type=\'text\' required placeholder=\'Laita tähän nimesi\' id=\'name\' name=\'name\'/><br><input type=\'text\' required placeholder=\'Kirjoita viestisi tähän\' id=\'comment\' name=\'comment\'/><button type=\'submit\'>Jätä viesti</button></form><hr><div id=\'comments\'></div>';
 
-//vieraskirjaHTML = vieraskirjaHTML;
-
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 function loadetusivu(){
 	var currentPageContent = document.getElementById('main');
