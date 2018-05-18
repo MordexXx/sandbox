@@ -33,7 +33,7 @@ button {
     font-size: 16px;
 }
 
-input[id="name"]{
+input[id='name']{
     width:30%;
     border:2px solid #aaa;
     border-radius:4px;
@@ -43,7 +43,7 @@ input[id="name"]{
     box-sizing:border-box;
     transition:.3s;
   }
-  input[id="comment"]{
+  input[id='comment']{
     width:70%;
     border:2px solid #aaa;
     border-radius:4px;
@@ -303,7 +303,7 @@ input[id="name"]{
 	#main-header{	
 		text-align: center;
 		letter-spacing: 1vh;
-		/* background-image: url("../images/logo.png");
+		/* background-image: url('../images/logo.png');
 		background-repeat: no-repeat;
 		background-position: center top;	 */
 	}
