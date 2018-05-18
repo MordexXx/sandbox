@@ -41,42 +41,42 @@ vieraskirjaHTML += `
 vieraskirjaHTML += `<div id='comments'></div>`;
 vieraskirjaHTML = vieraskirjaHTML;
 
-
+var loadetusivu;
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 function loadetusivu(){
-	let currentPageContent = document.getElementById("main");
+	var currentPageContent = document.getElementById("main");
 	currentPageContent.innerHTML = etusivuHTML;
 }
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
-let btnContainer = document.getElementById("navbar");
-let btns = btnContainer.getElementsByClassName("menu-item");
+var btnContainer = document.getElementById("navbar");
+var btns = btnContainer.getElementsByClassName("menu-item");
 
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
-    let current = document.getElementsByClassName("active");
+    var current = document.getElementsByClassName("active");
     current[0].className = current[0].className.replace(" active", "");
 		this.className += " active";
 		currentPage = current[0].innerText;
 		//SET MAIN ELEMENT TEXT TO MATCH THE ACTIVE PAGE
 		if(currentPage.includes("Etusivu")){
-			let currentPageContent = document.getElementById("main");
+			var currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = etusivuHTML;
 		}
 		else if(currentPage.includes("Yritys")){
-			let currentPageContent = document.getElementById("main");
+			var currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = yritysHTML;
 		}
 		else if(currentPage.includes("Palvelut")){
-			let currentPageContent = document.getElementById("main");
+			var currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = palvelutHTML;
 		}
 		else if(currentPage.includes("Ota yhteyttä")){
-			let currentPageContent = document.getElementById("main");
+			var currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = yhteystiedotHTML;
 		}
 		else if(currentPage.includes("Vieraskirja")){
-			let currentPageContent = document.getElementById("main");
+			var currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			var el = document.getElementById('comments');

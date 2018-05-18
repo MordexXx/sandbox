@@ -1,22 +1,22 @@
 'use strict';
 
-const express = require('express');
-const bodyParder = require('body-parser');
-const socketIO = require('socket.io');
-const path = require('path');
-const fs = require('fs');
+var express = require('express');
+var bodyParder = require('body-parser');
+var socketIO = require('socket.io');
+var path = require('path');
+var fs = require('fs');
 
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 
-const app = express();
+var app = express();
 
 //BODY PARSER MIDDLEWARE
 app.use(bodyParder.json());
 app.use(bodyParder.urlencoded({extended: false}));
 
 //DEFINE DATABASE CONNECTION CLIENT
-const { Client } = require('pg');
+var { Client } = require('pg');
 
 //SET CURRENT DATE TO A VARIABLE
 var dateTime = require('node-datetime');
@@ -28,11 +28,11 @@ var comments = '';
 var sql;
 
 //SOCKET.IO
-const server = express()
+var server = express()
   .use(express.static(path.join(__dirname, 'public')))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-const io = socketIO(server);
+var io = socketIO(server);
 
 //DO STUFF WHEN CLIENTS CONNECT
 io.on('connection', (socket) => {
@@ -42,7 +42,7 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => client.end());
 
         //CONNECT TO DATABASE
-        const client = new Client({
+        var client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
         //MAKE THE QUERY AND UPDATE THE GUESTBOOK COMMENTS VARIABLE
         client.query(sql, (err, res) => {
             comments = '';
-            for (let row of res.rows) {        
+            for (var row of res.rows) {        
                 comments = `<b>${row.date} | ${row.name}: </b>${row.comment}<br>` + comments;              
             } 
         });
@@ -62,7 +62,7 @@ io.on('connection', (socket) => {
         //PREPARE THE SQL QUERY
         sql = `INSERT INTO comments VALUES('${date}', '${data[0]}', '${data[1]}');`;
         //CONNECT TO DATABASE
-        const client = new Client({
+        var client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
          }); 
@@ -72,7 +72,7 @@ io.on('connection', (socket) => {
         sql = 'SELECT * FROM comments';
         client.query(sql, (err, res) => {
             comments = '';
-            for (let row of res.rows) {
+            for (var row of res.rows) {
                 //FORMAT THE RESULT        
                 comments = `<b>${row.date} | ${row.name}: </b>${row.comment}<br>` + comments;               
             } 
