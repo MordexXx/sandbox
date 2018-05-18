@@ -36,7 +36,7 @@ vieraskirjaHTML += `
 				<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
 				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
 				<button type="submit">Jätä viesti</button>
-				</form>`;
+				</form><br><hr>`;
 
 vieraskirjaHTML += `<div id='comments'></div>`;
 
