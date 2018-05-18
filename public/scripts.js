@@ -13,7 +13,7 @@ var palvelutHTML = '<h1>Palvelut ja hinnasto</h1><p>Lorem ipsum dolor sit amet c
 
 var yhteystiedotHTML = '<h1>Yhteystiedot</h1><ul><li><b>Osoite:</b> Umpikuja 1 A 2, 12345 HELSINKI</li><li><b>Puh:</b> 123-456 789</li><li><b>Email:</b> john_smith@bogusemail.com</li>';
 
-var vieraskirjaHTML = '<h1>Vieraskirja</h1><form><input type=\'text\' required placeholder=\'Laita tähän nimesi\' id=\'name\' name=\'name\'/><input type=\'text\' required placeholder=\'Kirjoita viestisi tähän\' id=\'comment\' name=\'comment\'/><button type=\'submit\'>Jätä viesti</button></form><hr><div id=\'comments\'></div>';
+var vieraskirjaHTML = '<h1>Vieraskirja</h1><form><input type=\'text\' required placeholder=\'Laita tähän nimesi\' id=\'name\' name=\'name\'/><br><input type=\'text\' required placeholder=\'Kirjoita viestisi tähän\' id=\'comment\' name=\'comment\'/><button type=\'submit\'>Jätä viesti</button></form><hr><div id=\'comments\'></div>';
 
 vieraskirjaHTML = vieraskirjaHTML;
 
