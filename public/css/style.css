@@ -26,7 +26,7 @@ button {
 	border-image: linear-gradient(to bottom right, #666 0%, #222 75%);
 	border-image-slice: 1;
     text-align: center;
-    text-decoration: none;
+    text-decoration: bold;
 	display: inline-block;
 	box-shadow:3px 3px 3px rgb(37, 37, 37);
     font-size: 16px;
