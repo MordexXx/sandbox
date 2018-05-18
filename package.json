@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/MordexXx/sandbox#readme",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "express": "*",
     "node-datetime": "^2.0.6",

@@ -1,5 +1,6 @@
 'use strict';
 
+require("babel-polyfill")
 var express = require('express');
 var bodyParder = require('body-parser');
 var socketIO = require('socket.io');
