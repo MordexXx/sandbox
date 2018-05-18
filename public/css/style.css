@@ -43,7 +43,7 @@ input[id="name"]{
     transition:.3s;
   }
   input[id="comment"]{
-    width:60%;
+    width:70%;
     border:2px solid #aaa;
     border-radius:4px;
     margin:8px 0;
