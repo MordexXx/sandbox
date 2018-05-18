@@ -20,6 +20,7 @@ function loadetusivu(){
 	currentPageContent.innerHTML = etusivuHTML;
 }
 
+
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
 var btnContainer = document.getElementById('navbar');
 var btns = btnContainer.getElementsByClassName('menu-item');
