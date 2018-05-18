@@ -1,3 +1,5 @@
+'use strict';
+
 var socket = io();
 //SET MAIN PAGE CONTENT VARIABLES
 //var etusivuHTML = '<H1>Tervetuloa</H1>';
