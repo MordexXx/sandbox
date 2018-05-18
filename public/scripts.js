@@ -33,8 +33,8 @@ var vieraskirjaHTML = '<h1>Vieraskirja</h1>';
 
 vieraskirjaHTML += `
 				<form>
-				<input required placeholder="Laita tähän nimesi" id="name" name="name"/>
-				<input required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
+				<input type="text" size="20" required placeholder="Laita tähän nimesi" id="name" name="name"/>
+				<input type="text" size="50" required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
 				<button type="submit">Jätä viesti</button>
 				</form><br><hr>`;
 
@@ -105,6 +105,7 @@ for (var i = 0; i < btns.length; i++) {
 				var data = [nameInput.value, commentInput.value];			
 				//`name=${nameInput.value}&comment=${commentInput.value}`;
 				socket.emit('sql',data);
+				form.value = '';
 			}
 			// }
 			
