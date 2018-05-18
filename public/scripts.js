@@ -32,23 +32,23 @@ for (var i = 0; i < btns.length; i++) {
 		this.className += ' active';
 		currentPage = current[0].innerText;
 		//SET MAIN ELEMENT TEXT TO MATCH THE ACTIVE PAGE
-		if(currentPage.includes('Etusivu')){
+		if(currentPage.indexOf('Etusivu')){
 			var currentPageContent = document.getElementById('main');
 			currentPageContent.innerHTML = etusivuHTML;
 		}
-		else if(currentPage.includes('Yritys')){
+		else if(currentPage.indexOf('Yritys')){
 			var currentPageContent = document.getElementById('main');
 			currentPageContent.innerHTML = yritysHTML;
 		}
-		else if(currentPage.includes('Palvelut')){
+		else if(currentPage.indexOf('Palvelut')){
 			var currentPageContent = document.getElementById('main');
 			currentPageContent.innerHTML = palvelutHTML;
 		}
-		else if(currentPage.includes('Ota yhteyttä')){
+		else if(currentPage.indexOf('Ota yhteyttä')){
 			var currentPageContent = document.getElementById('main');
 			currentPageContent.innerHTML = yhteystiedotHTML;
 		}
-		else if(currentPage.includes('Vieraskirja')){
+		else if(currentPage.indexOf('Vieraskirja')){
 			var currentPageContent = document.getElementById('main');
 			currentPageContent.innerHTML = vieraskirjaHTML;
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
