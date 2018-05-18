@@ -39,7 +39,8 @@ io.on('connection', (socket) => {
     //LOG ACTIVE CONNECTIONS
     console.log('Client connected');
     //LOG DISCONNECTS
-    socket.on('disconnect', () => console.log('Client disconnected'));
+    socket.on('disconnect', () => console.log('Client disconnected'), client.end()
+        );
 
         //CONNECT TO DATABASE
         const client = new Client({
