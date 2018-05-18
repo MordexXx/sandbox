@@ -57,7 +57,7 @@ io.on('connection', (socket) => {
                 comments = `<b>${row.date} | ${row.name}: </b>${row.comment}<br>` + comments;              
             } 
         });
-
+        client.end();
     //LISTEN FOR INSERT REQUESTS (THE SUBMIT BUTTON ON QUESTBOOK PAGE)  
     socket.on('sql', function(data){
         //PREPARE THE SQL QUERY
@@ -78,6 +78,7 @@ io.on('connection', (socket) => {
                 comments = `<b>${row.date} | ${row.name}: </b>${row.comment}<br>` + comments;               
             } 
         });
+        client.end();
     });
 });
 //REFRESH QUESTBOOK COMMENTS EVERY SECOND WITH THE VARIABLE CONTAINING THE SQL QUERY RESULT
