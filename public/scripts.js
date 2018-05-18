@@ -1,5 +1,5 @@
 var socket = io();
-
+//SET MAIN PAGE CONTENT VARIABLES
 var etusivuHTML = "<H1>Tervetuloa</H1>";
 
 etusivuHTML +=` <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus pariatur porro voluptate repudiandae ipsum quas sit mollitia vero exercitationem quasi,
@@ -39,24 +39,16 @@ vieraskirjaHTML += `
 				</form><br><hr>`;
 
 vieraskirjaHTML += `<div id='comments'></div>`;
-
-var loaded = 1;
 vieraskirjaHTML = vieraskirjaHTML;
 
-// var xhttp = new XMLHttpRequest();
-// xhttp.open("GET", "./comments.txt", true);
-// xhttp.send();
-// xhttp.onload = function(){
-// vieraskirjaComments = this.responseText;
-// vieraskirjaHTML = vieraskirjaHTML+vieraskirjaComments;
-// }
 
+//SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 function loadetusivu(){
 	let currentPageContent = document.getElementById("main");
 	currentPageContent.innerHTML = etusivuHTML;
 }
 
-
+//CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
 let btnContainer = document.getElementById("navbar");
 let btns = btnContainer.getElementsByClassName("menu-item");
 
@@ -66,8 +58,7 @@ for (var i = 0; i < btns.length; i++) {
     current[0].className = current[0].className.replace(" active", "");
 		this.className += " active";
 		currentPage = current[0].innerText;
-		//Update main text
-
+		//SET MAIN ELEMENT TEXT TO MATCH THE ACTIVE PAGE
 		if(currentPage.includes("Etusivu")){
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = etusivuHTML;
@@ -87,30 +78,26 @@ for (var i = 0; i < btns.length; i++) {
 		else if(currentPage.includes("Vieraskirja")){
 			let currentPageContent = document.getElementById("main");
 			currentPageContent.innerHTML = vieraskirjaHTML;
-
+			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			var el = document.getElementById('comments');
 			socket.on('comments', function(comments) {
 				el.innerHTML = comments;
 			});
-
-			
+			//PUT FORM INPUT VALUES INTO VARIABLES
 			var form = document.querySelector('form');
 			var nameInput = document.getElementById('name');
 			var commentInput = document.getElementById('comment');
 
+			//ADD LISTENER FOR THE SUBMIT BUTTON
 			form.addEventListener('submit', runEvent);
 
+			//SEND FORM DATA TO SERVER AND REFRESH THE COMMENT ELEMENT
 			function runEvent(e){
 				e.preventDefault();
 				var data = [nameInput.value, commentInput.value];			
-				//`name=${nameInput.value}&comment=${commentInput.value}`;
 				socket.emit('sql',data);
-				form.value = '';
 			}
-			// }
-			
 		}
-
   });
 }
 
