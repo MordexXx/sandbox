@@ -94,7 +94,9 @@ for (var i = 0; i < btns.length; i++) {
 			//SEND FORM DATA TO SERVER AND REFRESH THE COMMENT ELEMENT
 			function runEvent(e){
 				e.preventDefault();
-				var data = [nameInput.value, commentInput.value];			
+				var data = [nameInput.value, commentInput.value];
+				//EMPTY THE COMMENT FIELD AFTER SUBMIT BUTTON HAS BEEN PRESSED
+				document.getElementById('comment').value = '';			
 				socket.emit('sql',data);
 			}
 		}
