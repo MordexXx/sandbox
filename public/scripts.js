@@ -34,7 +34,7 @@ var vieraskirjaHTML = '<h1>Vieraskirja</h1>';
 vieraskirjaHTML += `
 				<form>
 				<input type="text" size="20" required placeholder="Laita tähän nimesi" id="name" name="name"/>
-				<input type="text" size="50" required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
+				<input type="textbox" size="50" required placeholder="Kirjoita viestisi tähän" id="comment" name="comment"/>
 				<button type="submit">Jätä viesti</button>
 				</form><br><hr>`;
 
