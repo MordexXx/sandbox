@@ -2,8 +2,7 @@
 
 var currentPage;
 var socket = io();
-//SET MAIN PAGE CONTENT VARIABLES
-//var etusivuHTML = '<H1>Tervetuloa</H1>';
+//SET MAIN ELEMENT CONTENT VARIABLES
 
 var etusivuHTML ='<H1>Tervetuloa</H1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus pariatur porro voluptate repudiandae ipsum quas sit mollitia vero exercitationem quasi, saepe officiis quibusdam ad enim minus, voluptatum adipisci iusto dolor distinctio incidunt.<br><br> Laborum aperiam cum ullam, voluptatibus hic qui sapiente mollitia delectus culpa adipisci molestias deserunt quis incidunt. Adipisci quam alias rerum, consectetur labore ratione tenetur nemo odio facere. Dicta sed dolorem saepe omnis, placeat ab tempora. <br><br>Nesciunt dicta excepturi dolorum aut esse ipsum molestias culpa architecto at aperiam dolor exercitationem dolorem iusto doloremque ad dolores,vero aspernatur fugiat consectetur unde assumenda sit quasi sunt provident?</p>';
 
@@ -15,7 +14,7 @@ var yhteystiedotHTML = '<h1>Yhteystiedot</h1><ul><li><b>Osoite:</b> Umpikuja 1 A
 
 var vieraskirjaHTML = '<h1>Vieraskirja</h1><form><input type=\'text\' required placeholder=\'Laita tähän nimesi\' id=\'name\' name=\'name\'/><br><input type=\'text\' required placeholder=\'Kirjoita viestisi tähän\' id=\'comment\' name=\'comment\'/><button type=\'submit\'>Jätä viesti</button></form><hr><div id=\'comments\'></div>';
 
-vieraskirjaHTML = vieraskirjaHTML;
+//vieraskirjaHTML = vieraskirjaHTML;
 
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 function loadetusivu(){

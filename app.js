@@ -4,7 +4,6 @@ var express = require('express');
 var bodyParder = require('body-parser');
 var socketIO = require('socket.io');
 var path = require('path');
-var fs = require('fs');
 
 var PORT = process.env.PORT || 3000;
 
