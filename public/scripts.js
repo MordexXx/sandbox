@@ -77,15 +77,22 @@ getvieraskirjaHTML.onreadystatechange = function() {
 getvieraskirjaHTML.open("GET", "/contents/vieraskirja.html", true);
 getvieraskirjaHTML.send();
 
-
-//SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
-currentPageContent.innerHTML = etusivuHTML;
-
-
-//CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
+//SET NAVIGATION BUTTONS INTO VARIABLES
 var btnContainer = document.getElementById('navbar');
 var btns = btnContainer.getElementsByClassName('menu-item');
 
+//SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
+if(sessionStorage.key('activePage') === null){
+	currentPageContent.innerHTML = etusivuHTML;
+	sessionStorage.setItem('activePage', 'Etusivu');
+}
+else{
+	currentPageContent.innerHTML = etusivuHTML;
+	sessionStorage.setItem('activePage', 'Etusivu');
+}
+
+
+//CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', function() {
     var current = document.getElementsByClassName('active');
