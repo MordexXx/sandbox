@@ -29,8 +29,6 @@ getEtusivuHTML = new XMLHttpRequest();
 getEtusivuHTML.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 		etusivuHTML = this.responseText;
-		currentPageContent = document.getElementById('main');
-		currentPageContent.innerHTML = etusivuHTML;
 	}
 };
 
