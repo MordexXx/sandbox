@@ -77,43 +77,8 @@ getvieraskirjaHTML.onreadystatechange = function() {
 getvieraskirjaHTML.open('GET', '/contents/vieraskirja.html', false);
 getvieraskirjaHTML.send();
 
-var activePage;
-//SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
-if (localStorage.getItem('activePage') === null){
-	currentPageContent.innerHTML = etusivuHTML;
-	activePage = getElementsByClassName('etusivu');
-	activePage.className += ' active';
-}
-else if (localStorage.getItem('activePage') === 'Etusivu'){
-	currentPageContent.innerHTML = etusivuHTML;
-	activePage = getElementsByClassName('etusivu');
-	activePage.className += ' active';
-}
-else if (localStorage.getItem('activePage') === 'Yritys'){
-	currentPageContent.innerHTML = yritysHTML;
-	activePage = getElementsByClassName('yritys');
-	activePage.className += ' active';
-}
-else if (localStorage.getItem('activePage') === 'Palvelut'){
-	currentPageContent.innerHTML = palvelutHTML;
-	activePage = getElementsByClassName('palvelut');
-	activePage.className += ' active';
-}
-else if (localStorage.getItem('activePage') === 'Yhteystiedot'){
-	currentPageContent.innerHTML = yhteystiedotHTML;
-	activePage = getElementsByClassName('yhteystiedot');
-	activePage.className += ' active';
-}
-else if (localStorage.getItem('activePage') === 'Vieraskirja'){
-	currentPageContent.innerHTML = vieraskirjaHTML;
-	activePage = getElementsByClassName('vieraskirja');
-	activePage.className += ' active';
-}
-else {
-	currentPageContent.innerHTML = etusivuHTML;
-	activePage = getElementsByClassName('etusivu');
-	activePage.className += ' active';
-}
+
+currentPageContent.innerHTML = etusivuHTML;
 
 
 
@@ -130,24 +95,23 @@ for (var i = 0; i < btns.length; i++) {
 		//SET MAIN ELEMENT TEXT TO MATCH THE ACTIVE PAGE
 		if(currentPage.includes('Etusivu')){
 			currentPageContent.innerHTML = etusivuHTML;
-			localstorage.removeItem('activePage');
-			localStorage.setItem('activePage', 'Etusivu');
+
 		}
 		else if(currentPage.includes('Yritys')){
 			currentPageContent.innerHTML = yritysHTML;
-			localStorage.setItem('activePage', 'Yritys');
+
 		}
 		else if(currentPage.includes('Palvelut')){
 			currentPageContent.innerHTML = palvelutHTML;
-			localStorage.setItem('activePage', 'Palvelut');
+
 		}
 		else if(currentPage.includes('Ota yhteyttä')){
 			currentPageContent.innerHTML = yhteystiedotHTML;
-			localStorage.setItem('activePage', 'Yhteystiedot');
+
 		}
 		else if(currentPage.includes('Vieraskirja')){
 			currentPageContent.innerHTML = vieraskirjaHTML;
-			localStorage.setItem('activePage', 'Vieraskirja');
+
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			var el = document.getElementById('comments');
 			socket.on('comments', function(comments) {
