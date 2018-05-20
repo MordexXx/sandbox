@@ -163,8 +163,8 @@ input[id='name']{
 #main{
 	background: linear-gradient(to top left,#333 20%, #444 200%);
 	border: 1px solid rgb(30, 30, 30);
-	-moz-border-image: -moz-linear-gradient(top, #666 0%, #222 75%);
-	-webkit-border-image: -webkit-linear-gradient(top, #666 0%, #222 75%);
+	-moz-border-image: -moz-linear-gradient(to bottom right, #666 0%, #222 75%);
+	-webkit-border-image: -webkit-linear-gradient(to bottom right, #666 0%, #222 75%);
 	border-image: linear-gradient(to bottom right, #666 0%, #222 75%);
 	border-image-slice: 1;
 	/* border-radius: 15px 15px 15px 15px;
@@ -184,8 +184,8 @@ input[id='name']{
 	-moz-border-radius: 15px 15px 15px 15px;
 	-webkit-border-radius: 15px 15px 15px 15px; */
 	border: 1px solid rgb(30, 30, 30);
-	-moz-border-image: -moz-linear-gradient(top, #666 0%, #222 75%);
-	-webkit-border-image: -webkit-linear-gradient(top, #666 0%, #222 75%);
+	-moz-border-image: -moz-linear-gradient(to bottom right, #666 0%, #222 75%);
+	-webkit-border-image: -webkit-linear-gradient(to bottom right, #666 0%, #222 75%);
 	border-image: linear-gradient(to bottom right, #666 0%, #222 75%);
 	border-image-slice: 1;
 	box-shadow:10px 10px 10px rgb(37, 37, 37); 
