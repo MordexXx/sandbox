@@ -25,7 +25,7 @@ getyritysHTML.onreadystatechange = function() {
 	}
 };
 
-getyritysHTML.open("GET", "/contents/etusivu.html", true);
+getyritysHTML.open("GET", "/contents/yritys.html", true);
 getyritysHTML.send();
 
 var palvelutHTML;
@@ -37,7 +37,7 @@ getpalvelutHTML.onreadystatechange = function() {
 	}
 };
 
-getpalvelutHTML.open("GET", "/contents/etusivu.html", true);
+getpalvelutHTML.open("GET", "/contents/palvelut.html", true);
 getpalvelutHTML.send();
 
 var yhteystiedotHTML;
@@ -49,7 +49,7 @@ getyhteystiedotHTML.onreadystatechange = function() {
 	}
 };
 
-getyhteystiedotHTML.open("GET", "/contents/etusivu.html", true);
+getyhteystiedotHTML.open("GET", "/contents/yhteystiedot.html", true);
 getyhteystiedotHTML.send();
 
 var vieraskirjaHTML;
@@ -61,7 +61,7 @@ getvieraskirjaHTML.onreadystatechange = function() {
 	}
 };
 
-getvieraskirjaHTML.open("GET", "/contents/etusivu.html", true);
+getvieraskirjaHTML.open("GET", "/contents/vieraskirja.html", true);
 getvieraskirjaHTML.send();
 
 
