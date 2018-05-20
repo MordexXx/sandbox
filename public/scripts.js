@@ -4,6 +4,8 @@ var currentPage;
 var socket = io();
 //FETCH MAIN ELEMENT CONTENTS
 
+
+//ETUSIVU
 var etusivuHTML;
 var getEtusivuHTML = new XMLHttpRequest();
 
@@ -16,6 +18,8 @@ getEtusivuHTML.onreadystatechange = function() {
 getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
 getEtusivuHTML.send();
 
+
+//YRITYS
 var yritysHTML;
 var getyritysHTML = new XMLHttpRequest();
 
@@ -28,6 +32,8 @@ getyritysHTML.onreadystatechange = function() {
 getyritysHTML.open("GET", "/contents/yritys.html", true);
 getyritysHTML.send();
 
+
+//PALVELUT
 var palvelutHTML;
 var getpalvelutHTML = new XMLHttpRequest();
 
@@ -40,6 +46,8 @@ getpalvelutHTML.onreadystatechange = function() {
 getpalvelutHTML.open("GET", "/contents/palvelut.html", true);
 getpalvelutHTML.send();
 
+
+//YHTEYSTIEDOT
 var yhteystiedotHTML;
 var getyhteystiedotHTML = new XMLHttpRequest();
 
@@ -52,6 +60,8 @@ getyhteystiedotHTML.onreadystatechange = function() {
 getyhteystiedotHTML.open("GET", "/contents/yhteystiedot.html", true);
 getyhteystiedotHTML.send();
 
+
+//VIERASKIRJA
 var vieraskirjaHTML;
 var getvieraskirjaHTML = new XMLHttpRequest();
 
