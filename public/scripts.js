@@ -91,8 +91,9 @@ getvieraskirjaHTML.send();
 window.onload = loadetusivu();
 
 function loadetusivu(){
-	var currentPageContent = document.getElementById('main');
-	currentPageContent.innerHTML = etusivuHTML;
+	// var currentPageContent = document.getElementById('main');
+	// currentPageContent.innerHTML = etusivuHTML;
+	location.reload(false);
 }
 
 
