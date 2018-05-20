@@ -188,6 +188,4 @@ function sendComment(e){
 
 };
 
-
-setInterval(loadComments,1000);
 	
