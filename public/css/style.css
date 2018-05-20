@@ -145,8 +145,8 @@ input[id='name']{
 	background-image:url('../images/showcase.jpg');
 	background-position:bottom center;
 	background-attachment: fixed;
-    -webkit-animation-name: example 20 infinite alternate;
-            animation-name: example 20 infinite alternate;
+    -webkit-animation: example 20 infinite alternate;
+            animation: example 20 infinite alternate;
 	min-height:200px;
 	margin-bottom:30px;
 	text-align: center;
