@@ -1,5 +1,7 @@
 'use strict';
 
+var currentPageContent = document.getElementById('main');
+var etusivuHTML;
 var currentPage;
 var yritysHTML;
 var palvelutHTML;
@@ -9,35 +11,35 @@ var socket = io();
 //FETCH MAIN ELEMENT CONTENTS
 
 
-window.onload = loadEtusivu();
+// window.onload = loadEtusivu();
 
-function loadEtusivu() {
-	var etusivuHTML;
-	var currentPageContent = document.getElementById('main');
-	var firstLoad = new XMLHttpRequest();
-	firstLoad.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			etusivuHTML = this.responseText;
-		}
-	};
-	firstLoad.open("GET", "/contents/etusivu.html", true);
-	firstLoad.send();
-	currentPageContent.innerHTML = etusivuHTML;
-};
+// function loadEtusivu() {
+
+
+// 	var firstLoad = new XMLHttpRequest();
+// 	firstLoad.onreadystatechange = function() {
+// 		if (this.readyState == 4 && this.status == 200) {
+// 			etusivuHTML = this.responseText;
+// 		}
+// 	};
+// 	firstLoad.open("GET", "/contents/etusivu.html", true);
+// 	firstLoad.send();
+// 	currentPageContent.innerHTML = etusivuHTML;
+// };
 
 
 //ETUSIVU
 
-// var getEtusivuHTML = new XMLHttpRequest();
+var getEtusivuHTML = new XMLHttpRequest();
 
-// getEtusivuHTML.onreadystatechange = function() {
-// 	if (this.readyState == 4 && this.status == 200) {
-// 		etusivuHTML = this.responseText;
-// 	}
-// };
+getEtusivuHTML.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		etusivuHTML = this.responseText;
+	}
+};
 
-// getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
-// getEtusivuHTML.send();
+getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
+getEtusivuHTML.send();
 
 
 //YRITYS
