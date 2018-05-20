@@ -85,6 +85,11 @@ var btns = btnContainer.getElementsByClassName('menu-item');
 if(sessionStorage.key('activePage') === null){
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
+	var current = document.getElementsByClassName('active');
+	for (var i = 0; i < btns.length; i++) {
+		console.log(current);
+	}
+	
 }
 else{
 	currentPageContent.innerHTML = etusivuHTML;
