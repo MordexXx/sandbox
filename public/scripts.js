@@ -90,22 +90,9 @@ getvieraskirjaHTML.send();
 
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 
-
-document.addEventListener('DOMContentLoaded', function () {
-	var etusivuHTML;
-	var onLoad = new XMLHttpRequest();
-	getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
-	getEtusivuHTML.send();
-	onLoad.onreadystatechange = function() {
-	if (this.readyState == 4 && this.status == 200) {
-		etusivuHTML = this.responseText;
 		currentPageContent.innerHTML = etusivuHTML;
 		console.log(currentPageContent);
 		console.log(etusivuHTML);
-	}
-};
-
-});
 
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
