@@ -5,10 +5,10 @@ var socket = io();
 
 
 
-//FETCH MAIN ELEMENT CONTENTS
+//FETCH MAIN ELEMENT CONTENTS (SYNCHRONOUS REQUESTS SO WE DONT GET UNDEFINED VARIABLES WHEN LOADING THE FIRST PAGE)
 
 
-//ETUSIVU (Synchronous request so we dont get undefined variables when loading the first page)
+//ETUSIVU 
 var etusivuHTML;
 var getEtusivuHTML = new XMLHttpRequest();
 
@@ -83,7 +83,7 @@ var btns = btnContainer.getElementsByClassName('menu-item');
 var activePage;
 var current;
 
-//SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
+//SAVE CURRENT PAGE SELECTION INTO SESSION STORAGE AND LOAD IT UPON RELOADING
 if(sessionStorage.activePage === null){
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
@@ -95,7 +95,21 @@ else if(sessionStorage.activePage === 'Yritys'){
 	activePage = document.getElementById('yritys');
 	activePage.className += ' active';	
 }
-
+else if(sessionStorage.activePage === 'Palvelut'){
+	currentPageContent.innerHTML = yritysHTML;
+	activePage = document.getElementById('palvelut');
+	activePage.className += ' active';	
+}
+else if(sessionStorage.activePage === 'Yhteystiedot'){
+	currentPageContent.innerHTML = yritysHTML;
+	activePage = document.getElementById('yhteystiedot');
+	activePage.className += ' active';	
+}
+else if(sessionStorage.activePage === 'Vieraskirja'){
+	currentPageContent.innerHTML = yritysHTML;
+	activePage = document.getElementById('vieraskirja');
+	activePage.className += ' active';	
+}
 else{
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
