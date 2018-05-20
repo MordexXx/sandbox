@@ -112,7 +112,9 @@ else if(sessionStorage.activePage === 'Vieraskirja'){
 	currentPageContent.innerHTML = vieraskirjaHTML;
 	activePage = document.getElementById('vieraskirja');
 	activePage.className += ' active';
+	//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 	loadComments();
+	//ADD LISTENER FOR THE SUBMIT BUTTON AND SEND COMMENT TO SERVER ON CLICK
 	form = document.querySelector('form');
 	form.addEventListener('submit', sendComment);
 }
