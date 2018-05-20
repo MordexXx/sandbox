@@ -99,15 +99,19 @@ for (var i = 0; i < btns.length; i++) {
 		}
 		else if(currentPage.includes("Yritys")){
 			currentPageContent.innerHTML = yritysHTML;
+			localStorage.setItem('activePage', 'Yritys');
 		}
 		else if(currentPage.includes("Palvelut")){
 			currentPageContent.innerHTML = palvelutHTML;
+			localStorage.setItem('activePage', 'Palvelut');
 		}
 		else if(currentPage.includes("Ota yhteyttä")){
 			currentPageContent.innerHTML = yhteystiedotHTML;
+			localStorage.setItem('activePage', 'Yhteystiedot');
 		}
 		else if(currentPage.includes("Vieraskirja")){
 			currentPageContent.innerHTML = vieraskirjaHTML;
+			localStorage.setItem('activePage', 'Vieraskirja');
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			var el = document.getElementById('comments');
 			socket.on('comments', function(comments) {
