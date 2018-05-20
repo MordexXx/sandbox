@@ -88,6 +88,7 @@ if(sessionStorage.key('activePage') === null){
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
 	activePage  = document.getElementById('etusivu');
+	console.log(activePage);
 	//activePage[0].className = activePage[0].className.replace(' active', '');
 	activePage[0].className += ' active';	
 }
