@@ -36,6 +36,7 @@ getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
 getEtusivuHTML.send();
 
 
+
 //YRITYS
 var yritysHTML;
 var getyritysHTML = new XMLHttpRequest();
