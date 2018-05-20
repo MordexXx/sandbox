@@ -80,10 +80,12 @@ getvieraskirjaHTML.send();
 //SET NAVIGATION BUTTONS INTO VARIABLES
 var btnContainer = document.getElementById('navbar');
 var btns = btnContainer.getElementsByClassName('menu-item');
-var activePage;
-var current;
+
+
 
 //SAVE CURRENT PAGE SELECTION INTO SESSION STORAGE AND LOAD IT UPON RELOADING
+var activePage;
+
 if(sessionStorage.activePage === null){
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
@@ -119,6 +121,8 @@ else{
 
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
+var current;
+
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', function() {
     current = document.getElementsByClassName('active');
