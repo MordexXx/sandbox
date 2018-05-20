@@ -73,7 +73,7 @@ io.on('connection', (socket) => {
             comments = '';
             for (var row of res.rows) {
                 //FORMAT THE RESULT        
-                comments = `<input type="text" id="CommentId" value='${row.id}'></input><b>${row.date} | ${row.name}: </b>${row.comment}<br>` + comments;               
+                comments = `<b>${row.date} | ${row.name}: </b>${row.comment}<br>` + comments;               
             } 
         });
     });
