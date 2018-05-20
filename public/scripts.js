@@ -11,23 +11,6 @@ var socket = io();
 //FETCH MAIN ELEMENT CONTENTS
 
 
-// window.onload = loadEtusivu();
-
-// function loadEtusivu() {
-
-
-// 	var firstLoad = new XMLHttpRequest();
-// 	firstLoad.onreadystatechange = function() {
-// 		if (this.readyState == 4 && this.status == 200) {
-// 			etusivuHTML = this.responseText;
-// 		}
-// 	};
-// 	firstLoad.open("GET", "/contents/etusivu.html", true);
-// 	firstLoad.send();
-// 	currentPageContent.innerHTML = etusivuHTML;
-// };
-
-
 //ETUSIVU
 
 var getEtusivuHTML = new XMLHttpRequest();
@@ -106,7 +89,7 @@ getvieraskirjaHTML.send();
 
 
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
-
+currentPageContent.innerHTML = etusivuHTML;
 // function loadetusivu(){
 // 	var currentPageContent = document.getElementById('main');
 // 	currentPageContent.innerHTML = etusivuHTML;
