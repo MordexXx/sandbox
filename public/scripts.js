@@ -114,9 +114,8 @@ else if(sessionStorage.activePage === 'Vieraskirja'){
 	activePage.className += ' active';
 	//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 	loadComments();
-	//ADD LISTENER FOR THE SUBMIT BUTTON AND SEND COMMENT TO SERVER ON CLICK
-	form = document.querySelector('form');
-	form.addEventListener('submit', sendComment);
+	//SUBMIT BUTTON
+	submitButton();
 }
 else{
 	currentPageContent.innerHTML = etusivuHTML;
@@ -157,12 +156,17 @@ for (var i = 0; i < btns.length; i++) {
 			sessionStorage.setItem('activePage', 'Vieraskirja');
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			loadComments();
-			//ADD LISTENER FOR THE SUBMIT BUTTON AND SEND COMMENT TO SERVER ON CLICK
-			form = document.querySelector('form');
-			form.addEventListener('submit', sendComment);
+			//SUBMIT BUTTON
+			submitButton();
 		}
   });
 }
+
+function submitButton(){
+	//ADD LISTENER FOR THE SUBMIT BUTTON AND SEND COMMENT TO SERVER ON CLICK
+	form = document.querySelector('form');
+	form.addEventListener('submit', sendComment);
+};
 
 function loadComments(){
 	var el = document.getElementById('comments');
