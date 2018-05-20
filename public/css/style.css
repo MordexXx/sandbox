@@ -137,17 +137,17 @@ input[id='name']{
 	background-image:url('../images/showcase.jpg');
 	background-position:bottom center;
 	background-attachment: fixed;
-    -webkit-animation: example 20s ease 1s infinite alternate;
-	animation: example 20s ease 1s infinite alternate;
+    -webkit-animation: scrolling-background 20s ease 1s infinite alternate;
+	animation: scrolling-background 20s ease 1s infinite alternate;
 	min-height:200px;
 	margin-bottom:30px;
 	text-align: center;
 }
-@-webkit-keyframes example {
+@-webkit-keyframes scrolling-background {
 	0% {background-position:bottom center;}
     100% {background-position:top center;}
 }
-@keyframes example {
+@keyframes scrolling-background {
 	0% {background-position:bottom center;}
     100% {background-position:top center;}
 }
