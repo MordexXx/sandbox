@@ -111,7 +111,7 @@ else if(sessionStorage.activePage === 'Vieraskirja'){
 	currentPageContent.innerHTML = vieraskirjaHTML;
 	activePage = document.getElementById('vieraskirja');
 	activePage.className += ' active';
-	loadCommnents();
+	loadComments();
 }
 else{
 	currentPageContent.innerHTML = etusivuHTML;
@@ -151,7 +151,7 @@ for (var i = 0; i < btns.length; i++) {
 			currentPageContent.innerHTML = vieraskirjaHTML;
 			sessionStorage.setItem('activePage', 'Vieraskirja');
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
-			loadCommnents();
+			loadComments();
 			//ADD LISTENER FOR THE SUBMIT BUTTON AND SEND COMMENT TO SERVER ON CLICK
 			form.addEventListener('submit', sendComment);
 		}
@@ -163,7 +163,7 @@ function loadComments(){
 	socket.on('comments', function(comments) {
 	el.innerHTML = comments;
 	});
-}
+};
 
 function sendComment(e){
 	//PUT FORM INPUT VALUES INTO VARIABLES
