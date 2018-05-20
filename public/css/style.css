@@ -115,7 +115,10 @@ input[id='name']{
     padding: 14px 16px;
     text-decoration: none;
 }
-
+@keyframes navbuttonhover {
+    from {opacity: 1;}
+    to {opacity: 0.7;}
+}
 #navbar li a:hover:not(.active) {
 	background-color:rgb(100, 100, 100);
 	animation-name: navbuttonhover;
@@ -126,7 +129,10 @@ input[id='name']{
 .active {
 	background-color: rgb(100, 100, 100);
 }
-
+@keyframes example {
+	from {background-position:bottom center;}
+    to {background-position:top center;}
+}
 #showcase{
 	padding: 0;
 	margin: 0;
