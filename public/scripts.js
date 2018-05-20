@@ -6,35 +6,17 @@ var socket = io();
 
 
 //ETUSIVU
-window.onload = loadEtusivu();
-
-function loadEtusivu() {
 var etusivuHTML;
 var getEtusivuHTML = new XMLHttpRequest();
 
 getEtusivuHTML.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 		etusivuHTML = this.responseText;
-		var currentPageContent = document.getElementById('main');
-		currentPageContent.innerHTML = etusivuHTML;
 	}
 };
 
 getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
 getEtusivuHTML.send();
-}
-
-getEtusivuHTML = new XMLHttpRequest();
-
-getEtusivuHTML.onreadystatechange = function() {
-	if (this.readyState == 4 && this.status == 200) {
-		etusivuHTML = this.responseText;
-	}
-};
-
-getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
-getEtusivuHTML.send();
-
 
 
 //YRITYS
@@ -106,11 +88,13 @@ getvieraskirjaHTML.send();
 // 	var currentPageContent = document.getElementById('main');
 // 	currentPageContent.innerHTML = etusivuHTML;
 // }
+window.onload = loadetusivu();
 
-// window.onload = function (){
-// 	var currentPageContent = document.getElementById('main');
-// 	currentPageContent.innerHTML = etusivuHTML;
-// }
+function loadetusivu(){
+	var currentPageContent = document.getElementById('main');
+	currentPageContent.innerHTML = etusivuHTML;
+}
+
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
 var btnContainer = document.getElementById('navbar');
