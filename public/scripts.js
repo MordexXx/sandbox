@@ -90,6 +90,8 @@ getvieraskirjaHTML.send();
 
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 currentPageContent.innerHTML = etusivuHTML;
+console.log(currentPageContent);
+console.log(etusivuHTML);
 // function loadetusivu(){
 // 	var currentPageContent = document.getElementById('main');
 // 	currentPageContent.innerHTML = etusivuHTML;
