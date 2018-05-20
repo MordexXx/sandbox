@@ -4,7 +4,17 @@ var currentPage;
 var socket = io();
 //SET MAIN ELEMENT CONTENT VARIABLES
 
-var etusivuHTML ='<H1>Tervetuloa</H1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus pariatur porro voluptate repudiandae ipsum quas sit mollitia vero exercitationem quasi, saepe officiis quibusdam ad enim minus, voluptatum adipisci iusto dolor distinctio incidunt.<br><br> Laborum aperiam cum ullam, voluptatibus hic qui sapiente mollitia delectus culpa adipisci molestias deserunt quis incidunt. Adipisci quam alias rerum, consectetur labore ratione tenetur nemo odio facere. Dicta sed dolorem saepe omnis, placeat ab tempora. <br><br>Nesciunt dicta excepturi dolorum aut esse ipsum molestias culpa architecto at aperiam dolor exercitationem dolorem iusto doloremque ad dolores,vero aspernatur fugiat consectetur unde assumenda sit quasi sunt provident?</p>';
+var etusivuHTML;
+var getEtusivuHTML = new XMLHttpRequest();
+
+getEtusivuHTML.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		etusivuHTML = this.responseText;
+	}
+};
+
+getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
+getEtusivuHTML.send();
 
 var yritysHTML = '<h1>Frontend Solutions</h1><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque non cupiditate fugiat dolorum voluptatem repudiandae quia laborum debitis at, voluptate ipsa accusantium officia, sunt consequuntur autem hic laudantium! Ullam alias, quasi voluptatem consectetur fuga accusamus expedita, velit itaque providentnumquam, officiis dignissimos? <br><br>Molestias ratione tempore repellendus, harum officia inventore fuga dolor nobis obcaecati porro eaque nemo recusandae commodi omnis, quod quam! Eaque voluptatum magni, tempora illo aut iste, quod doloribus reprehenderit voluptatem quo quidem odit perspiciatis facere minus soluta accusamus possimus autem fugit! Laudantium nihil obcaecati cupiditate error quas reprehenderit.</p>';
 
