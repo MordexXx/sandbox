@@ -115,7 +115,7 @@ for (var i = 0; i < btns.length; i++) {
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			var el = document.getElementById('comments');
 			socket.on('comments', function(comments) {
-				el.innerHTML = comments + "<hr>";
+				el.innerHTML = comments;
 			});
 			//PUT FORM INPUT VALUES INTO VARIABLES
 			var form = document.querySelector('form');
