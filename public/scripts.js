@@ -81,37 +81,37 @@ var activePage;
 //SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
 if (localStorage.getItem('activePage') === null){
 	currentPageContent.innerHTML = etusivuHTML;
-	activePage.getElementsByClassName('etusivu');
+	activePage = getElementsByClassName('etusivu');
 	activePage.className += ' active';
 }
 else if (localStorage.getItem('activePage') === 'Etusivu'){
 	currentPageContent.innerHTML = etusivuHTML;
-	activePage.getElementsByClassName('etusivu');
+	activePage = getElementsByClassName('etusivu');
 	activePage.className += ' active';
 }
 else if (localStorage.getItem('activePage') === 'Yritys'){
 	currentPageContent.innerHTML = yritysHTML;
-	activePage.getElementsByClassName('yritys');
+	activePage = getElementsByClassName('yritys');
 	activePage.className += ' active';
 }
 else if (localStorage.getItem('activePage') === 'Palvelut'){
 	currentPageContent.innerHTML = palvelutHTML;
-	activePage.getElementsByClassName('palvelut');
+	activePage = getElementsByClassName('palvelut');
 	activePage.className += ' active';
 }
 else if (localStorage.getItem('activePage') === 'Yhteystiedot'){
 	currentPageContent.innerHTML = yhteystiedotHTML;
-	activePage.getElementsByClassName('yhteystiedot');
+	activePage = getElementsByClassName('yhteystiedot');
 	activePage.className += ' active';
 }
 else if (localStorage.getItem('activePage') === 'Vieraskirja'){
 	currentPageContent.innerHTML = vieraskirjaHTML;
-	activePage.getElementsByClassName('vieraskirja');
+	activePage = getElementsByClassName('vieraskirja');
 	activePage.className += ' active';
 }
 else {
 	currentPageContent.innerHTML = etusivuHTML;
-	activePage.getElementsByClassName('etusivu');
+	activePage = getElementsByClassName('etusivu');
 	activePage.className += ' active';
 }
 
