@@ -21,7 +21,7 @@ getEtusivuHTML.onreadystatechange = function() {
 	}
 };
 
-getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
+getEtusivuHTML.open("GET", "/contents/etusivu.html", false);
 getEtusivuHTML.send();
 
 
@@ -35,7 +35,7 @@ getyritysHTML.onreadystatechange = function() {
 	}
 };
 
-getyritysHTML.open("GET", "/contents/yritys.html", true);
+getyritysHTML.open("GET", "/contents/yritys.html", false);
 getyritysHTML.send();
 
 
@@ -49,7 +49,7 @@ getpalvelutHTML.onreadystatechange = function() {
 	}
 };
 
-getpalvelutHTML.open("GET", "/contents/palvelut.html", true);
+getpalvelutHTML.open("GET", "/contents/palvelut.html", false);
 getpalvelutHTML.send();
 
 
@@ -63,7 +63,7 @@ getyhteystiedotHTML.onreadystatechange = function() {
 	}
 };
 
-getyhteystiedotHTML.open("GET", "/contents/yhteystiedot.html", true);
+getyhteystiedotHTML.open("GET", "/contents/yhteystiedot.html", false);
 getyhteystiedotHTML.send();
 
 
@@ -77,7 +77,7 @@ getvieraskirjaHTML.onreadystatechange = function() {
 	}
 };
 
-getvieraskirjaHTML.open("GET", "/contents/vieraskirja.html", true);
+getvieraskirjaHTML.open("GET", "/contents/vieraskirja.html", false);
 getvieraskirjaHTML.send();
 
 
