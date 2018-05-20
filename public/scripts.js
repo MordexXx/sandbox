@@ -77,7 +77,7 @@ getvieraskirjaHTML.onreadystatechange = function() {
 getvieraskirjaHTML.open('GET', '/contents/vieraskirja.html', false);
 getvieraskirjaHTML.send();
 
-
+//LOAD ETUSIVU CONTENTS ON PAGE LOAD
 currentPageContent.innerHTML = etusivuHTML;
 
 
