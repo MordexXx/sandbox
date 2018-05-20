@@ -94,6 +94,8 @@ getvieraskirjaHTML.send();
 document.addEventListener('DOMContentLoaded', function () {
 	var etusivuHTML;
 	var onLoad = new XMLHttpRequest();
+	getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
+	getEtusivuHTML.send();
 	onLoad.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 		etusivuHTML = this.responseText;
@@ -102,8 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		console.log(etusivuHTML);
 	}
 };
-getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
-getEtusivuHTML.send();
 
 });
 
