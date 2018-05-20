@@ -88,13 +88,11 @@ getvieraskirjaHTML.send();
 // 	var currentPageContent = document.getElementById('main');
 // 	currentPageContent.innerHTML = etusivuHTML;
 // }
-window.onload = loadetusivu();
-
-function loadetusivu(){
-	// var currentPageContent = document.getElementById('main');
-	// currentPageContent.innerHTML = etusivuHTML;
-	location.reload(false);
-}
+window.addEventListener('load', 
+  function() { 
+	var currentPageContent = document.getElementById('main');
+	currentPageContent.innerHTML = etusivuHTML;
+  }, false);
 
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
