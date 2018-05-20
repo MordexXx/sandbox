@@ -80,24 +80,40 @@ getvieraskirjaHTML.send();
 //SET NAVIGATION BUTTONS INTO VARIABLES
 var btnContainer = document.getElementById('navbar');
 var btns = btnContainer.getElementsByClassName('menu-item');
+var activePage;
+var current;
 
 //SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
 if(sessionStorage.key('activePage') === null){
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
-	var activePage  = document.getElementById('etusivu');
+	activePage  = document.getElementById('etusivu');
+	current = document.getElementsByClassName('active');
+	current[0].className = current[0].className.replace(' active', '');
 	activePage.className += ' active';	
 }
+if(sessionStorage.key('activePage') === 'Yritys'){
+	currentPageContent.innerHTML = etusivuHTML;
+	activePage  = document.getElementById('yritus');
+	current = document.getElementsByClassName('active');
+	current[0].className = current[0].className.replace(' active', '');
+	activePage.className += ' active';	
+}
+
 else{
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
+	activePage  = document.getElementById('etusivu');
+	current = document.getElementsByClassName('active');
+	current[0].className = current[0].className.replace(' active', '');
+	activePage.className += ' active';	
 }
 
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener('click', function() {
-    var current = document.getElementsByClassName('active');
+    current = document.getElementsByClassName('active');
     current[0].className = current[0].className.replace(' active', '');
 		this.className += ' active';
 		var currentPage = current[0].innerText;
