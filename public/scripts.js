@@ -89,10 +89,6 @@ getvieraskirjaHTML.send();
 // 	var currentPageContent = document.getElementById('main');
 // 	currentPageContent.innerHTML = etusivuHTML;
 // }
-window.addEventListener('load', 
-  function() { 	
-	currentPageContent.innerHTML = etusivuHTML;
-  }, false);
 
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
