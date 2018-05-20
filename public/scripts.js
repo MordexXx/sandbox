@@ -89,8 +89,7 @@ getvieraskirjaHTML.send();
 
 
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
-console.log(currentPageContent);
-console.log(etusivuHTML);
+
 
 document.addEventListener('DOMContentLoaded', function () {
 	var etusivuHTML;
@@ -99,6 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (this.readyState == 4 && this.status == 200) {
 		etusivuHTML = this.responseText;
 		currentPageContent.innerHTML = etusivuHTML;
+		console.log(currentPageContent);
+		console.log(etusivuHTML);
 	}
 };
 getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
