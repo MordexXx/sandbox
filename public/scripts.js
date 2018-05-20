@@ -32,7 +32,7 @@ getyritysHTML.onreadystatechange = function() {
 	}
 };
 
-getyritysHTML.open('GET', '/contents/yritys.html', false);
+getyritysHTML.open('GET', '/contents/yritys.html', true);
 getyritysHTML.send();
 
 
@@ -46,7 +46,7 @@ getpalvelutHTML.onreadystatechange = function() {
 	}
 };
 
-getpalvelutHTML.open('GET', '/contents/palvelut.html', false);
+getpalvelutHTML.open('GET', '/contents/palvelut.html', true);
 getpalvelutHTML.send();
 
 
@@ -60,7 +60,7 @@ getyhteystiedotHTML.onreadystatechange = function() {
 	}
 };
 
-getyhteystiedotHTML.open('GET', '/contents/yhteystiedot.html', false);
+getyhteystiedotHTML.open('GET', '/contents/yhteystiedot.html', true);
 getyhteystiedotHTML.send();
 
 
