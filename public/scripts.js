@@ -2,12 +2,32 @@
 
 var currentPage;
 var currentPageContent = document.getElementById('main');
+var yritysHTML;
+var palvelutHTML;
+var yhteystiedotHTML;
+var vieraskirjaHTML;
 var socket = io();
 //FETCH MAIN ELEMENT CONTENTS
 
 
+window.onload = loadEtusivu();
+
+function loadEtusivu() {
+	var etusivuHTML;
+	var firstLoad = new XMLHttpRequest();
+	firstLoad.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			etusivuHTML = this.responseText;
+		}
+	};
+	firstLoad.open("GET", "/contents/etusivu.html", true);
+	firstLoad.send();
+	currentPageContent.innerHTML = etusivuHTML;
+};
+
+
 //ETUSIVU
-var etusivuHTML;
+
 var getEtusivuHTML = new XMLHttpRequest();
 
 getEtusivuHTML.onreadystatechange = function() {
@@ -21,7 +41,7 @@ getEtusivuHTML.send();
 
 
 //YRITYS
-var yritysHTML;
+
 var getyritysHTML = new XMLHttpRequest();
 
 getyritysHTML.onreadystatechange = function() {
@@ -35,7 +55,7 @@ getyritysHTML.send();
 
 
 //PALVELUT
-var palvelutHTML;
+
 var getpalvelutHTML = new XMLHttpRequest();
 
 getpalvelutHTML.onreadystatechange = function() {
@@ -49,7 +69,7 @@ getpalvelutHTML.send();
 
 
 //YHTEYSTIEDOT
-var yhteystiedotHTML;
+
 var getyhteystiedotHTML = new XMLHttpRequest();
 
 getyhteystiedotHTML.onreadystatechange = function() {
@@ -63,7 +83,7 @@ getyhteystiedotHTML.send();
 
 
 //VIERASKIRJA
-var vieraskirjaHTML;
+
 var getvieraskirjaHTML = new XMLHttpRequest();
 
 getvieraskirjaHTML.onreadystatechange = function() {
@@ -89,11 +109,7 @@ getvieraskirjaHTML.send();
 // 	var currentPageContent = document.getElementById('main');
 // 	currentPageContent.innerHTML = etusivuHTML;
 // }
-window.onload = loadEtusivu();
 
-function loadEtusivu() {
-currentPageContent.innerHTML = etusivuHTML;
-};
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
 var btnContainer = document.getElementById('navbar');
