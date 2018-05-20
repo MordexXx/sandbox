@@ -152,7 +152,7 @@ for (var i = 0; i < btns.length; i++) {
 			sessionStorage.setItem('activePage', 'Vieraskirja');
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			loadCommnents();
-			//ADD LISTENER FOR THE SUBMIT BUTTON
+			//ADD LISTENER FOR THE SUBMIT BUTTON AND SEND COMMENT TO SERVER ON CLICK
 			form.addEventListener('submit', sendComment);
 		}
   });
