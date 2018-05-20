@@ -83,7 +83,12 @@ getvieraskirjaHTML.send();
 
 
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
-function loadetusivu(){
+
+// function loadetusivu(){
+// 	var currentPageContent = document.getElementById('main');
+// 	currentPageContent.innerHTML = etusivuHTML;
+// }
+window.onload = function (){
 	var currentPageContent = document.getElementById('main');
 	currentPageContent.innerHTML = etusivuHTML;
 }
