@@ -77,7 +77,7 @@ getvieraskirjaHTML.onreadystatechange = function() {
 getvieraskirjaHTML.open('GET', '/contents/vieraskirja.html', false);
 getvieraskirjaHTML.send();
 
-
+var activePage;
 //SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
 if (localStorage.getItem('activePage') === null){
 	currentPageContent.innerHTML = etusivuHTML;
@@ -130,6 +130,7 @@ for (var i = 0; i < btns.length; i++) {
 		//SET MAIN ELEMENT TEXT TO MATCH THE ACTIVE PAGE
 		if(currentPage.includes('Etusivu')){
 			currentPageContent.innerHTML = etusivuHTML;
+			localstorage.removeItem('activePage');
 			localStorage.setItem('activePage', 'Etusivu');
 		}
 		else if(currentPage.includes('Yritys')){
