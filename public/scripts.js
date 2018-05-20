@@ -93,7 +93,16 @@ console.log(currentPageContent);
 console.log(etusivuHTML);
 
 document.addEventListener('DOMContentLoaded', function () {
-	currentPageContent.innerHTML = etusivuHTML;
+	var onLoad = new XMLHttpRequest();
+	onLoad.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		etusivuHTML = this.responseText;
+		currentPageContent.innerHTML = etusivuHTML;
+	}
+};
+getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
+getEtusivuHTML.send();
+
 });
 
 
