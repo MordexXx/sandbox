@@ -92,7 +92,7 @@ if(sessionStorage.key('activePage') === null){
 	current[0].className = current[0].className.replace(' active', '');
 	activePage.className += ' active';	
 }
-if(sessionStorage.key('activePage') === 'Yritys'){
+else if(sessionStorage.key('activePage') === 'Yritys'){
 	currentPageContent.innerHTML = etusivuHTML;
 	activePage  = document.getElementById('yritus');
 	current = document.getElementsByClassName('active');
