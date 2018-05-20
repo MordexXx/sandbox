@@ -8,7 +8,7 @@ var socket = io();
 //FETCH MAIN ELEMENT CONTENTS
 
 
-//ETUSIVU
+//ETUSIVU (Synchronous request so we dont get undefined variables when loading the first page)
 var etusivuHTML;
 var getEtusivuHTML = new XMLHttpRequest();
 
