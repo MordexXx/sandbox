@@ -75,18 +75,15 @@ getvieraskirjaHTML.open("GET", "/contents/vieraskirja.html", true);
 getvieraskirjaHTML.send();
 
 
-document.addEventListener("DOMContentLoaded", function(event) {
-var currentPageContent = document.getElementById('main');
-currentPageContent.innerHTML = etusivuHTML;
-});
+// document.addEventListener("DOMContentLoaded", function(event) {
+// var currentPageContent = document.getElementById('main');
+// currentPageContent.innerHTML = etusivuHTML;
+// });
 
 
 
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
-// function loadetusivu(){
-// 	var currentPageContent = document.getElementById('main');
-// 	currentPageContent.innerHTML = etusivuHTML;
-// }
+
 
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
