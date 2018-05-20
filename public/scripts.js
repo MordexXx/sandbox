@@ -111,10 +111,7 @@ else if(sessionStorage.activePage === 'Vieraskirja'){
 	currentPageContent.innerHTML = vieraskirjaHTML;
 	activePage = document.getElementById('vieraskirja');
 	activePage.className += ' active';
-	var al = document.getElementById('comments');
-	socket.on('comments', function(comments) {
-		al.innerHTML = comments;
-	});
+	loadCommnents();
 }
 else{
 	currentPageContent.innerHTML = etusivuHTML;
@@ -154,31 +151,33 @@ for (var i = 0; i < btns.length; i++) {
 			currentPageContent.innerHTML = vieraskirjaHTML;
 			sessionStorage.setItem('activePage', 'Vieraskirja');
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
-			var el = document.getElementById('comments');
-			socket.on('comments', function(comments) {
-				el.innerHTML = comments;
-			});
-			//PUT FORM INPUT VALUES INTO VARIABLES
-			var form = document.querySelector('form');
-			var nameInput = document.getElementById('name');
-			var commentInput = document.getElementById('comment');
-
+			loadCommnents();
 			//ADD LISTENER FOR THE SUBMIT BUTTON
-			form.addEventListener('submit', runEvent);
-
-			//SEND FORM DATA TO SERVER AND REFRESH THE COMMENT ELEMENT
-			function runEvent(e){
-				e.preventDefault();
-				var data = [nameInput.value, commentInput.value];
-				//EMPTY THE COMMENT FIELD AFTER SUBMIT BUTTON HAS BEEN PRESSED
-				document.getElementById('comment').value = '';			
-				socket.emit('sql',data);
-			}
+			form.addEventListener('submit', sendComment);
 		}
   });
 }
 
+function loadComments(){
+	var el = document.getElementById('comments');
+	socket.on('comments', function(comments) {
+	el.innerHTML = comments;
+	});
+}
 
+function sendComment(e){
+	//PUT FORM INPUT VALUES INTO VARIABLES
+	var form = document.querySelector('form');
+	var nameInput = document.getElementById('name');
+	var commentInput = document.getElementById('comment');
+	//SEND FORM DATA TO SERVER AND REFRESH THE COMMENT ELEMENT
+	e.preventDefault();
+	var data = [nameInput.value, commentInput.value];
+	//EMPTY THE COMMENT FIELD AFTER SUBMIT BUTTON HAS BEEN PRESSED
+	document.getElementById('comment').value = '';			
+	socket.emit('sql',data);
+
+};
 
 
 
