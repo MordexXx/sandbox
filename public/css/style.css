@@ -44,7 +44,7 @@ input[id='name']{
     transition:.3s;
   }
   input[id='comment']{
-    width:70%;
+    width:80%;
     border:2px solid #aaa;
     border-radius:4px;
     margin:8px 0;
