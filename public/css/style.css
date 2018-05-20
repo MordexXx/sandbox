@@ -130,12 +130,12 @@ input[id='name']{
 	background-color: rgb(100, 100, 100);
 }
 @-webkit-keyframes example {
-	from {background-position:bottom center;}
-    to {background-position:top center;}
+	0% {background-position:bottom center;}
+    100% {background-position:top center;}
 }
 @keyframes example {
-	from {background-position:bottom center;}
-    to {background-position:top center;}
+	0% {background-position:bottom center;}
+    100% {background-position:top center;}
 }
 
 #showcase{
