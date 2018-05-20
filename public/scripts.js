@@ -18,7 +18,7 @@ getEtusivuHTML.onreadystatechange = function() {
 	}
 };
 
-getEtusivuHTML.open("GET", "/contents/etusivu.html", false);
+getEtusivuHTML.open('GET', '/contents/etusivu.html', false);
 getEtusivuHTML.send();
 
 
@@ -32,7 +32,7 @@ getyritysHTML.onreadystatechange = function() {
 	}
 };
 
-getyritysHTML.open("GET", "/contents/yritys.html", true);
+getyritysHTML.open('GET', '/contents/yritys.html', false);
 getyritysHTML.send();
 
 
@@ -46,7 +46,7 @@ getpalvelutHTML.onreadystatechange = function() {
 	}
 };
 
-getpalvelutHTML.open("GET", "/contents/palvelut.html", true);
+getpalvelutHTML.open('GET', '/contents/palvelut.html', false);
 getpalvelutHTML.send();
 
 
@@ -60,7 +60,7 @@ getyhteystiedotHTML.onreadystatechange = function() {
 	}
 };
 
-getyhteystiedotHTML.open("GET", "/contents/yhteystiedot.html", true);
+getyhteystiedotHTML.open('GET', '/contents/yhteystiedot.html', false);
 getyhteystiedotHTML.send();
 
 
@@ -74,12 +74,33 @@ getvieraskirjaHTML.onreadystatechange = function() {
 	}
 };
 
-getvieraskirjaHTML.open("GET", "/contents/vieraskirja.html", true);
+getvieraskirjaHTML.open('GET', '/contents/vieraskirja.html', false);
 getvieraskirjaHTML.send();
 
 
 //SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
-currentPageContent.innerHTML = etusivuHTML;
+if (localStorage.getItem('activePage') === null){
+	currentPageContent.innerHTML = etusivuHTML;
+}
+else if (localStorage.getItem('activePage') === 'Etusivu'){
+	currentPageContent.innerHTML = etusivuHTML;
+}
+else if (localStorage.getItem('activePage') === 'Yritys'){
+	currentPageContent.innerHTML = yritysHTML;
+}
+else if (localStorage.getItem('activePage') === 'Palvelut'){
+	currentPageContent.innerHTML = palvelutHTML;
+}
+else if (localStorage.getItem('activePage') === 'Yhteystiedot'){
+	currentPageContent.innerHTML = yhteystiedotHTML;
+}
+else if (localStorage.getItem('activePage') === 'Vieraskirja'){
+	currentPageContent.innerHTML = vieraskirjaHTML;
+}
+else {
+	currentPageContent.innerHTML = etusivuHTML;
+}
+
 
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
@@ -93,20 +114,25 @@ for (var i = 0; i < btns.length; i++) {
 		this.className += ' active';
 		var currentPage = current[0].innerText;
 		//SET MAIN ELEMENT TEXT TO MATCH THE ACTIVE PAGE
-		if(currentPage.includes("Etusivu")){
+		if(currentPage.includes('Etusivu')){
 			currentPageContent.innerHTML = etusivuHTML;
+			localStorage.setItem('activePage', 'Etusivu');
 		}
-		else if(currentPage.includes("Yritys")){
+		else if(currentPage.includes('Yritys')){
 			currentPageContent.innerHTML = yritysHTML;
+			localStorage.setItem('activePage', 'Yritys');
 		}
-		else if(currentPage.includes("Palvelut")){
+		else if(currentPage.includes('Palvelut')){
 			currentPageContent.innerHTML = palvelutHTML;
+			localStorage.setItem('activePage', 'Palvelut');
 		}
-		else if(currentPage.includes("Ota yhteyttä")){
+		else if(currentPage.includes('Ota yhteyttä')){
 			currentPageContent.innerHTML = yhteystiedotHTML;
+			localStorage.setItem('activePage', 'Yhteystiedot');
 		}
-		else if(currentPage.includes("Vieraskirja")){
+		else if(currentPage.includes('Vieraskirja')){
 			currentPageContent.innerHTML = vieraskirjaHTML;
+			localStorage.setItem('activePage', 'Vieraskirja');
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			var el = document.getElementById('comments');
 			socket.on('comments', function(comments) {
