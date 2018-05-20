@@ -78,5 +78,5 @@ io.on('connection', (socket) => {
         });
     });
 });
-//REFRESH QUESTBOOK COMMENTS EVERY SECOND WITH THE VARIABLE CONTAINING THE SQL QUERY RESULT
+//SEND QUESTBOOK COMMENTS EVERY SECOND
 setInterval(() => io.emit('comments', comments, 1000));
