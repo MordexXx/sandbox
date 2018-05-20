@@ -87,22 +87,20 @@ var current;
 if(sessionStorage.key('activePage') === null){
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
-	activePage  = document.getElementById('etusivu');
+	activePage = document.getElementById('etusivu');
 	activePage.className += ' active';	
 }
 else if(sessionStorage.key('activePage') === 'Yritys'){
 	currentPageContent.innerHTML = yritysHTML;
-	activePage  = document.getElementById('yritys');
+	activePage = document.getElementById('yritys');
 	activePage.className += ' active';	
 }
 
 else{
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
-	activePage  = document.getElementById('etusivu');
-	current = document.getElementsByClassName('active');
-	current[0].className = current[0].className.replace(' active', '');
-	this.className += ' active';	
+	activePage = document.getElementById('etusivu');
+	activePage.className += ' active';	
 }
 
 
