@@ -131,11 +131,11 @@ input[id='name']{
 }
 
 @-webkit-keyframes scrolling-background {
-	/* 0% {background-position:bottom;} */
+	0% {background-position:bottom;}
     100% {background-position:top;}
 }
 @keyframes scrolling-background {
-	/* 0% {background-position:bottom;} */
+	0% {background-position:bottom;}
     100% {background-position:top;}
 }
 
