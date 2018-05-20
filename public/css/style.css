@@ -130,6 +130,15 @@ input[id='name']{
 	background-color: rgb(100, 100, 100);
 }
 
+@-webkit-keyframes scrolling-background {
+	/* 0% {background-position:bottom;} */
+    100% {background-position:top;}
+}
+@keyframes scrolling-background {
+	/* 0% {background-position:bottom;} */
+    100% {background-position:top;}
+}
+
 #showcase{
 	padding: 0;
 	margin: 0;
@@ -142,14 +151,6 @@ input[id='name']{
 	min-height:200px;
 	margin-bottom:30px;
 	text-align: center;
-}
-@-webkit-keyframes scrolling-background {
-	0% {background-position:bottom;}
-    100% {background-position:top;}
-}
-@keyframes scrolling-background {
-	0% {background-position:bottom;}
-    100% {background-position:top;}
 }
 
 #showcase h1{
