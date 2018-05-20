@@ -1,18 +1,15 @@
 'use strict';
 
 var currentPageContent = document.getElementById('main');
-var etusivuHTML;
-var currentPage;
-var yritysHTML;
-var palvelutHTML;
-var yhteystiedotHTML;
-var vieraskirjaHTML;
 var socket = io();
+
+
+
 //FETCH MAIN ELEMENT CONTENTS
 
 
 //ETUSIVU
-
+var etusivuHTML;
 var getEtusivuHTML = new XMLHttpRequest();
 
 getEtusivuHTML.onreadystatechange = function() {
@@ -26,7 +23,7 @@ getEtusivuHTML.send();
 
 
 //YRITYS
-
+var yritysHTML;
 var getyritysHTML = new XMLHttpRequest();
 
 getyritysHTML.onreadystatechange = function() {
@@ -40,7 +37,7 @@ getyritysHTML.send();
 
 
 //PALVELUT
-
+var palvelutHTML;
 var getpalvelutHTML = new XMLHttpRequest();
 
 getpalvelutHTML.onreadystatechange = function() {
@@ -54,7 +51,7 @@ getpalvelutHTML.send();
 
 
 //YHTEYSTIEDOT
-
+var yhteystiedotHTML;
 var getyhteystiedotHTML = new XMLHttpRequest();
 
 getyhteystiedotHTML.onreadystatechange = function() {
@@ -68,7 +65,7 @@ getyhteystiedotHTML.send();
 
 
 //VIERASKIRJA
-
+var vieraskirjaHTML;
 var getvieraskirjaHTML = new XMLHttpRequest();
 
 getvieraskirjaHTML.onreadystatechange = function() {
@@ -81,18 +78,8 @@ getvieraskirjaHTML.open("GET", "/contents/vieraskirja.html", true);
 getvieraskirjaHTML.send();
 
 
-// document.addEventListener("DOMContentLoaded", function(event) {
-// var currentPageContent = document.getElementById('main');
-// currentPageContent.innerHTML = etusivuHTML;
-// });
-
-
-
-//SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
-
-		currentPageContent.innerHTML = etusivuHTML;
-		console.log(currentPageContent);
-		console.log(etusivuHTML);
+//SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
+currentPageContent.innerHTML = etusivuHTML;
 
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
@@ -104,7 +91,7 @@ for (var i = 0; i < btns.length; i++) {
     var current = document.getElementsByClassName('active');
     current[0].className = current[0].className.replace(' active', '');
 		this.className += ' active';
-		currentPage = current[0].innerText;
+		var currentPage = current[0].innerText;
 		//SET MAIN ELEMENT TEXT TO MATCH THE ACTIVE PAGE
 		if(currentPage.includes("Etusivu")){
 			currentPageContent.innerHTML = etusivuHTML;
