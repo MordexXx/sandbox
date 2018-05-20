@@ -74,12 +74,14 @@ getvieraskirjaHTML.onreadystatechange = function() {
 getvieraskirjaHTML.open("GET", "/contents/vieraskirja.html", true);
 getvieraskirjaHTML.send();
 
-document.onreadystatechange = () => {
-	if (document.readyState === 'complete') {
-		var currentPageContent = document.getElementById('main');
-		currentPageContent.innerHTML = etusivuHTML;
-	}
-  };
+
+document.addEventListener("DOMContentLoaded", function(event) {
+var currentPageContent = document.getElementById('main');
+currentPageContent.innerHTML = etusivuHTML;
+});
+
+
+
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 // function loadetusivu(){
 // 	var currentPageContent = document.getElementById('main');
