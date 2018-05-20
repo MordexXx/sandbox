@@ -84,7 +84,7 @@ var btns = btnContainer.getElementsByClassName('menu-item');
 
 
 
-//SAVE CURRENT PAGE SELECTION INTO SESSION STORAGE AND LOAD IT UPON RELOADING
+//SAVE CURRENT ACTIVE PAGE INTO SESSION STORAGE AND LOAD IT UPON RELOADING
 var activePage;
 
 if(sessionStorage.activePage === null){
