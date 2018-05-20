@@ -172,7 +172,6 @@ function loadComments(){
 	var el = document.getElementById('comments');
 	socket.on('comments', function(comments) {
 	el.innerHTML = comments;
-	console.log(comments);
 	});
 };
 
