@@ -2,7 +2,7 @@
 
 var currentPage;
 var socket = io();
-//SET MAIN ELEMENT CONTENT VARIABLES
+//FETCH MAIN ELEMENT CONTENTS
 
 var etusivuHTML;
 var getEtusivuHTML = new XMLHttpRequest();
@@ -16,13 +16,54 @@ getEtusivuHTML.onreadystatechange = function() {
 getEtusivuHTML.open("GET", "/contents/etusivu.html", true);
 getEtusivuHTML.send();
 
-var yritysHTML = '<h1>Frontend Solutions</h1><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque non cupiditate fugiat dolorum voluptatem repudiandae quia laborum debitis at, voluptate ipsa accusantium officia, sunt consequuntur autem hic laudantium! Ullam alias, quasi voluptatem consectetur fuga accusamus expedita, velit itaque providentnumquam, officiis dignissimos? <br><br>Molestias ratione tempore repellendus, harum officia inventore fuga dolor nobis obcaecati porro eaque nemo recusandae commodi omnis, quod quam! Eaque voluptatum magni, tempora illo aut iste, quod doloribus reprehenderit voluptatem quo quidem odit perspiciatis facere minus soluta accusamus possimus autem fugit! Laudantium nihil obcaecati cupiditate error quas reprehenderit.</p>';
+var yritysHTML;
+var getyritysHTML = new XMLHttpRequest();
 
-var palvelutHTML = '<h1>Palvelut ja hinnasto</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo fuga sunt aliquid veritatis voluptatem officiis magnam corporis debitis est, nam voluptas incidunt dolores, ipsa enim beatae. <br><br>Repudiandae voluptatem consequatur voluptates illum, fugit placeat obcaecati velit optio recusandaesuscipit ullam, ratione consequuntur similique vel aspernatur aliquam libero ipsum qui labore illo.</p>';
+getyritysHTML.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		yritysHTML = this.responseText;
+	}
+};
 
-var yhteystiedotHTML = '<h1>Yhteystiedot</h1><ul><li><b>Osoite:</b> Umpikuja 1 A 2, 12345 HELSINKI</li><li><b>Puh:</b> 123-456 789</li><li><b>Email:</b> john_smith@bogusemail.com</li>';
+getyritysHTML.open("GET", "/contents/etusivu.html", true);
+getyritysHTML.send();
 
-var vieraskirjaHTML = '<h1>Vieraskirja</h1><form><input type=\'text\' required placeholder=\'Laita tähän nimesi\' id=\'name\' name=\'name\'/><br><input type=\'text\' required placeholder=\'Kirjoita viestisi tähän\' id=\'comment\' name=\'comment\'/><button type=\'submit\'>Jätä viesti</button></form><hr><div id=\'comments\'></div>';
+var palvelutHTML;
+var getpalvelutHTML = new XMLHttpRequest();
+
+getpalvelutHTML.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		palvelutHTML = this.responseText;
+	}
+};
+
+getpalvelutHTML.open("GET", "/contents/etusivu.html", true);
+getpalvelutHTML.send();
+
+var yhteystiedotHTML;
+var getyhteystiedotHTML = new XMLHttpRequest();
+
+getyhteystiedotHTML.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		yhteystiedotHTML = this.responseText;
+	}
+};
+
+getyhteystiedotHTML.open("GET", "/contents/etusivu.html", true);
+getyhteystiedotHTML.send();
+
+var vieraskirjaHTML;
+var getvieraskirjaHTML = new XMLHttpRequest();
+
+getvieraskirjaHTML.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		vieraskirjaHTML = this.responseText;
+	}
+};
+
+getvieraskirjaHTML.open("GET", "/contents/etusivu.html", true);
+getvieraskirjaHTML.send();
+
 
 //SET ACTIVE MENU BUTTON TO ETUSIVU ON PAGE LOAD
 function loadetusivu(){
