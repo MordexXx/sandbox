@@ -1,6 +1,7 @@
 'use strict';
 
 var currentPageContent = document.getElementById('main');
+var form;
 var socket = io();
 
 
@@ -112,6 +113,8 @@ else if(sessionStorage.activePage === 'Vieraskirja'){
 	activePage = document.getElementById('vieraskirja');
 	activePage.className += ' active';
 	loadComments();
+	form = document.querySelector('form');
+	form.addEventListener('submit', sendComment);
 }
 else{
 	currentPageContent.innerHTML = etusivuHTML;
@@ -153,6 +156,7 @@ for (var i = 0; i < btns.length; i++) {
 			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			loadComments();
 			//ADD LISTENER FOR THE SUBMIT BUTTON AND SEND COMMENT TO SERVER ON CLICK
+			form = document.querySelector('form');
 			form.addEventListener('submit', sendComment);
 		}
   });
@@ -167,7 +171,6 @@ function loadComments(){
 
 function sendComment(e){
 	//PUT FORM INPUT VALUES INTO VARIABLES
-	var form = document.querySelector('form');
 	var nameInput = document.getElementById('name');
 	var commentInput = document.getElementById('comment');
 	//SEND FORM DATA TO SERVER AND REFRESH THE COMMENT ELEMENT
