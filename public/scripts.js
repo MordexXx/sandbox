@@ -93,6 +93,7 @@ console.log(currentPageContent);
 console.log(etusivuHTML);
 
 document.addEventListener('DOMContentLoaded', function () {
+	var etusivuHTML;
 	var onLoad = new XMLHttpRequest();
 	onLoad.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
