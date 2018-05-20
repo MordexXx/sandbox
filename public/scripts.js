@@ -90,7 +90,7 @@ if(sessionStorage.key('activePage') === null){
 	activePage  = document.getElementById('etusivu');
 	console.log(activePage);
 	//activePage[0].className = activePage[0].className.replace(' active', '');
-	activePage[0].className += ' active';	
+	activePage.className += ' active';	
 }
 else if(sessionStorage.key('activePage') === 'Yritys'){
 	currentPageContent.innerHTML = etusivuHTML;
