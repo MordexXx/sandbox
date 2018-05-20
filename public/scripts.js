@@ -88,16 +88,15 @@ if(sessionStorage.key('activePage') === null){
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
 	activePage  = document.getElementById('etusivu');
-	current = document.getElementsByClassName('active');
-	current[0].className = current[0].className.replace(' active', '');
-	activePage.className += ' active';	
+	//activePage[0].className = activePage[0].className.replace(' active', '');
+	activePage[0].className += ' active';	
 }
 else if(sessionStorage.key('activePage') === 'Yritys'){
 	currentPageContent.innerHTML = etusivuHTML;
-	activePage  = document.getElementById('yritus');
+	activePage  = document.getElementById('yritys');
 	current = document.getElementsByClassName('active');
 	current[0].className = current[0].className.replace(' active', '');
-	activePage.className += ' active';	
+	this.className += ' active';	
 }
 
 else{
@@ -106,7 +105,7 @@ else{
 	activePage  = document.getElementById('etusivu');
 	current = document.getElementsByClassName('active');
 	current[0].className = current[0].className.replace(' active', '');
-	activePage.className += ' active';	
+	this.className += ' active';	
 }
 
 
