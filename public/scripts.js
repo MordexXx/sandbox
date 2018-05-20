@@ -84,13 +84,13 @@ var activePage;
 var current;
 
 //SET ETUSIVU AS ACTIVE PAGE ON PAGE LOAD
-if(sessionStorage.key('activePage') === null){
+if(sessionStorage.activePage === null){
 	currentPageContent.innerHTML = etusivuHTML;
 	sessionStorage.setItem('activePage', 'Etusivu');
 	activePage = document.getElementById('etusivu');
 	activePage.className += ' active';	
 }
-else if(sessionStorage.key('activePage') === 'Yritys'){
+else if(sessionStorage.activePage === 'Yritys'){
 	currentPageContent.innerHTML = yritysHTML;
 	activePage = document.getElementById('yritys');
 	activePage.className += ' active';	
