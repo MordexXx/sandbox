@@ -89,7 +89,11 @@ getvieraskirjaHTML.send();
 // 	var currentPageContent = document.getElementById('main');
 // 	currentPageContent.innerHTML = etusivuHTML;
 // }
+window.onload = loadEtusivu();
 
+function loadEtusivu() {
+currentPageContent.innerHTML = etusivuHTML;
+};
 
 //CHECK WHICH MENU BUTTON HAS BEEN PRESSED AND SET IT AS ACTIVE
 var btnContainer = document.getElementById('navbar');
