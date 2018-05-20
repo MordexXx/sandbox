@@ -96,17 +96,17 @@ else if(sessionStorage.activePage === 'Yritys'){
 	activePage.className += ' active';	
 }
 else if(sessionStorage.activePage === 'Palvelut'){
-	currentPageContent.innerHTML = yritysHTML;
+	currentPageContent.innerHTML = palvelutHTML;
 	activePage = document.getElementById('palvelut');
 	activePage.className += ' active';	
 }
 else if(sessionStorage.activePage === 'Yhteystiedot'){
-	currentPageContent.innerHTML = yritysHTML;
+	currentPageContent.innerHTML = yhteystiedotHTML;
 	activePage = document.getElementById('yhteystiedot');
 	activePage.className += ' active';	
 }
 else if(sessionStorage.activePage === 'Vieraskirja'){
-	currentPageContent.innerHTML = yritysHTML;
+	currentPageContent.innerHTML = vieraskirjaHTML;
 	activePage = document.getElementById('vieraskirja');
 	activePage.className += ' active';	
 }
