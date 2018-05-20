@@ -112,9 +112,8 @@ else if(sessionStorage.activePage === 'Vieraskirja'){
 	currentPageContent.innerHTML = vieraskirjaHTML;
 	activePage = document.getElementById('vieraskirja');
 	activePage.className += ' active';
-	//LOAD QUESTBOOK COMMENTS FROM THE SERVER AND REFRESH EVERY SECOND
+	//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 	loadComments();
-	setInterval(loadComments,1000);
 	//SUBMIT BUTTON
 	submitButton();
 }
@@ -155,9 +154,8 @@ for (var i = 0; i < btns.length; i++) {
 		else if(currentPage.includes("Vieraskirja")){
 			currentPageContent.innerHTML = vieraskirjaHTML;
 			sessionStorage.setItem('activePage', 'Vieraskirja');
-			//LOAD QUESTBOOK COMMENTS FROM THE SERVER AND REFRESH EVERY SECOND
+			//LOAD QUESTBOOK COMMENTS FROM THE SERVER
 			loadComments();
-			setInterval(loadComments,1000);
 			//SUBMIT BUTTON
 			submitButton();
 		}
