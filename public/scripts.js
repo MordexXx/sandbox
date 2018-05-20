@@ -95,6 +95,7 @@ for (var i = 0; i < btns.length; i++) {
 		//SET MAIN ELEMENT TEXT TO MATCH THE ACTIVE PAGE
 		if(currentPage.includes("Etusivu")){
 			currentPageContent.innerHTML = etusivuHTML;
+			localStorage.setItem('activePage', 'Etusivu');
 		}
 		else if(currentPage.includes("Yritys")){
 			currentPageContent.innerHTML = yritysHTML;
