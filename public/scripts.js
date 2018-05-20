@@ -110,7 +110,11 @@ else if(sessionStorage.activePage === 'Yhteystiedot'){
 else if(sessionStorage.activePage === 'Vieraskirja'){
 	currentPageContent.innerHTML = vieraskirjaHTML;
 	activePage = document.getElementById('vieraskirja');
-	activePage.className += ' active';	
+	activePage.className += ' active';
+	var al = document.getElementById('comments');
+	socket.on('comments', function(comments) {
+		al.innerHTML = comments;
+	});
 }
 else{
 	currentPageContent.innerHTML = etusivuHTML;
