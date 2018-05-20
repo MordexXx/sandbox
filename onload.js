@@ -1,4 +1,5 @@
-window.addEventListener('load', 
-  function() { 	
+window.onload = loadEtusivu();
+
+function loadEtusivu() { 	
 	currentPageContent.innerHTML = etusivuHTML;
-  }, false);
+};
