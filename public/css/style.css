@@ -144,12 +144,12 @@ input[id='name']{
 	text-align: center;
 }
 @-webkit-keyframes scrolling-background {
-	0% {background-position:bottom center;}
-    100% {background-position:top center;}
+	0% {background-position:bottom;}
+    100% {background-position:top;}
 }
 @keyframes scrolling-background {
-	0% {background-position:bottom center;}
-    100% {background-position:top center;}
+	0% {background-position:bottom;}
+    100% {background-position:top;}
 }
 
 #showcase h1{
